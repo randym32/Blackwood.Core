@@ -79,7 +79,7 @@ load the preferences. This is done by calling
 
 ```csharp
 // Load preferences from a file
-Utils.PreferencesProxy().LoadPreferences("settings.json");
+Application.PreferencesProxy().LoadPreferences("settings.json");
 ```
 
 The preferences will be loaded from the specified file and applied to your
@@ -96,7 +96,7 @@ method.
 
 ```csharp
 // Save current preferences to a file
-Utils.PreferencesProxy().SavePreferences("settings.json");
+Application.PreferencesProxy().SavePreferences("settings.json");
 ```
 
 ### Resetting and Reverting Preferences
@@ -116,7 +116,7 @@ Here’s how you use these methods:
 
 ```csharp
 // Obtain the PreferencesProxy instance
-var preferences = Utils.PreferencesProxy();
+var preferences = Application.PreferencesProxy();
 
 // Change a preference value
 ApplicationSettings.Theme = "Dark";
@@ -183,7 +183,7 @@ public static class ApplicationSettings
 public void InitializeApplication()
 {
     // Load preferences from file (if it exists)
-    Utils.PreferencesProxy().LoadPreferences("app_settings.json");
+    Application.PreferencesProxy().LoadPreferences("app_settings.json");
 
     // Your application will now use the loaded values
     Console.WriteLine($"Theme: {ApplicationSettings.Theme}");
@@ -195,7 +195,7 @@ public void InitializeApplication()
 public void OnPreferencesChanged()
 {
     // Save current preferences to file
-    Utils.PreferencesProxy().SavePreferences("app_settings.json");
+    Application.PreferencesProxy().SavePreferences("app_settings.json");
 }
 ```
 

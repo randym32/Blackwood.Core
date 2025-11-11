@@ -92,7 +92,7 @@ public static partial class Application
     /// <remarks>
     /// The preferences are loaded from a file in the JSON format.
     /// </remarks>
-    public static void LoadPreferencesFromFile(string filePath)
+    public static void LoadPreferences(string filePath)
     {
         // Load the preferences from the file
         try

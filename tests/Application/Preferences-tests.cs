@@ -155,7 +155,7 @@ public class PreferencesTests
         var nonExistentFile = Path.Combine(Path.GetTempPath(), "non-existent-file.json");
 
         // Act & Assert
-        Assert.Throws<FileNotFoundException>(() => Application.LoadPreferencesFromFile(nonExistentFile));
+        Assert.Throws<FileNotFoundException>(() => Application.LoadPreferences(nonExistentFile));
     }
 
     /// <summary>
@@ -171,7 +171,7 @@ public class PreferencesTests
         try
         {
             // Act & Assert
-            Assert.Throws<global::System.Text.Json.JsonException>(() => Application.LoadPreferencesFromFile(tempFile));
+            Assert.Throws<global::System.Text.Json.JsonException>(() => Application.LoadPreferences(tempFile));
         }
         finally
         {
@@ -202,7 +202,7 @@ public class PreferencesTests
             // Wait for async operation to complete
             Thread.Sleep(100);
 
-            Application.LoadPreferencesFromFile(tempFile);
+            Application.LoadPreferences(tempFile);
 
             // Assert
             Assert.That(File.Exists(tempFile), Is.True);
