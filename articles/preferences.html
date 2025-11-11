@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>The Preferences System | Blackwood.Core </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="The Preferences System | Blackwood.Core ">
+      
+      
+      <link rel="icon" href="../template/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../template/logo-small.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="the-preferences-system">The Preferences System</h1>
+
+<p><a href="../api/Blackwood.Core.Utils.md#Blackwood_System_Utils_PreferencesProxy"><code>PreferencesProxy</code></a>
+provides a proxy for application preferences. It automatically discovers
+static properties in your code that are meant for users to change,
+eliminating the need to register them individually.</p>
+<h2 id="attributes">Attributes</h2>
+<p>The preferences use the following attributes (on static properties):</p>
+<ul>
+<li><strong>DescriptionAttribute</strong>: Provides a description of the property. This
+attribute is <strong>required</strong> and marks properties to be exposed.</li>
+<li><strong>DefaultValueAttribute</strong>: Specifies the default value of the property.
+This is used when resetting preferences to their initial state.
+<em>Recommended</em></li>
+<li><strong>CategoryAttribute</strong>: Defines the category of the property, used by
+interfaces to group related properties. <em>Recommended</em></li>
+<li><strong>DisplayNameAttribute</strong>: Provides a custom display name for the property
+in the preferences interface. <em>Optional</em></li>
+</ul>
+<h2 id="how-it-works">How It Works</h2>
+<p>The Preferences System operates through the following mechanism:</p>
+<ol>
+<li><p><strong>Assembly Scanning</strong>: The system automatically scans the loaded
+assemblies, collecting static properties that have a
+<code>DescriptionAttribute</code> (and are public and settable).</p>
+</li>
+<li><p><strong>Dynamic Property Discovery</strong>: <code>ProxyPropertiesObject</code> implements
+<code>ICustomTypeDescriptor</code>, providing the necessary hooks for the
+<code>PropertyGrid</code> to dynamically discover all &quot;virtual&quot; properties
+corresponding to these static properties.</p>
+</li>
+<li><p><strong>Runtime Property Forwarding</strong>: When values are changed in the
+<code>PropertyGrid</code>, <code>ProxyPropertiesObject</code> forwards gets and sets to the
+corresponding static property in your application.</p>
+</li>
+</ol>
+<p><code>ProxyPropertiesObject</code> will represent each of the static properties as a
+property using <code>ProxyPropertyDescriptor</code>. The PropertyGrid is able to display
+and edit these virtual properties, and the <code>ProxyPropertyDescriptor</code> forwards
+the gets and sets to the corresponding static property.</p>
+<h2 id="example-usage">Example Usage</h2>
+<p>Here's how you can define preferences in your application:</p>
+<pre><code class="lang-csharp">public static class ApplicationSettings
+{
+    [Description(&quot;The theme used for the application interface&quot;)]
+    [DefaultValue(&quot;Light&quot;)]
+    [Category(&quot;Appearance&quot;)]
+    [DisplayName(&quot;Application Theme&quot;)]
+    public static string Theme { get; set; } = &quot;Light&quot;;
+
+    [Description(&quot;Maximum number of recent files to display&quot;)]
+    [DefaultValue(10)]
+    [Category(&quot;General&quot;)]
+    [DisplayName(&quot;Recent Files Count&quot;)]
+    public static int MaxRecentFiles { get; set; } = 10;
+
+    [Description(&quot;Enable automatic updates&quot;)]
+    [DefaultValue(true)]
+    [Category(&quot;Updates&quot;)]
+    [DisplayName(&quot;Auto Update&quot;)]
+    public static bool AutoUpdate { get; set; } = true;
+}
+</code></pre>
+<h2 id="working-with-preferences-in-your-application">Working with Preferences in Your Application</h2>
+<h3 id="restoring-the-preferences-at-startup">Restoring the preferences (at startup)</h3>
+<p>At program startup -- before creating any objects, forms, etc. -- you should
+load the preferences. This is done by calling
+<a href="xref:Blackwood.Core.PreferencesProxy.LoadPreferences"><code>LoadPreferences()</code></a>:</p>
+<pre><code class="lang-csharp">// Load preferences from a file
+Application.PreferencesProxy().LoadPreferences(&quot;settings.json&quot;);
+</code></pre>
+<p>The preferences will be loaded from the specified file and applied to your
+static properties. The preferences should be loaded early, since some
+configuration can only take effect at startup/object creation time.</p>
+<h3 id="saving-the-values">Saving the values</h3>
+<p>You should save the user's preferences after changes (or before exiting the
+application), by calling the
+<a href="xref:Blackwood.Core.PreferencesProxy.SavePreferences"><code>SavePreferences()</code></a>
+method.</p>
+<pre><code class="lang-csharp">// Save current preferences to a file
+Application.PreferencesProxy().SavePreferences(&quot;settings.json&quot;);
+</code></pre>
+<h3 id="resetting-and-reverting-preferences">Resetting and Reverting Preferences</h3>
+<p>The preferences system also provides methods to help manage user
+changes to preferences at runtime:</p>
+<ul>
+<li><a href="xref:Blackwood.Core.PreferencesProxy.ResetToDefaults"><strong>ResetToDefaults()</strong></a> — Resets all preference values back to their
+original default values (as indicated by the <code>[DefaultValue]</code> attribute on
+each property).</li>
+<li><a href="xref:Blackwood.Core.PreferencesProxy.Checkpoint"><strong>Checkpoint()</strong></a> — Saves the current set of values as a checkpoint.
+You can later revert changes by restoring the checkpoint.</li>
+<li><a href="xref:Blackwood.Core.PreferencesProxy.RestoreCheckpoint"><strong>RestoreCheckpoint()</strong></a> — Restores all preference values from a
+previously saved checkpoint.</li>
+</ul>
+<p>Here’s how you use these methods:</p>
+<pre><code class="lang-csharp">// Obtain the PreferencesProxy instance
+var preferences = Application.PreferencesProxy();
+
+// Change a preference value
+ApplicationSettings.Theme = &quot;Dark&quot;;
+
+// Save a checkpoint (e.g., before making batch changes or opening a preferences dialog)
+var checkpoint = preferences.Checkpoint();
+
+// Change some settings
+ApplicationSettings.Theme = &quot;Light&quot;;
+ApplicationSettings.MaxRecentFiles = 20;
+
+// User cancels changes -- restore last checkpoint
+preferences.RestoreCheckpoint(checkpoint);
+
+// At this point, the preference values will be restored to what they were at the checkpoint:
+string theme = ApplicationSettings.Theme; // Will be &quot;Dark&quot;
+int recentCount = ApplicationSettings.MaxRecentFiles; // Whatever value it had originally
+
+// If you want to reset all preferences to default values:
+preferences.ResetToDefaults();
+
+// All preferences will now be set to their default states (&quot;Light&quot;, 10, true, etc.)
+</code></pre>
+<p>These methods are especially useful for providing &quot;Apply,&quot; &quot;Cancel,&quot; and
+&quot;Reset to Defaults&quot; features in a preferences dialog:</p>
+<ul>
+<li>Call <a href="xref:Blackwood.Core.PreferencesProxy.Checkpoint"><code>Checkpoint()</code></a> just before launching the dialog.</li>
+<li>If the user clicks &quot;OK&quot; or &quot;Apply,&quot; let changes stand and optionally
+save them via <a href="xref:Blackwood.Core.PreferencesProxy.SavePreferences"><code>SavePreferences()</code></a>.</li>
+<li>If the user clicks &quot;Cancel,&quot; call <a href="xref:Blackwood.Core.PreferencesProxy.RestoreCheckpoint"><code>RestoreCheckpoint()</code></a> to revert any edits.</li>
+<li>If the user clicks &quot;Reset to Defaults,&quot; call <a href="xref:Blackwood.Core.PreferencesProxy.ResetToDefaults"><code>ResetToDefaults()</code></a>.</li>
+</ul>
+<h2 id="a-larger-example">A Larger Example</h2>
+<p>Here's an example showing how to set up preferences, save them,
+and load them:</p>
+<pre><code class="lang-csharp">// Example preferences
+public static class ApplicationSettings
+{
+    [Description(&quot;The theme used for the application interface&quot;)]
+    [DefaultValue(&quot;Light&quot;)]
+    [Category(&quot;Appearance&quot;)]
+    [DisplayName(&quot;Application Theme&quot;)]
+    public static string Theme { get; set; } = &quot;Light&quot;;
+
+    [Description(&quot;Maximum number of recent files to display&quot;)]
+    [DefaultValue(10)]
+    [Category(&quot;General&quot;)]
+    [DisplayName(&quot;Recent Files Count&quot;)]
+    public static int MaxRecentFiles { get; set; } = 10;
+
+    [Description(&quot;Enable automatic updates&quot;)]
+    [DefaultValue(true)]
+    [Category(&quot;Updates&quot;)]
+    [DisplayName(&quot;Auto Update&quot;)]
+    public static bool AutoUpdate { get; set; } = true;
+}
+
+// In your application startup:
+public void InitializeApplication()
+{
+    // Load preferences from file (if it exists)
+    Application.PreferencesProxy().LoadPreferences(&quot;app_settings.json&quot;);
+
+    // Your application will now use the loaded values
+    Console.WriteLine($&quot;Theme: {ApplicationSettings.Theme}&quot;);
+    Console.WriteLine($&quot;Max Recent Files: {ApplicationSettings.MaxRecentFiles}&quot;);
+    Console.WriteLine($&quot;Auto Update: {ApplicationSettings.AutoUpdate}&quot;);
+}
+
+// When user changes preferences in the UI:
+public void OnPreferencesChanged()
+{
+    // Save current preferences to file
+    Application.PreferencesProxy().SavePreferences(&quot;app_settings.json&quot;);
+}
+</code></pre>
+<h2 id="additional-resources">Additional Resources</h2>
+<p>See <a href="../api/Blackwood.Core.PreferencesProxy.md">PreferencesProxy documentation</a> and <a href="../api/Blackwood.Core.ProxyPropertiesObject.md">ProxyPropertiesObject documentation</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

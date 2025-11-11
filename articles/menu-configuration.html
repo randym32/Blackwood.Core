@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Menu Configuration | Blackwood.Core </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Menu Configuration | Blackwood.Core ">
+      
+      
+      <link rel="icon" href="../template/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../template/logo-small.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="menu-configuration">Menu Configuration</h1>
+
+<p>Blackwood.Core provides a menu configuration system for defining application
+menus using JSON files. This article explains how to configure menus for your
+application.</p>
+<p>Note: the menu definitions are not connected to a menu system.  Another assembly
+such as <code>Blackwood.WinForms</code> is needed for thate.  This provides the foundation
+for the definition.</p>
+<h2 id="overview">Overview</h2>
+<p>The menu configuration system supports:</p>
+<ul>
+<li>Defining menu strip items (top-level menus)</li>
+<li>Configuring menu items with keyboard shortcuts, tooltips, and separators</li>
+<li>Loading menu templates from JSON files or embedded resources</li>
+<li>Accessing menu templates programmatically to build your UI</li>
+</ul>
+<p>Menu templates are loaded from a <code>menuTemplates.json</code> file, which can be placed
+in the application's customization folder or embedded as a resource in your
+assembly.</p>
+<h2 id="json-file-structure">JSON File Structure</h2>
+<p>The menu configuration file uses a JSON structure with two main sections:</p>
+<pre><code class="lang-json">{
+  &quot;MenuStrip&quot;: &quot;File|Edit|View|Project|Tools|Help&quot;,
+  &quot;MenuItems&quot;: [
+    {
+      &quot;MenuPath&quot;: &quot;File&gt;&amp;New&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+N&quot;,
+      &quot;ToolTip&quot;: &quot;Create a new file&quot;
+    }
+  ]
+}
+</code></pre>
+<h3 id="menustrip">MenuStrip</h3>
+<p>The <code>MenuStrip</code> property defines the top-level menu items.  Menu items are
+separated by the pipe character (<code>|</code>).</p>
+<pre><code class="lang-json">&quot;MenuStrip&quot;: &quot;File|Edit|View|Project|Tools|Help&quot;
+</code></pre>
+<p>Each menu strip item can include an accelerator key marker (<code>&amp;</code>) to indicate
+the keyboard shortcut letter.  For example, <code>&amp;File</code> displays as &quot;<strong>F</strong>ile&quot;
+with the F underlined.</p>
+<p>The menu strip items are normalized (converted to lowercase and accelerator
+markers removed) for internal storage. If a menu strip item is not already in
+the default template, it will be added automatically.</p>
+<h3 id="menuitems">MenuItems</h3>
+<p>The <code>MenuItems</code> property is an array of menu item objects.  Each menu item
+defines a menu path and optional properties.</p>
+<h2 id="menu-item-properties">Menu Item Properties</h2>
+<p>Each menu item in the <code>MenuItems</code> array can have the following properties:</p>
+<h3 id="menupath-required">MenuPath (Required)</h3>
+<p>The <code>MenuPath</code> property defines the hierarchical path to the menu item.  Use the
+<code>&gt;</code> character to separate menu levels.</p>
+<pre><code class="lang-json">&quot;MenuPath&quot;: &quot;File&gt;&amp;New&quot;
+&quot;MenuPath&quot;: &quot;File&gt;Recent &amp;Files&quot;
+&quot;MenuPath&quot;: &quot;Edit&gt;Cu&amp;t&quot;
+</code></pre>
+<p>The menu path can include accelerator key markers (<code>&amp;</code>) to indicate keyboard
+shortcuts.  The accelerator marker should be placed before the letter that will
+be underlined.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><code>&quot;File&gt;&amp;New&quot;</code> - Creates a &quot;New&quot; item under &quot;File&quot; with &quot;N&quot; as the accelerator</li>
+<li><code>&quot;File&gt;Recent &amp;Files&quot;</code> - Creates a &quot;Recent Files&quot; item with &quot;F&quot; as the accelerator</li>
+<li><code>&quot;Edit&gt;Cu&amp;t&quot;</code> - Creates a &quot;Cut&quot; item with &quot;t&quot; as the accelerator</li>
+</ul>
+<h3 id="quickkey-optional">QuickKey (Optional)</h3>
+<p>The <code>QuickKey</code> property defines the keyboard shortcut for the menu item.</p>
+<pre><code class="lang-json">&quot;QuickKey&quot;: &quot;Ctrl+N&quot;
+&quot;QuickKey&quot;: &quot;Ctrl+Shift+P&quot;
+&quot;QuickKey&quot;: &quot;Alt+F4&quot;
+&quot;QuickKey&quot;: &quot;Delete&quot;
+</code></pre>
+<p><strong>Common keyboard shortcut formats:</strong></p>
+<ul>
+<li><code>Ctrl+Key</code> - Control key combination (e.g., <code>Ctrl+N</code>, <code>Ctrl+S</code>)</li>
+<li><code>Ctrl+Shift+Key</code> - Control and Shift combination (e.g., <code>Ctrl+Shift+P</code>)</li>
+<li><code>Alt+Key</code> - Alt key combination (e.g., <code>Alt+F4</code>)</li>
+<li><code>Key</code> - Single key (e.g., <code>Delete</code>, <code>F1</code>)</li>
+</ul>
+<h3 id="tooltip-optional">ToolTip (Optional)</h3>
+<p>The <code>ToolTip</code> property provides help text that appears when hovering over the
+menu item.</p>
+<pre><code class="lang-json">&quot;ToolTip&quot;: &quot;Create a new file&quot;
+&quot;ToolTip&quot;: &quot;Open an existing file&quot;
+</code></pre>
+<h3 id="separatorbefore-optional">SeparatorBefore (Optional)</h3>
+<p>The <code>SeparatorBefore</code> property, when set to <code>true</code>, adds a separator line before
+the menu item.</p>
+<pre><code class="lang-json">&quot;SeparatorBefore&quot;: true
+</code></pre>
+<p>This is useful for grouping related menu items visually.</p>
+<h3 id="disabled-optional">Disabled (Optional)</h3>
+<p>The <code>Disabled</code> property, when set to <code>true</code>, marks the menu item as disabled.</p>
+<pre><code class="lang-json">&quot;Disabled&quot;: true
+</code></pre>
+<h3 id="tag-optional">Tag (Optional)</h3>
+<p>The <code>Tag</code> property allows you to associate an object with the menu item for
+custom use.</p>
+<pre><code class="lang-json">&quot;Tag&quot;: &quot;custom-data&quot;
+</code></pre>
+<h2 id="complete-example">Complete Example</h2>
+<p>Here's a complete example of a menu configuration file:</p>
+<pre><code class="lang-json">{
+  &quot;MenuStrip&quot;: &quot;File|Edit|View|Project|Tools|Help&quot;,
+  &quot;MenuItems&quot;: [
+    {
+      &quot;MenuPath&quot;: &quot;File&gt;&amp;New&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+N&quot;,
+      &quot;ToolTip&quot;: &quot;Create a new file&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;File&gt;&amp;Open&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+O&quot;,
+      &quot;ToolTip&quot;: &quot;Open an existing file&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;File&gt;&amp;Close&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+W&quot;,
+      &quot;SeparatorBefore&quot;: true,
+      &quot;ToolTip&quot;: &quot;Close the current file&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;File&gt;Recent Projects&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+Shift+P&quot;,
+      &quot;ToolTip&quot;: &quot;Open a recently used project&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;File&gt;Recent &amp;Files&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+Shift+O&quot;,
+      &quot;ToolTip&quot;: &quot;Open a recently used file&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;File&gt;Save&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+S&quot;,
+      &quot;SeparatorBefore&quot;: true,
+      &quot;ToolTip&quot;: &quot;Save the current file&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;File&gt;Preferences&quot;,
+      &quot;ToolTip&quot;: &quot;Open preferences configuration&quot;,
+      &quot;SeparatorBefore&quot;: true
+    },
+    {
+      &quot;MenuPath&quot;: &quot;File&gt;E&amp;xit&quot;,
+      &quot;QuickKey&quot;: &quot;Alt+F4&quot;,
+      &quot;SeparatorBefore&quot;: true,
+      &quot;ToolTip&quot;: &quot;Exit the application&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Edit&gt;&amp;Undo&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+Z&quot;,
+      &quot;ToolTip&quot;: &quot;Undo the last action&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Edit&gt;&amp;Redo&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+Y&quot;,
+      &quot;ToolTip&quot;: &quot;Redo the last undone action&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Edit&gt;Cu&amp;t&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+X&quot;,
+      &quot;ToolTip&quot;: &quot;Cut the selected item to clipboard&quot;,
+      &quot;SeparatorBefore&quot;: true
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Edit&gt;&amp;Copy&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+C&quot;,
+      &quot;ToolTip&quot;: &quot;Copy the selected item to clipboard&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Edit&gt;&amp;Paste&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+V&quot;,
+      &quot;ToolTip&quot;: &quot;Paste from clipboard&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Edit&gt;&amp;Delete&quot;,
+      &quot;QuickKey&quot;: &quot;Delete&quot;,
+      &quot;ToolTip&quot;: &quot;Delete the selected item&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Edit&gt;Select &amp;All&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+A&quot;,
+      &quot;SeparatorBefore&quot;: true,
+      &quot;ToolTip&quot;: &quot;Select all items&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Project&gt;&amp;Add&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+Shift+A&quot;,
+      &quot;ToolTip&quot;: &quot;Add a new item to the project&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Project&gt;&amp;Remove&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+R&quot;,
+      &quot;ToolTip&quot;: &quot;Remove the selected item from the project&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Project&gt;&amp;Properties&quot;,
+      &quot;QuickKey&quot;: &quot;Alt+Enter&quot;,
+      &quot;ToolTip&quot;: &quot;Open project properties&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Tools&gt;&amp;Options&quot;,
+      &quot;ToolTip&quot;: &quot;Open tool options configuration&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Help&gt;&amp;View Help&quot;,
+      &quot;QuickKey&quot;: &quot;Ctrl+F1&quot;,
+      &quot;ToolTip&quot;: &quot;View help documentation&quot;
+    },
+    {
+      &quot;MenuPath&quot;: &quot;Help&gt;&amp;About&quot;,
+      &quot;ToolTip&quot;: &quot;Show information about the application&quot;
+    }
+  ]
+}
+</code></pre>
+<h2 id="loading-menu-templates">Loading Menu Templates</h2>
+<p>Menu templates are loaded automatically when you call <code>Menus.LoadMenuTemplates()</code>:</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+// Load menu templates for the current application
+Menus.LoadMenuTemplates();
+
+// Or load for a specific application name
+Menus.LoadMenuTemplates(&quot;MyApplication&quot;);
+</code></pre>
+<p>The system searches for <code>menuTemplates.json</code> in the following locations, in order:</p>
+<ol>
+<li><strong>User customization folder</strong>: <code>{CommonApplicationDataPath}/{ApplicationName}/menuTemplates.json</code></li>
+<li><strong>Embedded resources</strong>: Searches all loaded assemblies for an embedded
+resource named <code>menuTemplates.json</code></li>
+</ol>
+<p>Users can customize menus by placing a file in their application data folder.
+Default menus are provided as embedded resources.</p>
+<h2 id="accessing-menu-templates">Accessing Menu Templates</h2>
+<p>After loading menu templates, you can access them programmatically:</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+// Load menu templates first
+Menus.LoadMenuTemplates();
+
+// Get a menu item template using the normalized menu path
+var template = MenuItem.GetTemplate(&quot;file&gt;new&quot;);
+
+if (template != null)
+{
+    Console.WriteLine($&quot;Menu Path: {template.MenuPath}&quot;);
+    Console.WriteLine($&quot;Quick Key: {template.QuickKey}&quot;);
+    Console.WriteLine($&quot;Tool Tip: {template.ToolTip}&quot;);
+    Console.WriteLine($&quot;Separator Before: {template.SeparatorBefore}&quot;);
+    Console.WriteLine($&quot;Disabled: {template.Disabled}&quot;);
+}
+</code></pre>
+<p><strong>Important:</strong> Use the normalized menu path when looking up templates:</p>
+<ul>
+<li>Convert to lowercase</li>
+<li>Remove accelerator key markers (<code>&amp;</code>)</li>
+<li>Use <code>&gt;</code> to separate menu levels</li>
+</ul>
+<p>For example:</p>
+<ul>
+<li><code>&quot;File&gt;&amp;New&quot;</code> becomes <code>&quot;file&gt;new&quot;</code></li>
+<li><code>&quot;Edit&gt;Cu&amp;t&quot;</code> becomes <code>&quot;edit&gt;cut&quot;</code></li>
+<li><code>&quot;File&gt;Recent &amp;Files&quot;</code> becomes <code>&quot;file&gt;recent files&quot;</code></li>
+</ul>
+<h2 id="menu-strip-template">Menu Strip Template</h2>
+<p>The menu strip template dictionary stores the display names for top-level
+menu items:</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+// Access the menu strip template dictionary
+foreach (var kvp in Menus.MenuStripTemplate)
+{
+    Console.WriteLine($&quot;Key: {kvp.Key}, Display Name: {kvp.Value}&quot;);
+}
+</code></pre>
+<p>The dictionary uses normalized keys (lowercase, no accelerator markers) and
+stores the display names with accelerator markers preserved.</p>
+<h2 id="customization">Customization</h2>
+<h3 id="user-customization">User Customization</h3>
+<p>Users can customize menus by creating a <code>menuTemplates.json</code> file in their
+application data folder:</p>
+<p><strong>Windows:</strong></p>
+<pre><code>%APPDATA%\MyApplication\menuTemplates.json
+</code></pre>
+<p><strong>macOS/Linux:</strong></p>
+<pre><code>~/.config/MyApplication/menuTemplates.json
+</code></pre>
+<p>This file loads before embedded resources, enabling users to override default
+menu configurations.</p>
+<h3 id="embedded-resources">Embedded Resources</h3>
+<p>To include menu templates as embedded resources in your assembly:</p>
+<ol>
+<li>Add <code>menuTemplates.json</code> to your project</li>
+<li>Set the file's build action to &quot;Embedded Resource&quot;</li>
+<li>The file will be automatically discovered when <code>LoadMenuTemplates()</code> is called</li>
+</ol>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li><p><strong>Use consistent naming</strong>: Use consistent menu path naming conventions throughout your application.</p>
+</li>
+<li><p><strong>Standard keyboard shortcuts</strong>: Follow platform conventions for keyboard shortcuts (e.g., <code>Ctrl+N</code> for New, <code>Ctrl+S</code> for Save).</p>
+</li>
+<li><p><strong>Accelerator keys</strong>: Use accelerator keys (<code>&amp;</code>) for keyboard navigation. Choose letters that don't conflict with other menu items.</p>
+</li>
+<li><p><strong>Separators</strong>: Use separators (<code>SeparatorBefore</code>) to group related menu items logically.</p>
+</li>
+<li><p><strong>Tooltips</strong>: Provide descriptive tooltips for all menu items.</p>
+</li>
+<li><p><strong>Menu organization</strong>: Organize menus hierarchically with clear parent-child relationships.</p>
+</li>
+<li><p><strong>Normalization</strong>: Remember that menu paths are normalized for template lookup (lowercase, no accelerator markers).</p>
+</li>
+</ol>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li>Read the <a href="intro.html">Introduction</a> for an overview of Blackwood.Core</li>
+<li>Check the <a href="../api/">API Reference</a> for complete API documentation</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

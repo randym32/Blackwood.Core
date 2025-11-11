@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting Started | Blackwood.Core </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting Started | Blackwood.Core ">
+      
+      
+      <link rel="icon" href="../template/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../template/logo-small.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-started">Getting Started</h1>
+
+<p>This guide will help you get up and running with Blackwood.Core.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>.NET 9.0 or later</li>
+<li>Visual Studio 2022 or later</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<h3 id="from-source">From Source</h3>
+<ol>
+<li>Clone the repository or add as a submodule</li>
+<li>Add a project reference to your solution:
+<pre><code class="lang-xml">&lt;ItemGroup&gt;
+  &lt;ProjectReference Include=&quot;..\..\Blackwood.Core\src\Blackwood.Core.csproj&quot; /&gt;
+&lt;/ItemGroup&gt;
+</code></pre>
+</li>
+<li>Build your solution; the project will restore and compile alongside your code</li>
+</ol>
+<h3 id="from-binary">From Binary</h3>
+<p>After building, reference the compiled DLL from the <code>bin</code> folder matching your
+configuration and target framework.</p>
+<h2 id="building">Building</h2>
+<p>Build the project from the command line:</p>
+<pre><code class="lang-bash">dotnet build Blackwood.Core/Blackwood.Core.sln -c Release
+</code></pre>
+<p>Or open <code>Blackwood.Core.sln</code> in Visual Studio and build from there.</p>
+<h2 id="running-tests">Running Tests</h2>
+<p>Run the test suite from the command line:</p>
+<pre><code class="lang-bash">dotnet test Blackwood.Core/tests/Blackwood.Core.tests.csproj -c Release
+</code></pre>
+<p>Or open the test project in Visual Studio and run tests from the Test Explorer.</p>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li>Read the <a href="intro.html">Introduction</a> for an overview</li>
+<li>See <a href="preferences.html">Preferences</a> for preference management</li>
+<li>See <a href="assemblies.html">Assemblies</a> for assembly enumeration</li>
+<li>Check the <a href="../api/">API Reference</a> for complete API documentation</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

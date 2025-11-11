@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Working with Assemblies | Blackwood.Core </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Working with Assemblies | Blackwood.Core ">
+      
+      
+      <link rel="icon" href="../template/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../template/logo-small.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="working-with-assemblies">Working with Assemblies</h1>
+
+<p>Use <code>Application.Assemblies()</code> to enumerate assemblies in your application.  It
+returns assemblies in priority order, which helps when searching for resources,
+types, or other assembly-level information.</p>
+<h2 id="overview">Overview</h2>
+<p><strong><code>Application.Assemblies()</code></strong>: Returns assemblies ordered by priority.</p>
+<h2 id="scanning-for-assemblies">Scanning for Assemblies</h2>
+<p>The <code>Application.Assemblies()</code> method returns assemblies in a specific order:</p>
+<ol>
+<li><strong>Entry Assembly</strong> (if available) - Your main application assembly</li>
+<li><strong>Executing Assembly</strong> - The assembly where the code is running</li>
+<li><strong>All Loaded Assemblies</strong> - Other assemblies loaded in the application
+domain, in reverse order (most recent first)</li>
+</ol>
+<p>Resources in your main application are checked before resources in referenced libraries.</p>
+<h2 id="enumerating-assemblies">Enumerating Assemblies</h2>
+<p>To enumerate all assemblies:</p>
+<pre><code class="lang-csharp">using Blackwood;
+using System.Reflection;
+
+// Get all assemblies in priority order
+foreach (Assembly assembly in Application.Assemblies())
+{
+    var name = assembly.GetName().Name;
+    var location = assembly.Location;
+    Console.WriteLine($&quot;Assembly: {name}&quot;);
+    Console.WriteLine($&quot;Location: {location}&quot;);
+}
+</code></pre>
+<h2 id="finding-types-in-assemblies">Finding Types in Assemblies</h2>
+<p>Searching for types across assemblies:</p>
+<pre><code class="lang-csharp">using Blackwood;
+using System.Reflection;
+
+// Search for a specific type
+string targetTypeName = &quot;Application&quot;;
+var foundTypes = new List&lt;Type&gt;();
+
+foreach (Assembly assembly in Application.Assemblies())
+{
+    try
+    {
+        var types = assembly.GetTypes()
+            .Where(t =&gt; t.Name.Contains(targetTypeName, StringComparison.OrdinalIgnoreCase));
+        foundTypes.AddRange(types);
+    }
+    catch (ReflectionTypeLoadException)
+    {
+        // Skip assemblies with types that can't be loaded
+    }
+}
+
+foreach (var type in foundTypes)
+{
+    Console.WriteLine($&quot;Found: {type.FullName} in {type.Assembly.GetName().Name}&quot;);
+}
+</code></pre>
+<h2 id="searching-for-embedded-resources">Searching for Embedded Resources</h2>
+<p>The priority ordering means your application's resources are checked before
+library resources.</p>
+<h3 id="finding-a-single-resource">Finding a Single Resource</h3>
+<p>To find a resource in assemblies:</p>
+<pre><code class="lang-csharp">using Blackwood;
+using System.IO;
+using System.Reflection;
+
+// The resource name or path to find
+string resourcePath = &quot;Resources/config.json&quot;;
+Stream? resourceStream = null;
+
+// Iterate over all assemblies used in the application.
+foreach (Assembly assembly in Application.Assemblies())
+{
+    // Create a wrapper around the assembly
+    var embeddedResources = new EmbeddedResources(assembly);
+
+    // Check if the resource exists in this assembly
+    if (embeddedResources.Exists(resourcePath))
+    {
+        // If found, get a stream for the resource
+        resourceStream = embeddedResources.Stream(resourcePath);
+        if (resourceStream != null)
+        {
+            // Log which assembly contained the resource
+            Console.WriteLine($&quot;Found resource in assembly: {assembly.GetName().Name}&quot;);
+            break; // Stop searching after first match
+        }
+    }
+}
+
+// If the resource stream was found, use it
+if (resourceStream != null)
+{
+    // Use a StreamReader to read the contents of the resource
+    using var reader = new StreamReader(resourceStream);
+
+    // Print the content of the resource if found, and indicate which assembly provided it.
+    string content = reader.ReadToEnd();
+    Console.WriteLine(content);
+}
+</code></pre>
+<h3 id="finding-all-matching-resources">Finding All Matching Resources</h3>
+<p>To collect all matching resources instead of stopping at the first match:</p>
+<pre><code class="lang-csharp">
+// The name (or path) of  the embedded resource you want to find
+string resourcePath = &quot;Resources/config.json&quot;;
+var foundResources = new List&lt;(Assembly assembly, Stream stream)&gt;();
+
+// Iterate over every assembly in use
+foreach (Assembly assembly in Application.Assemblies())
+{
+    // Create a wrapper around this assembly
+    var embeddedResources = new EmbeddedResources(assembly);
+
+    // Check if the resource exists in this assembly
+    if (embeddedResources.Exists(resourcePath))
+    {
+        // Get a stream to the resource (if found)
+        var stream = embeddedResources.Stream(resourcePath);
+
+        // Only add to the list if the stream isn't null
+        if (stream != null)
+        {
+            foundResources.Add((assembly, stream));
+        }
+    }
+}
+
+// Process all found resources
+foreach (var (assembly, stream) in foundResources)
+{
+    // Log the assembly name that contains the resource
+    Console.WriteLine($&quot;Found in: {assembly.GetName().Name}&quot;);
+
+    // TODO: Add your logic here to process the resource stream (e.g., read its contents)
+
+    // Always dispose streams when done to free resources
+    stream.Dispose();
+}
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
