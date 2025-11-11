@@ -5,7 +5,7 @@ This guide will help you get up and running with Blackwood.Core.
 ## Prerequisites
 
 - .NET 9.0 or later
-- Visual Studio 2022 or later (recommended)
+- Visual Studio 2022 or later
 
 ## Installation
 
@@ -22,8 +22,8 @@ This guide will help you get up and running with Blackwood.Core.
 
 ### From Binary
 
-After building the project, reference the compiled DLL from the appropriate
-`bin` folder for your configuration and target framework.
+After building, reference the compiled DLL from the `bin` folder matching your
+configuration and target framework.
 
 ## Building
 
@@ -47,6 +47,7 @@ Or open the test project in Visual Studio and run tests from the Test Explorer.
 
 ## Next Steps
 
-- Read the [Introduction](intro.md) for an overview of Blackwood.Core features
-- Explore the [Preferences](preferences.md) documentation for preference management
-- Check the [API Reference](../api/) for detailed information about all available types and methods
+- Read the [Introduction](intro.md) for an overview
+- See [Preferences](preferences.md) for preference management
+- See [Assemblies](assemblies.md) for assembly enumeration
+- Check the [API Reference](../api/) for complete API documentation

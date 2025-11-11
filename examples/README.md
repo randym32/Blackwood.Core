@@ -24,6 +24,16 @@ Demonstrates undo/redo functionality:
 
 Run: `dotnet run --project UndoRedoExample`
 
+### AssembliesExample
+
+Demonstrates assembly enumeration and inspection:
+- Enumerating assemblies using Application.Assemblies()
+- Finding types across assemblies
+- Displaying assembly information (name, version, location)
+- Searching for embedded resources
+
+Run: `dotnet run --project AssembliesExample`
+
 ## Building All Examples
 
 To build all examples:
@@ -39,5 +49,6 @@ Each example can be run individually:
 ```bash
 dotnet run --project PreferencesExample
 dotnet run --project UndoRedoExample
+dotnet run --project AssembliesExample
 ```
 

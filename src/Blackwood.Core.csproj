@@ -46,10 +46,8 @@
    <InternalsVisibleTo Include="Blackwood.Core.tests" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Blackwood.IO" Version="1.1.0" />
     <PackageReference Include="Blackwood.System.Text.Json" Version="1.1.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Blackwood.IO\src\Blackwood.IO.csproj" />
   </ItemGroup>
 
 </Project>
