@@ -1,0 +1,10 @@
+apiRules:
+- exclude:
+    uidRegex: ^System\.(Object|ValueType|Enum|Delegate|Exception|Attribute|EventArgs)$
+    type: Type
+- exclude:
+    uidRegex: ^System\.(Collections\.Generic\.)?(IEnumerable|IEnumerator|ICollection|IList|IDictionary|IComparer|IEqualityComparer)$
+    type: Type
+- exclude:
+    uidRegex: ^System\.(IDisposable|ICloneable|IComparable|IFormattable|IConvertible)$
+    type: Type

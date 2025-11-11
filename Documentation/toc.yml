@@ -1,0 +1,14 @@
+- name: Blackwood.Core
+  href: index.md
+- name: Articles
+  items:
+  - name: Getting Started
+    href: articles/getting-started.md
+  - name: Introduction
+    href: articles/intro.md
+  - name: Menu Configuration
+    href: articles/menu-configuration.md
+  - name: Preferences
+    href: articles/preferences.md
+- name: API Reference
+  href: api/

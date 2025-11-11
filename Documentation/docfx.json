@@ -1,0 +1,80 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "**.csproj"
+          ],
+          "exclude": [ "**/bin/**", "**/obj/**", "**/.editorconfig" ],
+          "src": "../src"
+        }
+      ],
+      "dest": "api",
+      "filter": "filterConfig.yml",
+      "disableGitFeatures": true,
+      "disableDefaultFilter": false,
+      "includePrivateMembers": false,
+      "globalNamespaceId": "Blackwood.Core",
+      "forceRebuild": false,
+      "noRestore": true
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml"
+        ]
+      },
+      {
+        "files": [
+          "api/**.md"
+        ]
+      },
+      {
+        "files": [
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "template/images/**",
+          "template/favicon.ico",
+          "template/logo-small.png"
+        ]
+      }
+    ],
+    "postProcessors": [ "ExtractSearchIndex" ],
+    "globalMetadata": {
+      "_enableSearch": "true",
+      "_appTitle": "Blackwood.Core",
+      "_appFaviconPath": "template/favicon.ico",
+      "_appLogoPath": "template/logo-small.png"
+    },
+    "xrefService": [
+      "https://xref.docs.microsoft.com/query?uid={uid}"
+    ],
+    "dest": "../docs",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "default",
+      "modern"
+    ],
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": true,
+    "maxParallelism": 2,
+    "forceRebuild": false,
+    "linkToHtml": true,
+    "enableDebugMode": false
+  }
+}
