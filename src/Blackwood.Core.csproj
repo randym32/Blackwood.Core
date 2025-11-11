@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Blackwood</RootNamespace>
+    <AssemblyName>Blackwood.Core</AssemblyName>
+    <Authors>Randall Maas</Authors>
+    <Copyright>"Copyright ©  2021-2025</Copyright>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+     <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+   	<ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="DLL\**" />
+    <EmbeddedResource Remove="DLL\**" />
+    <None Remove="DLL\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="menuTemplates.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="menuTemplates.json" />
+  </ItemGroup>
+  <ItemGroup>
+   <InternalsVisibleTo Include="Blackwood.Core.tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Blackwood.System.Text.Json" Version="1.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Blackwood.IO\src\Blackwood.IO.csproj" />
+  </ItemGroup>
+
+</Project>

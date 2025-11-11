@@ -1,0 +1,28 @@
+﻿{
+  // Top-level object representing the entire MenuStrip definition.
+  "MenuStrip": "File|Edit|View|Project|Tools|Help",
+    // The name of the MenuStrip control in the form.
+    "MenuItems": [
+        { "MenuPath": "File>&New"  , "QuickKey": "Ctrl+N", "ToolTip": "Create a new file" },
+        { "MenuPath": "File>&Open" , "QuickKey": "Ctrl+O", "ToolTip": "Open an existing file" },
+        { "MenuPath": "File>&Close", "QuickKey": "Ctrl+W", "SeparatorBefore": true, "ToolTip": "Close the current file" },
+        { "MenuPath": "File>Recent Projects", "QuickKey": "Ctrl+Shift+P", "ToolTip": "Open a recently used project" },
+        { "MenuPath": "File>Recent &Files"  , "QuickKey": "Ctrl+Shift+O", "ToolTip": "Open a recently used file" },
+        { "MenuPath": "File>Save"   , "QuickKey": "Ctrl+S", "SeparatorBefore": true, "ToolTip": "Save the current file" },
+        { "MenuPath": "File>Preferences", "ToolTip": "Open preferences configuration", "SeparatorBefore": true },
+        { "MenuPath": "File>E&xit"      , "QuickKey": "Alt+F4", "SeparatorBefore": true, "ToolTip": "Exit the application" },
+        { "MenuPath": "Edit>&Undo" , "QuickKey": "Ctrl+Z", "ToolTip": "Undo the last action" },
+        { "MenuPath": "Edit>&Redo" , "QuickKey": "Ctrl+Y", "ToolTip": "Redo the last undone action" },
+        { "MenuPath": "Edit>Cu&t"  , "QuickKey": "Ctrl+X", "ToolTip": "Cut the selected item to clipboard", "SeparatorBefore": true },
+        { "MenuPath": "Edit>&Copy"   , "QuickKey": "Ctrl+C", "ToolTip": "Copy the selected item to clipboard" },
+        { "MenuPath": "Edit>&Paste"  , "QuickKey": "Ctrl+V", "ToolTip": "Paste from clipboard" },
+        { "MenuPath": "Edit>&Delete"  , "QuickKey": "Delete", "ToolTip": "Delete the selected item" },
+        { "MenuPath": "Edit>Select &All", "QuickKey": "Ctrl+A", "SeparatorBefore": true, "ToolTip": "Select all items" },
+        { "MenuPath": "Project>&Add"   , "QuickKey": "Ctrl+Shift+A", "ToolTip": "Add a new item to the project" },
+        { "MenuPath": "Project>&Remove", "QuickKey": "Ctrl+R", "ToolTip": "Remove the selected item from the project" },
+        { "MenuPath": "Project>&Properties", "QuickKey": "Alt+Enter", "ToolTip": "Open project properties" },
+        { "MenuPath": "Tools>&Options" , "ToolTip": "Open tool options configuration" },
+        { "MenuPath": "Help>&View Help", "QuickKey": "Ctrl+F1", "ToolTip": "View help documentation" },
+        { "MenuPath": "Help>&About"    , "ToolTip": "Show information about the application" }
+    ]
+  }
