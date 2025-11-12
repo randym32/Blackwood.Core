@@ -19,16 +19,16 @@ namespace Blackwood;
 /// preferences to the PropertyGrid.
 /// </summary>
 /// <remarks>
-/// This helper class enables (in a PropertyGrid) display and editing of
+/// This helper class enables display and editing (e.g. in a PropertyGrid) of
 /// - application-wide Settings
 /// - project Settings
 /// - object properties
 ///
-/// The Windows Forms PropertyGrid control
-/// operates on object instances, using reflection to show and edit properties.
-/// For global Settings, these are defined as static properties in various
-/// classes (e.g., for application Settings or preferences).  PropertyGrid is
-/// not directly able to edit static properties, so this wrapper bridges the gap.
+/// The Windows Forms PropertyGrid control operates on object instances, using
+/// reflection to show and edit properties.  For global Settings, these are
+/// defined as static properties in various classes (e.g., for application
+/// Settings or preferences).  PropertyGrid is not directly able to edit static
+/// properties, so this wrapper bridges the gap.
 ///
 /// How it works:
 /// - The client provides objects and class to scan; the items with properties
@@ -44,7 +44,8 @@ namespace Blackwood;
 ///
 /// For inspecting and fiddling with an instances properties, this acts as a
 /// Synthetic wrapper
-/// This is used to select the subset properties that are of interest to be edited with a PropertyGrid.
+/// This is used to select the subset properties that are of interest to be
+/// edited with a PropertyGrid.
 /// </remarks>
 [System.Text.Json.Serialization.JsonConverter(typeof(PropertiesJsonConverter))]
 public class ProxyPropertiesObject : ICustomTypeDescriptor

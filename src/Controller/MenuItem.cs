@@ -52,8 +52,10 @@ public class MenuItem
     /// <returns>The template item, or null if not found.</returns>
     public static MenuItem? GetTemplate(string key)
     {
+        // Normalize the key for template lookup (lowercase, remove '&')
+        var normalizedKey = key.ToLower().Replace("&", "");
         // Look up a template item to fill in the extra bits automatically
-        Templates.TryGetValue(key, out var template);
+        Templates.TryGetValue(normalizedKey, out var template);
         return template;
     }
     #endregion
@@ -102,5 +104,20 @@ public class MenuItem
     public bool Disabled;
     #endregion
 
+    /// <summary>
+    /// Clones the menu item.
+    /// </summary>
+    /// <returns>The cloned menu item.</returns>
+    public MenuItem Clone()
+    {
+        var clone = new MenuItem();
+        clone.MenuPath = MenuPath;
+        clone.QuickKey = QuickKey;
+        clone.SeparatorBefore = SeparatorBefore;
+        clone.ToolTip = ToolTip;
+        clone.Tag = Tag;
+        clone.Disabled = Disabled;
+        return clone;
+    }
 }
 

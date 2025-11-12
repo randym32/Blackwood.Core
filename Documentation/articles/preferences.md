@@ -22,22 +22,36 @@ The preferences use the following attributes (on static properties):
 
 ## How It Works
 
-The Preferences System operates through the following mechanism:
+Typically, your application will use static properties to store configuration
+values, defaults, and user preferences.
+
+To allow user editng, a UI component such as the Windows Forms PropertyGrid
+is typically used to provide an interface to inspect and change these settings.
+However they are designed to work with object instances and using reflection to
+access their properties values, names and descriptions.
+
+Since static properties cannot be edited directly through these tools, the
+preferences system provides a wrapper.  The wrapper presents static properties
+as instance properties.  This allows UI editors like PropertyGrid to display
+and modify static application settings seamlessly.
+
+How it works:
 
 1. **Assembly Scanning**: The system automatically scans the loaded
    assemblies, collecting static properties that have a
    `DescriptionAttribute` (and are public and settable).
 
-2. **Dynamic Property Discovery**: `ProxyPropertiesObject` implements
+2. **Property Discovery**: `ProxyPropertiesObject` implements
    `ICustomTypeDescriptor`, providing the necessary hooks for the
-   `PropertyGrid` to dynamically discover all "virtual" properties
+   `PropertyGrid` to dynamically discover all of the properties
    corresponding to these static properties.
 
 3. **Runtime Property Forwarding**: When values are changed in the
    `PropertyGrid`, `ProxyPropertiesObject` forwards gets and sets to the
    corresponding static property in your application.
 
-`ProxyPropertiesObject` will represent each of the static properties as a
+
+`ProxyPropertiesObject` represents each of the static properties as a
 property using `ProxyPropertyDescriptor`. The PropertyGrid is able to display
 and edit these virtual properties, and the `ProxyPropertyDescriptor` forwards
 the gets and sets to the corresponding static property.

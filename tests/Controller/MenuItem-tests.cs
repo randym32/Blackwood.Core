@@ -182,7 +182,7 @@ public class MenuItemTests
             Assert.That(menuItem!.MenuPath, Is.Null);
             Assert.That(menuItem!.ToolTip, Is.Null);
             Assert.That(menuItem!.Tag, Is.Null);
-            Assert.That(menuItem!.QuickKey, Is.EqualTo(null));
+            Assert.That(menuItem!.QuickKey, Is.Null);
             Assert.That(menuItem!.Disabled, Is.False);
         }
     }
@@ -252,7 +252,7 @@ public class MenuItemTests
             // - bool fields default to false
             // - enum fields default to 0 (None for Keys)
             Assert.That(menuItem!.MenuPath, Is.EqualTo("File>Open"));
-            Assert.That(menuItem!.QuickKey, Is.EqualTo(null));
+            Assert.That(menuItem!.QuickKey, Is.Null);
             Assert.That(menuItem!.SeparatorBefore, Is.False);
             Assert.That(menuItem!.ToolTip, Is.Null);
             Assert.That(menuItem!.Disabled, Is.False); // bool defaults to false
@@ -260,11 +260,11 @@ public class MenuItemTests
     }
 
     /// <summary>
-    /// Verifies that the Keys enum is serialized as a human-readable string in JSON.
-    /// Tests that enum values are converted to their human-readable representation (e.g., "Ctrl+N").
+    /// Verifies that QuickKey is serialized in JSON.
+    /// Tests that QuickKey string values are properly serialized (e.g., "Ctrl+N").
     /// </summary>
     [Test]
-    public void JsonSerialize_KeysEnum_SerializesAsString()
+    public void JsonSerialize_QuickKey_SerializesAsString()
     {
         // Arrange
         var expectedQuickKey = "Ctrl+N";
@@ -278,9 +278,257 @@ public class MenuItemTests
         // Act
         var json = JsonSerializer.Serialize(menuItem, JSONDeserializer.JSONOptions);
 
-        // Assert - Keys enum should be serialized as a human-readable string
+        // Assert - QuickKey should be serialized as a string
         Assert.That(json, Does.Contain("QuickKey"));
         Assert.That(json, Does.Contain("Ctrl+N"));
+    }
+
+    #endregion
+
+    #region Clone Tests
+
+    /// <summary>
+    /// Verifies that Clone creates a new MenuItem instance with all fields copied.
+    /// Tests that all properties are correctly cloned.
+    /// </summary>
+    [Test]
+    public void Clone_CopiesAllFields()
+    {
+        // Arrange
+        var tagObject = new { Id = 42, Name = "Test" };
+        var original = new MenuItem
+        {
+            MenuPath = "File>New",
+            QuickKey = "Ctrl+N",
+            SeparatorBefore = true,
+            ToolTip = "Create new file",
+            Tag = tagObject,
+            Disabled = true
+        };
+
+        // Act
+        var clone = original.Clone();
+
+        // Assert
+        Assert.That(clone, Is.Not.Null);
+        Assert.That(clone, Is.Not.SameAs(original));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(clone.MenuPath, Is.EqualTo(original.MenuPath));
+            Assert.That(clone.QuickKey, Is.EqualTo(original.QuickKey));
+            Assert.That(clone.SeparatorBefore, Is.EqualTo(original.SeparatorBefore));
+            Assert.That(clone.ToolTip, Is.EqualTo(original.ToolTip));
+            Assert.That(clone.Tag, Is.EqualTo(original.Tag));
+            Assert.That(clone.Disabled, Is.EqualTo(original.Disabled));
+        }
+    }
+
+    /// <summary>
+    /// Verifies that Clone handles null fields correctly.
+    /// Tests that null values are properly cloned.
+    /// </summary>
+    [Test]
+    public void Clone_HandlesNullFields()
+    {
+        // Arrange
+        var original = new MenuItem
+        {
+            MenuPath = null,
+            QuickKey = null,
+            ToolTip = null,
+            Tag = null
+        };
+
+        // Act
+        var clone = original.Clone();
+
+        // Assert
+        Assert.That(clone, Is.Not.Null);
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(clone.MenuPath, Is.Null);
+            Assert.That(clone.QuickKey, Is.Null);
+            Assert.That(clone.ToolTip, Is.Null);
+            Assert.That(clone.Tag, Is.Null);
+            Assert.That(clone.SeparatorBefore, Is.False);
+            Assert.That(clone.Disabled, Is.False);
+        }
+    }
+
+    /// <summary>
+    /// Verifies that Clone creates an independent copy.
+    /// Tests that modifying the clone does not affect the original.
+    /// </summary>
+    [Test]
+    public void Clone_CreatesIndependentCopy()
+    {
+        // Arrange
+        var original = new MenuItem
+        {
+            MenuPath = "File>New",
+            QuickKey = "Ctrl+N",
+            ToolTip = "Create new file"
+        };
+
+        // Act
+        var clone = original.Clone();
+        clone.MenuPath = "File>Open";
+        clone.QuickKey = "Ctrl+O";
+        clone.ToolTip = "Open file";
+
+        // Assert
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(original.MenuPath, Is.EqualTo("File>New"));
+            Assert.That(original.QuickKey, Is.EqualTo("Ctrl+N"));
+            Assert.That(original.ToolTip, Is.EqualTo("Create new file"));
+            Assert.That(clone.MenuPath, Is.EqualTo("File>Open"));
+            Assert.That(clone.QuickKey, Is.EqualTo("Ctrl+O"));
+            Assert.That(clone.ToolTip, Is.EqualTo("Open file"));
+        }
+    }
+
+    #endregion
+
+    #region Template Tests
+
+    /// <summary>
+    /// Verifies that AddTemplates stores templates with normalized keys.
+    /// Tests that templates are stored with lowercase keys and accelerator markers removed.
+    /// </summary>
+    [Test]
+    public void AddTemplates_StoresTemplatesWithNormalizedKeys()
+    {
+        // Arrange
+        var template = CreateMenuItem(menuPath: "&File>&New", quickKey: "Ctrl+N", toolTip: "Template tooltip");
+
+        // Act
+        MenuItem.AddTemplates([template]);
+
+        // Assert - Template should be accessible with normalized key
+        var retrieved = MenuItem.GetTemplate("file>new");
+        Assert.That(retrieved, Is.Not.Null);
+        Assert.That(retrieved!.ToolTip, Is.EqualTo("Template tooltip"));
+    }
+
+    /// <summary>
+    /// Verifies that AddTemplates ignores items with null or empty MenuPath.
+    /// Tests that templates without valid MenuPath are not added.
+    /// </summary>
+    [Test]
+    public void AddTemplates_IgnoresItemsWithNullOrEmptyMenuPath()
+    {
+        // Arrange
+        var template1 = CreateMenuItem(menuPath: null);
+        var template2 = CreateMenuItem(menuPath: "");
+        var template3 = CreateMenuItem(menuPath: "   ");
+
+        // Act
+        MenuItem.AddTemplates([template1, template2, template3]);
+
+        // Assert - None of these should be retrievable
+        Assert.That(MenuItem.GetTemplate(""), Is.Null);
+    }
+
+    /// <summary>
+    /// Verifies that AddTemplates does not overwrite existing templates.
+    /// Tests that if a template already exists, it is not replaced.
+    /// </summary>
+    [Test]
+    public void AddTemplates_DoesNotOverwriteExistingTemplates()
+    {
+        // Arrange
+        var template1 = CreateMenuItem(menuPath: "File>New", toolTip: "First template");
+        var template2 = CreateMenuItem(menuPath: "File>New", toolTip: "Second template");
+
+        // Act
+        MenuItem.AddTemplates([template1]);
+        MenuItem.AddTemplates([template2]);
+
+        // Assert - First template should still be there
+        var retrieved = MenuItem.GetTemplate("file>new");
+        Assert.That(retrieved, Is.Not.Null);
+        Assert.That(retrieved!.ToolTip, Is.EqualTo("First template"));
+    }
+
+    /// <summary>
+    /// Verifies that GetTemplate returns null for non-existent templates.
+    /// Tests that GetTemplate handles missing templates gracefully.
+    /// </summary>
+    [Test]
+    public void GetTemplate_ReturnsNullForNonExistentTemplate()
+    {
+        // Act
+        var template = MenuItem.GetTemplate("nonexistent>path");
+
+        // Assert
+        Assert.That(template, Is.Null);
+    }
+
+    /// <summary>
+    /// Verifies that GetTemplate is case-insensitive.
+    /// Tests that template lookup works regardless of case.
+    /// </summary>
+    [Test]
+    public void GetTemplate_IsCaseInsensitive()
+    {
+        // Arrange
+        var template = CreateMenuItem(menuPath: "File>New", toolTip: "Template tooltip");
+        MenuItem.AddTemplates([template]);
+
+        // Act & Assert
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(MenuItem.GetTemplate("file>new"), Is.Not.Null);
+            Assert.That(MenuItem.GetTemplate("FILE>NEW"), Is.Not.Null);
+            Assert.That(MenuItem.GetTemplate("File>New"), Is.Not.Null);
+        }
+    }
+
+    /// <summary>
+    /// Verifies that GetTemplate ignores accelerator markers.
+    /// Tests that template lookup works with or without accelerator markers.
+    /// </summary>
+    [Test]
+    public void GetTemplate_IgnoresAcceleratorMarkers()
+    {
+        // Arrange
+        var template = CreateMenuItem(menuPath: "&File>&New", toolTip: "Template tooltip");
+        MenuItem.AddTemplates([template]);
+
+        // Act & Assert
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(MenuItem.GetTemplate("file>new"), Is.Not.Null);
+            Assert.That(MenuItem.GetTemplate("&file>&new"), Is.Not.Null);
+        }
+    }
+
+    /// <summary>
+    /// Verifies that AddTemplates handles multiple templates correctly.
+    /// Tests that multiple templates can be added and retrieved.
+    /// </summary>
+    [Test]
+    public void AddTemplates_HandlesMultipleTemplates()
+    {
+        // Arrange
+        var template1 = CreateMenuItem(menuPath: "File>New", toolTip: "New template");
+        var template2 = CreateMenuItem(menuPath: "File>Open", toolTip: "Open template");
+        var template3 = CreateMenuItem(menuPath: "Edit>Copy", toolTip: "Copy template");
+
+        // Act
+        MenuItem.AddTemplates([template1, template2, template3]);
+
+        // Assert
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(MenuItem.GetTemplate("file>new"), Is.Not.Null);
+            Assert.That(MenuItem.GetTemplate("file>new")!.ToolTip, Is.EqualTo("New template"));
+            Assert.That(MenuItem.GetTemplate("file>open"), Is.Not.Null);
+            Assert.That(MenuItem.GetTemplate("file>open")!.ToolTip, Is.EqualTo("Open template"));
+            Assert.That(MenuItem.GetTemplate("edit>copy"), Is.Not.Null);
+            Assert.That(MenuItem.GetTemplate("edit>copy")!.ToolTip, Is.EqualTo("Copy template"));
+        }
     }
 
     #endregion
