@@ -14,9 +14,7 @@
       "filter": "filterConfig.yml",
       "disableGitFeatures": true,
       "disableDefaultFilter": false,
-      "includePrivateMembers": false,
       "globalNamespaceId": "Blackwood.Core",
-      "forceRebuild": false,
       "noRestore": true
     }
   ],
@@ -74,7 +72,6 @@
     "disableGitFeatures": true,
     "maxParallelism": 2,
     "forceRebuild": false,
-    "linkToHtml": true,
-    "enableDebugMode": false
+    "linkToHtml": true
   }
 }

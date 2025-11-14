@@ -10,7 +10,7 @@ Blackwood.Core provides the following:
 - **Application Information**: Access application name and assembly information
 - **Preferences System**: Automatic discovery and management of application preferences
 - **Menu Management**: Build application menus from JSON templates
-- **Property Access**: Dynamic property access through proxy objects
+- **Property Access**: Provide dynamic property access to the UI through proxy objects
 - **Assembly Enumeration**: Enumerate and search assemblies in priority order
 
 ## Getting Started
@@ -73,5 +73,6 @@ Menu templates are defined in JSON and loaded from files or embedded resources.
 
 - Read the [Getting Started](getting-started.md) guide for installation
 - See [Preferences](preferences.md) for preference management
+- Learn about [wrapping properties](properties-proxy.md) for UI inspectors
 - See [Assemblies](assemblies.md) for assembly enumeration
 - Check the [API Reference](../api/) for complete API documentation

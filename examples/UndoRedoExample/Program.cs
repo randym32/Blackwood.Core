@@ -3,120 +3,90 @@ using Blackwood;
 namespace UndoRedoExample;
 
 /// <summary>
-/// Demonstrates a simple undo/redo stack built with <see cref="UndoRedo"/>.
+/// Demonstrates undo/redo functionality using the <see cref="UndoRedoController"/> class.
 /// </summary>
 class Program
 {
     /// <summary>
-    /// Simple numeric state we will mutate via operations.
-    /// </summary>
-    private static int _value = 0;
-    /// <summary>
-    /// Head of the undo stack (singly linked via <see cref="UndoRedo.next"/>).
-    /// </summary>
-    private static UndoRedo? _undoStack;
-    /// <summary>
-    /// Head of the redo stack.
-    /// </summary>
-    private static UndoRedo? _redoStack;
-
-    /// <summary>
-    /// Entry point that performs a sequence of actions and demonstrates undo/redo.
+    /// Entry point that demonstrates UndoRedoController.
     /// </summary>
     static void Main(string[] args)
     {
-        // Console banner for readability.
         Console.WriteLine("Undo/Redo Example");
-        Console.WriteLine("=================\n");
+        Console.WriteLine("==================\n");
 
-        // Show the initial value before any operations.
-        Console.WriteLine($"Initial value: {_value}");
+        DemoUndoRedoController();
+    }
 
-        // Perform a few operations, each recorded for undo/redo.
-        PerformOperation("Add 5", () => _value += 5, () => _value -= 5);
-        PerformOperation("Multiply by 2", () => _value *= 2, () => _value /= 2);
-        PerformOperation("Add 10", () => _value += 10, () => _value -= 10);
+    /// <summary>
+    /// Demonstrates using UndoRedoController for undo/redo management.
+    /// </summary>
+    static void DemoUndoRedoController()
+    {
+        // Create a controller to manage undo/redo operations
+        var controller = new UndoRedoController();
+        int value = 0;
 
-        Console.WriteLine($"\nCurrent value: {_value}");
+        Console.WriteLine($"Initial value: {value}");
 
-        // Undo operations in LIFO order.
+        // Perform operations using the controller
+        void PerformOperationWithController(string description, Action doAction, Action undoAction)
+        {
+            // Apply the operation
+            doAction();
+            // Record the undo/redo entry
+            controller.AppendUndo(new UndoRedo(description, undoAction, doAction));
+            Console.WriteLine($"  {description}: value = {value}");
+        }
+
+        // Perform a few operations
+        PerformOperationWithController("Add 5", () => value += 5, () => value -= 5);
+        PerformOperationWithController("Multiply by 2", () => value *= 2, () => value /= 2);
+        PerformOperationWithController("Add 10", () => value += 10, () => value -= 10);
+
+        Console.WriteLine($"\nCurrent value: {value}");
+
+        // Check what can be undone/redone
+        Console.WriteLine($"\nCan undo: {controller.UndoItem != null} ({controller.UndoItem?.Description ?? "N/A"})");
+        Console.WriteLine($"Can redo: {controller.RedoItem != null} ({controller.RedoItem?.Description ?? "N/A"})");
+
+        // Undo operations
         Console.WriteLine("\nUndoing operations:");
-        Undo();
-        Undo();
-        Undo();
+        while (controller.UndoItem != null)
+        {
+            var description = controller.UndoItem.Description;
+            controller.Undo();
+            Console.WriteLine($"  Undo: {description} - value = {value}");
+        }
 
-        Console.WriteLine($"\nCurrent value after undo: {_value}");
+        Console.WriteLine($"\nCurrent value after undo: {value}");
 
-        // Redo operations in LIFO order.
+        // Check what can be undone/redone
+        Console.WriteLine($"\nCan undo: {controller.UndoItem != null} ({controller.UndoItem?.Description ?? "N/A"})");
+        Console.WriteLine($"Can redo: {controller.RedoItem != null} ({controller.RedoItem?.Description ?? "N/A"})");
+
+        // Redo operations
         Console.WriteLine("\nRedoing operations:");
-        Redo();
-        Redo();
-        Redo();
-
-        Console.WriteLine($"\nCurrent value after redo: {_value}");
-    }
-
-    /// <summary>
-    /// Performs an operation and records it on the undo stack.
-    /// </summary>
-    /// <param name="description">Human-friendly description of the operation.</param>
-    /// <param name="doAction">Action that applies the operation.</param>
-    /// <param name="undoAction">Action that reverts the operation.</param>
-    static void PerformOperation(string description, Action doAction, Action undoAction)
-    {
-        // Apply the operation.
-        doAction();
-        var undoRedo = new UndoRedo(description, undoAction, doAction)
+        while (controller.RedoItem != null)
         {
-            next = _undoStack
-        };
-        // Push onto the undo stack.
-        _undoStack = undoRedo;
-        // New operation invalidates the redo stack.
-        _redoStack = null;
-        Console.WriteLine($"  {description}: value = {_value}");
-    }
-
-    /// <summary>
-    /// Undoes the most recent operation if available.
-    /// </summary>
-    static void Undo()
-    {
-        if (_undoStack == null)
-        {
-            Console.WriteLine("  Nothing to undo");
-            return;
+            var description = controller.RedoItem.Description;
+            controller.Redo();
+            Console.WriteLine($"  Redo: {description} - value = {value}");
         }
-        // Run the stored undo action.
-        _undoStack.Undo();
-        Console.WriteLine($"  Undo: {_undoStack.Description} - value = {_value}");
 
-        // Move the node from undo stack to redo stack.
-        var next = _undoStack.next;
-        _undoStack.next = _redoStack;
-        _redoStack = _undoStack;
-        _undoStack = next;
-    }
+        Console.WriteLine($"\nCurrent value after redo: {value}");
 
-    /// <summary>
-    /// Redoes the most recently undone operation if available.
-    /// </summary>
-    static void Redo()
-    {
-        if (_redoStack == null)
+        // Demonstrate that new operations clear the redo stack
+        Console.WriteLine("\nDemonstrating redo stack clearing:");
+        Console.WriteLine("Undoing one operation to create a redo stack...");
+        if (controller.UndoItem != null)
         {
-            Console.WriteLine("  Nothing to redo");
-            return;
+            controller.Undo();
+            Console.WriteLine($"Can redo: {controller.RedoItem != null} ({controller.RedoItem?.Description ?? "N/A"})");
+            Console.WriteLine("Adding new operation (this clears the redo stack)...");
+            PerformOperationWithController("Subtract 3", () => value -= 3, () => value += 3);
+            Console.WriteLine($"Can redo: {controller.RedoItem != null} (should be false - redo stack was cleared)");
         }
-        // Run the stored redo action.
-        _redoStack.Redo();
-        Console.WriteLine($"  Redo: {_redoStack.Description} - value = {_value}");
-
-        // Move the node from redo stack back to undo stack.
-        var next = _redoStack.next;
-        _redoStack.next = _undoStack;
-        _undoStack = _redoStack;
-        _redoStack = next;
     }
 }
 

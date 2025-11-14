@@ -23,6 +23,5 @@ public static partial class Application
     /// If the name is not found, it will return "unknownApp".
     /// </remarks>
     public static string? Name => Blackwood.Base.Application.Name;
-
 }
 

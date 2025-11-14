@@ -1,6 +1,7 @@
 using Blackwood;
 using NUnit.Framework;
 using System.Text.Json;
+using System.Reflection;
 using System.Text.Json.Serialization;
 
 namespace Blackwood.Core.Tests;
@@ -33,6 +34,16 @@ public class MenuItemTests
             Tag = tag,
             Disabled = disabled
         };
+    }
+
+    [SetUp]
+    public void SetUp()
+    {
+        var templatesField = typeof(MenuItem).GetField("Templates", BindingFlags.Static | BindingFlags.NonPublic);
+        if (templatesField?.GetValue(null) is IDictionary<string, MenuItem> templates)
+        {
+            templates.Clear();
+        }
     }
 
 
