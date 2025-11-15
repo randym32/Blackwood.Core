@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <RootNamespace>Blackwood</RootNamespace>
+    <RootNamespace>Blackwood.Core</RootNamespace>
     <AssemblyName>Blackwood.Core</AssemblyName>
     <Authors>Randall Maas</Authors>
     <Copyright>"Copyright ©  2021-2025</Copyright>

@@ -107,7 +107,7 @@ public class Menus
     /// </summary>
     static Menus()
     {
-        var name = Blackwood.Application.Name;
+        var name = Application.Name;
         if (null != name)
             LoadMenuTemplates(name);
     }

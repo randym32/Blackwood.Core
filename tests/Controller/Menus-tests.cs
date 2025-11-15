@@ -396,7 +396,7 @@ public class MenusTests
         Assert.That(template1, Is.Not.Null);
         using (Assert.EnterMultipleScope())
         {
-            Assert.That(template1!.MenuPath, Is.EqualTo("File>New"));
+            Assert.That(template1!.MenuPath, Is.EqualTo("File>&New"));
             Assert.That(template1.QuickKey, Is.EqualTo("Ctrl+N"));
 
             Assert.That(template2, Is.Not.Null);
@@ -580,7 +580,7 @@ public class MenusTests
         // Assert - Verify both were processed
         var template = MenuItem.GetTemplate("file>new");
         Assert.That(template, Is.Not.Null);
-        Assert.That(template!.MenuPath, Is.EqualTo("File>New"));
+        Assert.That(template!.MenuPath, Is.EqualTo("File>&New"));
         Assert.Pass("Both MenuStrip and MenuItems loaded");
     }
 
