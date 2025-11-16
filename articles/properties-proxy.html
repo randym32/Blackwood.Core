@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Properties Wrapper | Blackwood.Core </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Properties Wrapper | Blackwood.Core ">
+      
+      
+      <link rel="icon" href="../template/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../template/logo-small.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="properties-wrapper">Properties Wrapper</h1>
+
+<p>This guide explains how to create a property proxy for an object. A property proxy
+is used to allow tools like <code>PropertyGrid</code> to modify a specific object while
+restricting which properties (and fields) can be changed. This is useful when
+you want to expose only a subset of an object's properties for editing.</p>
+<p><strong>When to Use a Proxy</strong>. Property proxies are intended for scenarios where you
+need UI controlled access to an object's properties, such as in property editors
+or when integrating with undo/redo systems. For normal application code, direct
+property access remains clearer and more efficient.</p>
+<h2 id="creating-a-property-proxy">Creating a Property Proxy</h2>
+<p><code>ProxyPropertiesObject</code> allows property access to be intercepted or wrapped for
+a given target object. This class allows you to construct a proxy that exposes
+only a defined set of properties or fields, and can forward property changes to
+the underlying object, useful for editor scenarios, UI property grids, or when
+you want fine-grained control over which properties are exposed or editable.</p>
+<p>Here's a basic example of using <code>ProxyPropertiesObject</code> to wrap an existing
+object and expose selected properties:</p>
+<pre><code class="lang-csharp">// Suppose you have some target object:
+public class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public bool IsActive { get; set; }
+}
+
+// You can expose just the Name and Age properties through a proxy:
+var person = new Person { Name = &quot;Alex&quot;, Age = 30, IsActive = true };
+
+// Specify which properties will be exposed via the proxy.
+var proxy = new ProxyPropertiesObject(person, new[] { &quot;Name&quot;, &quot;Age&quot; });
+
+// You can bind this proxy to a PropertyGrid or access properties dynamically:
+var name = proxy[&quot;Name&quot;]; // get: returns &quot;Alex&quot;
+proxy[&quot;Age&quot;] = 31;        // set: updates the original person's Age
+
+// The IsActive property is not visible/editable via the proxy.
+</code></pre>
+<p>This pattern allows you to define exactly which properties are available for
+editing and can be helpful for UI data binding, validation, or restricting
+changes. <code>ProxyPropertiesObject</code> may also be extended with validation and
+undo/redo mechanisms as needed by your workflow.</p>
+<h2 id="adding-validation">Adding Validation</h2>
+<p>You can extend the proxy to validate values before updating. This allows you to
+reject invalid values early and keep validation logic separate from the main
+object's core responsibilities.</p>
+<h2 id="integrating-with-undo-and-redo">Integrating With Undo and Redo</h2>
+<p>When using property proxies with undo/redo functionality, use an <code>UndoRedoController</code>
+to manage the undo/redo stack. Capture the old value before applying the new value,
+then record an <code>UndoRedo</code> entry using <code>AppendUndo</code>. This ensures every change can
+be undone and redone.</p>
+<p>Here's an example of updating a property through a proxy with undo/redo support:</p>
+<pre><code class="lang-csharp">// Create a controller to manage undo/redo operations
+var undoController = new UndoRedoController();
+
+// Set up the proxy and target object
+var person = new Person { Name = &quot;Alex&quot;, Age = 30 };
+var proxy = new ProxyPropertiesObject(person, new[] { &quot;Name&quot;, &quot;Age&quot; });
+
+// Update a property with undo/redo tracking
+void UpdatePropertyWithUndo(string propertyName, object newValue)
+{
+    // Capture the old value before making changes
+    var oldValue = proxy[propertyName];
+
+    // Apply the new value
+    proxy[propertyName] = newValue;
+
+    // Record the undo/redo entry
+    undoController.AppendUndo(new UndoRedo(
+        description: $&quot;Change {propertyName}&quot;,
+        undo: () =&gt; proxy[propertyName] = oldValue,
+        redo: () =&gt; proxy[propertyName] = newValue));
+}
+
+// Use the helper to update properties
+UpdatePropertyWithUndo(&quot;Age&quot;, 31);  // Age changes from 30 to 31
+UpdatePropertyWithUndo(&quot;Name&quot;, &quot;Bob&quot;);  // Name changes from &quot;Alex&quot; to &quot;Bob&quot;
+
+// Undo the last change
+undoController.Undo();  // Name reverts to &quot;Alex&quot;
+
+// Redo the change
+undoController.Redo();  // Name changes back to &quot;Bob&quot;
+
+// Undo both changes
+undoController.Undo();  // Name reverts to &quot;Alex&quot;
+undoController.Undo();  // Age reverts to 30
+</code></pre>
+<p>The <code>UndoRedoController</code> provides <code>Undo()</code> and <code>Redo()</code> methods to navigate through
+the change history, and <code>UndoItem</code> and <code>RedoItem</code> properties to check what operations
+are available. You can wire these methods to menu items or keyboard shortcuts in your UI.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -22,6 +22,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/charting.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/charting.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/getting-started.md",
       "output": {
         ".html": {
@@ -56,6 +66,26 @@
       "output": {
         ".html": {
           "relative_path": "articles/preferences.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/properties-proxy.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/properties-proxy.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/undo-redo.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/undo-redo.html"
         }
       },
       "version": ""

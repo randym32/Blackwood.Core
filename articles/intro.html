@@ -74,15 +74,20 @@
 <h1 id="introduction-to-blackwoodcore">Introduction to Blackwood.Core</h1>
 
 <p><strong>Blackwood.Core</strong> is a .NET library of utilities for system integration,
-including application preferences, menu management, and property access.</p>
+including application preferences, menu management, property access, and
+charting utilities.</p>
 <h2 id="key-features">Key Features</h2>
 <p>Blackwood.Core provides the following:</p>
 <ul>
 <li><strong>Application Information</strong>: Access application name and assembly information</li>
-<li><strong>Preferences System</strong>: Automatic discovery and management of application preferences</li>
+<li><strong>Preferences System</strong>: Automatic discovery and management of application
+preferences</li>
 <li><strong>Menu Management</strong>: Build application menus from JSON templates</li>
-<li><strong>Property Access</strong>: Dynamic property access through proxy objects</li>
+<li><strong>Property Access</strong>: Provide dynamic property access to the UI through proxy
+objects</li>
 <li><strong>Assembly Enumeration</strong>: Enumerate and search assemblies in priority order</li>
+<li><strong>Charting</strong>: Data structures and point reduction algorithms to support chart
+rendering.</li>
 </ul>
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="application-information">Application Information</h3>
@@ -124,10 +129,35 @@ Menus.LoadMenuTemplates();
 Menus.LoadMenuTemplates(&quot;MyApplication&quot;);
 </code></pre>
 <p>Menu templates are defined in JSON and loaded from files or embedded resources.</p>
+<h3 id="charting">Charting</h3>
+<p>Blackwood.Core provides data structures and algorithms for charting:</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+// Create chart points
+var points = new List&lt;ChartPoint&lt;int&gt;&gt;();
+for (int i = 0; i &lt; 1000; i++)
+{
+    points.Add(new ChartPoint&lt;int&gt;(i, Math.Sin(i * 0.1) * 10));
+}
+
+// Reduce points for efficient rendering using Douglas-Peucker algorithm
+var reducer = new ReduceArray&lt;int&gt;(points, maxItems: 100);
+var simplifiedPoints = reducer.Simplify().ToList();
+</code></pre>
+<p>The charting utilities include:</p>
+<ul>
+<li><code>ChartPoint&lt;T&gt;</code>: Represents a data point with index, y-value, and optional
+annotation</li>
+<li><code>ChartAnnotation&lt;T&gt;</code>: Represents an annotation span with index, duration,
+color, and text</li>
+<li><code>ReduceArray&lt;T&gt;</code>: Implements the Douglas-Peucker algorithm to reduce point
+count while preserving visual fidelity.</li>
+</ul>
 <h2 id="next-steps">Next Steps</h2>
 <ul>
 <li>Read the <a href="getting-started.html">Getting Started</a> guide for installation</li>
 <li>See <a href="preferences.html">Preferences</a> for preference management</li>
+<li>Learn about <a href="properties-proxy.html">wrapping properties</a> for UI inspectors</li>
 <li>See <a href="assemblies.html">Assemblies</a> for assembly enumeration</li>
 <li>Check the <a href="../api/">API Reference</a> for complete API documentation</li>
 </ul>

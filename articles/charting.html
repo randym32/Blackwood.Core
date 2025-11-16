@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Charting | Blackwood.Core </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Charting | Blackwood.Core ">
+      
+      
+      <link rel="icon" href="../template/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../template/logo-small.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="charting">Charting</h1>
+
+<p>This framework includes tools to support chart rendering.
+The charting system consists of three main components:</p>
+<ul>
+<li><strong>ChartPoint<t></t></strong>: Represents individual data points in a chart</li>
+<li><strong>ChartAnnotation<t></t></strong>: Represents annotation spans with visual styling</li>
+<li><strong>ReduceArray<t></t></strong>:  This reducing point counts in large datasets by while preserving visual fidelity.</li>
+</ul>
+<h2 id="chartpoint">ChartPoint<t></t></h2>
+<p><code>ChartPoint&lt;T&gt;</code> represents a single data point in a chart with an independent
+variable (index) and a dependent variable (y-value).  It supports any numeric
+type for the index, including:</p>
+<ul>
+<li><code>int</code>, <code>long</code>, <code>double</code>, <code>float</code></li>
+<li><code>DateTime</code> for time-series data</li>
+<li><code>string</code> for categorical data</li>
+<li>Any type that implements <code>INumber&lt;T&gt;</code></li>
+</ul>
+<h3 id="creating-chart-points">Creating Chart Points</h3>
+<pre><code class="lang-csharp">using Blackwood;
+
+// Create a point with index and y-value
+var point1 = new ChartPoint&lt;int&gt;(10, 25.5);
+
+// Create a point with annotation
+var point2 = new ChartPoint&lt;int&gt;(20, 42.0, &quot;Peak value&quot;);
+
+// Create points with different index types
+var timePoint = new ChartPoint&lt;DateTime&gt;(
+    new DateTime(2025, 1, 1, 10, 0, 0),
+    100.0,
+    &quot;Measurement at 10 AM&quot;
+);
+
+var categoryPoint = new ChartPoint&lt;string&gt;(&quot;Category A&quot;, 75.5);
+</code></pre>
+<h2 id="chartannotation">ChartAnnotation<t></t></h2>
+<p><code>ChartAnnotation&lt;T&gt;</code> represents a span annotation on a chart, intended to
+highlight time periods, ranges, or regions of interest.</p>
+<h3 id="creating-annotations">Creating Annotations</h3>
+<pre><code class="lang-csharp">using Blackwood;
+using System.Drawing;
+
+// Create an annotation with index, duration, and color
+var annotation = new ChartAnnotation&lt;int&gt;(
+    index: 100,        // Start position
+    duration: 50,      // Span length
+    color: Color.Red,  // Annotation color
+    text: &quot;Critical period&quot;,
+    textColor: Color.White  // Text color (optional, defaults to white)
+);
+
+// Create annotation without text
+var simpleAnnotation = new ChartAnnotation&lt;DateTime&gt;(
+    new DateTime(2025, 1, 1),
+    new DateTime(2025, 1, 2),
+    Color.Yellow
+);
+</code></pre>
+<h2 id="reducearray---point-reduction">ReduceArray<t> - Point Reduction</t></h2>
+<p>When dealing with large datasets, rendering thousands of points is often slow.
+<code>ReduceArray&lt;T&gt;</code> implements the Douglas-Peucker algorithm to reduce the number
+of points while preserving the visual shape of the data.</p>
+<h3 id="how-it-works">How It Works</h3>
+<p><code>ReduceArray&lt;T&gt;</code> uses Douglas-Peucker algorithm to simplify the lines, while
+preserving the visual shape of the data.  Smaller datasets are unchanged: point
+reduction only occurs when the dataset has more than 100 points.</p>
+<p>The Douglas-Peucker algorithm removes points close to the line segment, keeping
+those that are furthest away.  (It also keeps the start and end points of the
+series).</p>
+<ol>
+<li>It first finds the distance threshold, iteratively narrows the threshold
+until the point count (further away than the threshold) is close to <code>maxItems</code></li>
+<li>It them examines the distance of points from the line segment, removing those
+less than the threshold.</li>
+<li>If that point is beyond a threshold distance, it's kept and the algorithm
+recurses on both halves, treating each as new line segments.</li>
+</ol>
+<p>This algorithm is effective on smooth curves and time-series data.</p>
+<h3 id="basic-usage">Basic Usage</h3>
+<p>Below is a trivial example:</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+// Create a large dataset
+var points = new List&lt;ChartPoint&lt;int&gt;&gt;();
+for (int i = 0; i &lt; 10000; i++)
+{
+    var y = 50.0 + 20.0 * Math.Sin(i * 0.01) + (i % 100) * 0.1;
+    points.Add(new ChartPoint&lt;int&gt;(i, y));
+}
+
+// Reduce to maximum 200 points
+var reducer = new ReduceArray&lt;int&gt;(points, maxItems: 200);
+var simplifiedPoints = reducer.Simplify().ToList();
+
+Console.WriteLine($&quot;Original: {points.Count} points&quot;);
+Console.WriteLine($&quot;Simplified: {simplifiedPoints.Count} points&quot;);
+</code></pre>
+<h3 id="choosing-maxitems">Choosing maxItems</h3>
+<p>The <code>maxItems</code> parameter controls the target maximum number of points in the
+result:</p>
+<ul>
+<li><strong>Too low</strong>: May lose important features in complex data</li>
+<li><strong>Too high</strong>: Defeats the purpose of reduction</li>
+<li><strong>Recommended</strong>: 2000 points for most charts, depending on screen resolution
+and data complexity</li>
+</ul>
+<pre><code class="lang-csharp">// For high-resolution displays or complex data
+var highDetail = new ReduceArray&lt;int&gt;(points, maxItems: 500);
+
+// For standard displays
+var standard = new ReduceArray&lt;int&gt;(points, maxItems: 200);
+
+// For thumbnail or preview charts
+var thumbnail = new ReduceArray&lt;int&gt;(points, maxItems: 50);
+</code></pre>
+<p>The algorithm may not converge exactly to <code>maxItems</code>, stopping at a maximum
+number of iterations.  The rresults may be up to 2x <code>maxItems</code> in complex cases.</p>
+<h2 id="complete-example">Complete Example</h2>
+<p>Here's a complete example showing how to use all the charting components
+together:</p>
+<pre><code class="lang-csharp">using Blackwood;
+using System.Drawing;
+
+// Example: Generate, annotate, and reduce a large time-series dataset for charting
+
+// Generate sample time-series data (5000 hourly points)
+var random = new Random(42);
+var points = new List&lt;ChartPoint&lt;DateTime&gt;&gt;();
+var startDate = new DateTime(2025, 1, 1);
+
+// Populate the dataset, adding an annotation every 100th point
+for (int i = 0; i &lt; 5000; i++)
+{
+    var date = startDate.AddHours(i);
+    var baseValue = 50.0 + 20.0 * Math.Sin(i * 0.1);
+    var noise = random.NextDouble() * 5.0 - 2.5;
+    var value = baseValue + noise;
+
+    // Annotate every 100th point with the day number
+    points.Add(new ChartPoint&lt;DateTime&gt;(
+        date,
+        value,
+        i % 100 == 0 ? $&quot;Day {i / 24}&quot; : null
+    ));
+}
+
+// Reduce points for efficient rendering using Douglas-Peucker
+var reducer = new ReduceArray&lt;DateTime&gt;(points, maxItems: 200);
+var simplifiedPoints = reducer.Simplify().ToList();
+
+// Define annotation spans for key periods (example: maintenance, high activity)
+var annotations = new List&lt;ChartAnnotation&lt;DateTime&gt;&gt;
+{
+    new ChartAnnotation&lt;DateTime&gt;(
+        startDate.AddDays(10), // Start
+        startDate.AddDays(12), // End (duration = 2 days)
+        Color.Red,
+        &quot;Maintenance window&quot;,
+        Color.White
+    ),
+    new ChartAnnotation&lt;DateTime&gt;(
+        startDate.AddDays(50), // Start
+        startDate.AddDays(55), // End
+        Color.Yellow,
+        &quot;High activity period&quot;
+    )
+};
+
+// Example rendering logic (pseudo-code for integration with chart control)
+foreach (var point in simplifiedPoints)
+{
+    // Render point at point.index (DateTime), point.y (double value)
+    // If point.annotation is not null, display annotation label
+}
+
+foreach (var annotation in annotations)
+{
+    // Render annotation span from annotation.index to annotation.index + annotation.duration
+    // Use annotation.color for the highlighted region
+    // Display annotation.text in annotation.textColor if provided
+}
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="intro.html">Introduction</a> - Overview of Blackwood.Core features</li>
+<li><a href="getting-started.html">Getting Started</a> - Installation and setup</li>
+<li><a href="../api/">API Reference</a> - Complete API documentation for charting classes</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

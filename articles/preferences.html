@@ -91,15 +91,25 @@ interfaces to group related properties. <em>Recommended</em></li>
 in the preferences interface. <em>Optional</em></li>
 </ul>
 <h2 id="how-it-works">How It Works</h2>
-<p>The Preferences System operates through the following mechanism:</p>
+<p>Typically, your application will use static properties to store configuration
+values, defaults, and user preferences.</p>
+<p>To allow user editng, a UI component such as the Windows Forms PropertyGrid
+is typically used to provide an interface to inspect and change these settings.
+However they are designed to work with object instances and using reflection to
+access their properties values, names and descriptions.</p>
+<p>Since static properties cannot be edited directly through these tools, the
+preferences system provides a wrapper.  The wrapper presents static properties
+as instance properties.  This allows UI editors like PropertyGrid to display
+and modify static application settings seamlessly.</p>
+<p>How it works:</p>
 <ol>
 <li><p><strong>Assembly Scanning</strong>: The system automatically scans the loaded
 assemblies, collecting static properties that have a
 <code>DescriptionAttribute</code> (and are public and settable).</p>
 </li>
-<li><p><strong>Dynamic Property Discovery</strong>: <code>ProxyPropertiesObject</code> implements
+<li><p><strong>Property Discovery</strong>: <code>ProxyPropertiesObject</code> implements
 <code>ICustomTypeDescriptor</code>, providing the necessary hooks for the
-<code>PropertyGrid</code> to dynamically discover all &quot;virtual&quot; properties
+<code>PropertyGrid</code> to dynamically discover all of the properties
 corresponding to these static properties.</p>
 </li>
 <li><p><strong>Runtime Property Forwarding</strong>: When values are changed in the
@@ -107,7 +117,7 @@ corresponding to these static properties.</p>
 corresponding static property in your application.</p>
 </li>
 </ol>
-<p><code>ProxyPropertiesObject</code> will represent each of the static properties as a
+<p><code>ProxyPropertiesObject</code> represents each of the static properties as a
 property using <code>ProxyPropertyDescriptor</code>. The PropertyGrid is able to display
 and edit these virtual properties, and the <code>ProxyPropertyDescriptor</code> forwards
 the gets and sets to the corresponding static property.</p>
