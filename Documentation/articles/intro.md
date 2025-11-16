@@ -1,17 +1,22 @@
 ﻿# Introduction to Blackwood.Core
 
 **Blackwood.Core** is a .NET library of utilities for system integration,
-including application preferences, menu management, and property access.
+including application preferences, menu management, property access, and
+charting utilities.
 
 ## Key Features
 
 Blackwood.Core provides the following:
 
 - **Application Information**: Access application name and assembly information
-- **Preferences System**: Automatic discovery and management of application preferences
+- **Preferences System**: Automatic discovery and management of application
+  preferences
 - **Menu Management**: Build application menus from JSON templates
-- **Property Access**: Provide dynamic property access to the UI through proxy objects
+- **Property Access**: Provide dynamic property access to the UI through proxy
+  objects
 - **Assembly Enumeration**: Enumerate and search assemblies in priority order
+- **Charting**: Data structures and point reduction algorithms to support chart
+  rendering.
 
 ## Getting Started
 
@@ -68,6 +73,33 @@ Menus.LoadMenuTemplates("MyApplication");
 ```
 
 Menu templates are defined in JSON and loaded from files or embedded resources.
+
+### Charting
+
+Blackwood.Core provides data structures and algorithms for charting:
+
+```csharp
+using Blackwood;
+
+// Create chart points
+var points = new List<ChartPoint<int>>();
+for (int i = 0; i < 1000; i++)
+{
+    points.Add(new ChartPoint<int>(i, Math.Sin(i * 0.1) * 10));
+}
+
+// Reduce points for efficient rendering using Douglas-Peucker algorithm
+var reducer = new ReduceArray<int>(points, maxItems: 100);
+var simplifiedPoints = reducer.Simplify().ToList();
+```
+
+The charting utilities include:
+- `ChartPoint<T>`: Represents a data point with index, y-value, and optional
+  annotation
+- `ChartAnnotation<T>`: Represents an annotation span with index, duration,
+  color, and text
+- `ReduceArray<T>`: Implements the Douglas-Peucker algorithm to reduce point
+  count while preserving visual fidelity.
 
 ## Next Steps
 

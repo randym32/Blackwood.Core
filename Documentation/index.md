@@ -5,14 +5,18 @@ abstractions and utilities for .NET applications.
 
 ## Overview
 
-Blackwood.Core provides a foundation for application preferences, menu management,
-and property access to help build modular, testable system components.
+Blackwood.Core provides a foundation for application preferences, menu
+management, property access, and charting utilities to help build modular,
+testable system components.
 
 ## Features
 
-- **Application**: Application-level information, preferences system and assembly scanning utilities
+- **Application**: Application-level information, preferences system and
+  assembly scanning utilities
 - **Menu Tools**: Menu system for building application menus from JSON templates
 - **Properties**: Property proxy for dynamic property access
+- **Charting**: Chart data structures and point reduction algorithms for data
+  visualization
 
 ## Getting Started
 
@@ -54,7 +58,10 @@ For detailed documentation on specific features, see:
 
 - [Getting Started](articles/getting-started.md) - Quick start guide
 - [Introduction](articles/intro.md) - Overview of Blackwood.Core
-- [Menu Configuration](articles/menu-configuration.md) - Menu configuration system documentation
+- [Charting](articles/charting.md) - Chart data structures and point reduction
+  algorithms
+- [Menu Configuration](articles/menu-configuration.md) - Menu configuration
+  system documentation
 - [Preferences](articles/preferences.md) - Preferences system documentation
 - [API Reference](api/) - Complete API documentation
 
