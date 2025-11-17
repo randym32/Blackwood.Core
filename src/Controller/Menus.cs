@@ -46,7 +46,7 @@ public class Menus
             {
                 // Normalize the keys by removing the accelerator key marker and
                 // using a normlized case
-                var key = item.ToLower().Replace("&", "").Trim();
+                var key = item.ToLowerInvariant().Replace("&", "").Trim();
                 if (!MenuStripTemplate.ContainsKey(key))
                     MenuStripTemplate[key] = item.Trim();
             }

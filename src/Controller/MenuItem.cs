@@ -22,6 +22,12 @@ public class MenuItem
     static readonly Dictionary<string, MenuItem> Templates = [];
 
     /// <summary>
+    /// Maintains the order in which menu item templates are added,
+    /// providing a consistent ordering for generated menus.
+    /// </summary>
+    public static readonly List<string> Order = [];
+
+    /// <summary>
     /// Adds the menu templates to the template cache.
     /// </summary>
     /// <param name="menuItems">The menu item templates.</param>
@@ -35,13 +41,15 @@ public class MenuItem
         {
             // Normalize the key by removing the accelerator key marker and
             // using a normlized case
-            var key = item.MenuPath?.ToLower();
+            var key = item.MenuPath?.ToLowerInvariant().Replace("&", "").Trim();
             if (string.IsNullOrEmpty(key)) continue;
-            key = key.Replace("&", "");
 
             // If a template wasnt already defined
             if (!Templates.ContainsKey(key))
+            {
                 Templates[key] = item;
+                Order.Add(key);
+            }
         }
     }
 
@@ -53,7 +61,7 @@ public class MenuItem
     public static MenuItem? GetTemplate(string key)
     {
         // Normalize the key for template lookup (lowercase, remove '&')
-        var normalizedKey = key.ToLower().Replace("&", "");
+        var normalizedKey = key.ToLowerInvariant().Replace("&", "").Trim();
         // Look up a template item to fill in the extra bits automatically
         Templates.TryGetValue(normalizedKey, out var template);
         return template;
@@ -110,14 +118,15 @@ public class MenuItem
     /// <returns>The cloned menu item.</returns>
     public MenuItem Clone()
     {
-        var clone = new MenuItem();
-        clone.MenuPath = MenuPath;
-        clone.QuickKey = QuickKey;
-        clone.SeparatorBefore = SeparatorBefore;
-        clone.ToolTip = ToolTip;
-        clone.Tag = Tag;
-        clone.Disabled = Disabled;
-        return clone;
+        return new MenuItem
+        {
+            MenuPath = MenuPath,
+            QuickKey = QuickKey,
+            SeparatorBefore = SeparatorBefore,
+            ToolTip = ToolTip,
+            Tag = Tag,
+            Disabled = Disabled
+        };
     }
 }
 

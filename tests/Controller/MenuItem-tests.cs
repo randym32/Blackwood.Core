@@ -44,6 +44,8 @@ public class MenuItemTests
         {
             templates.Clear();
         }
+        // Clear the Order list to ensure clean state for each test
+        MenuItem.Order.Clear();
     }
 
 
@@ -540,6 +542,140 @@ public class MenuItemTests
             Assert.That(MenuItem.GetTemplate("edit>copy"), Is.Not.Null);
             Assert.That(MenuItem.GetTemplate("edit>copy")!.ToolTip, Is.EqualTo("Copy template"));
         }
+    }
+
+    #endregion
+
+    #region Order Tests
+
+    /// <summary>
+    /// Verifies that AddTemplates adds normalized keys to the Order list.
+    /// Tests that the Order list maintains the order in which templates are added.
+    /// </summary>
+    [Test]
+    public void AddTemplates_AddsToOrderList()
+    {
+        // Arrange
+        var template1 = CreateMenuItem(menuPath: "File>New", toolTip: "New template");
+        var template2 = CreateMenuItem(menuPath: "File>Open", toolTip: "Open template");
+        var template3 = CreateMenuItem(menuPath: "Edit>Copy", toolTip: "Copy template");
+
+        // Act
+        MenuItem.AddTemplates([template1, template2, template3]);
+
+        // Assert
+        Assert.That(MenuItem.Order, Has.Count.EqualTo(3));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(MenuItem.Order[0], Is.EqualTo("file>new"));
+            Assert.That(MenuItem.Order[1], Is.EqualTo("file>open"));
+            Assert.That(MenuItem.Order[2], Is.EqualTo("edit>copy"));
+        }
+    }
+
+    /// <summary>
+    /// Verifies that AddTemplates normalizes keys when adding to Order list.
+    /// Tests that keys in Order are lowercase and have accelerator markers removed.
+    /// </summary>
+    [Test]
+    public void AddTemplates_NormalizesKeysInOrderList()
+    {
+        // Arrange
+        var template1 = CreateMenuItem(menuPath: "&File>&New", toolTip: "New template");
+        var template2 = CreateMenuItem(menuPath: "File>Open", toolTip: "Open template");
+
+        // Act
+        MenuItem.AddTemplates([template1, template2]);
+
+        // Assert
+        Assert.That(MenuItem.Order, Has.Count.EqualTo(2));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(MenuItem.Order[0], Is.EqualTo("file>new"));
+            Assert.That(MenuItem.Order[1], Is.EqualTo("file>open"));
+            Assert.That(MenuItem.Order[0], Does.Not.Contain("&"));
+        }
+    }
+
+    /// <summary>
+    /// Verifies that AddTemplates does not add duplicate keys to Order list.
+    /// Tests that attempting to add an existing template does not affect Order.
+    /// </summary>
+    [Test]
+    public void AddTemplates_DoesNotAddDuplicatesToOrderList()
+    {
+        // Arrange
+        var template1 = CreateMenuItem(menuPath: "File>New", toolTip: "First template");
+        var template2 = CreateMenuItem(menuPath: "File>New", toolTip: "Second template");
+
+        // Act
+        MenuItem.AddTemplates([template1]);
+        MenuItem.AddTemplates([template2]);
+
+        // Assert - Order should only contain one entry
+        Assert.That(MenuItem.Order, Has.Count.EqualTo(1));
+        Assert.That(MenuItem.Order[0], Is.EqualTo("file>new"));
+    }
+
+    /// <summary>
+    /// Verifies that AddTemplates does not add items with null or empty MenuPath to Order list.
+    /// Tests that invalid menu paths are not added to the Order list.
+    /// </summary>
+    [Test]
+    public void AddTemplates_DoesNotAddInvalidMenuPathsToOrderList()
+    {
+        // Arrange
+        var template1 = CreateMenuItem(menuPath: null);
+        var template2 = CreateMenuItem(menuPath: "");
+        var template3 = CreateMenuItem(menuPath: "   ");
+        var template4 = CreateMenuItem(menuPath: "File>New", toolTip: "Valid template");
+
+        // Act
+        MenuItem.AddTemplates([template1, template2, template3, template4]);
+
+        // Assert - Only the valid template should be in Order
+        Assert.That(MenuItem.Order, Has.Count.EqualTo(1));
+        Assert.That(MenuItem.Order[0], Is.EqualTo("file>new"));
+    }
+
+    /// <summary>
+    /// Verifies that Order list maintains insertion order across multiple AddTemplates calls.
+    /// Tests that the order reflects when templates were first added, not when duplicates were attempted.
+    /// </summary>
+    [Test]
+    public void AddTemplates_MaintainsInsertionOrderInOrderList()
+    {
+        // Arrange
+        var template1 = CreateMenuItem(menuPath: "File>New", toolTip: "New template");
+        var template2 = CreateMenuItem(menuPath: "File>Open", toolTip: "Open template");
+        var template3 = CreateMenuItem(menuPath: "Edit>Copy", toolTip: "Copy template");
+        var template4 = CreateMenuItem(menuPath: "File>New", toolTip: "Duplicate New template");
+
+        // Act
+        MenuItem.AddTemplates([template1]);
+        MenuItem.AddTemplates([template2]);
+        MenuItem.AddTemplates([template3]);
+        MenuItem.AddTemplates([template4]); // This should not affect Order
+
+        // Assert - Order should reflect first three templates in insertion order
+        Assert.That(MenuItem.Order, Has.Count.EqualTo(3));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(MenuItem.Order[0], Is.EqualTo("file>new"));
+            Assert.That(MenuItem.Order[1], Is.EqualTo("file>open"));
+            Assert.That(MenuItem.Order[2], Is.EqualTo("edit>copy"));
+        }
+    }
+
+    /// <summary>
+    /// Verifies that Order list is empty when no templates have been added.
+    /// Tests the initial state of the Order list.
+    /// </summary>
+    [Test]
+    public void Order_IsEmptyWhenNoTemplatesAdded()
+    {
+        // Assert
+        Assert.That(MenuItem.Order, Is.Empty);
     }
 
     #endregion
