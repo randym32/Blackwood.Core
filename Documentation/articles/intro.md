@@ -17,6 +17,9 @@ Blackwood.Core provides the following:
 - **Assembly Enumeration**: Enumerate and search assemblies in priority order
 - **Charting**: Data structures and point reduction algorithms to support chart
   rendering.
+- **Application Instance Messaging**: Helpers for creating single-instance
+  applications and forwarding command-line arguments (such as file-open
+  requests) to the already running process via named pipes.
 
 ## Getting Started
 

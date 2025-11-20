@@ -84,6 +84,15 @@
       </nav>
       {{/_disableNavbar}}
     </header>
+      {{^_disableAffix}}
+      {{#_enableSearch}}
+      <div class="affix" style="position: fixed; top: 1px; right: 20px; width: 230px; z-index: 1050; height: 48px;">
+              <form class="search" role="search" id="search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="{{__global.search}}" autocomplete="off" aria-label="Search" style="height:32px; padding-top:2px; padding-bottom:2px;">
+              </form>
+      </div>
+      {{/_enableSearch}}
+      {{/_disableAffix}}
 
     <main class="container-xxl">
       {{^_disableToc}}

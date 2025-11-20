@@ -17,6 +17,9 @@ testable system components.
 - **Properties**: Property proxy for dynamic property access
 - **Charting**: Chart data structures and point reduction algorithms for data
   visualization
+- **Application Instance Messaging**: Forwarder utilities for safely handing off
+  command-line arguments (like file-open requests) to an already running
+  application instance over named pipes
 
 ## Getting Started
 
