@@ -3,32 +3,33 @@
 
 using System.IO.Pipes;
 using System.Text.Json;
-namespace Blackwood.WinForms;
+namespace Blackwood;
 
 /// <summary>
 /// This is used to forward file-open and other requests to the "main instance"
 /// of a single-instance application; it is used by a second instance of the
 /// application.
 /// </summary>
+/// <typeparam name="messageType">The type of message to forward.</typeparam>
 /// <remarks>
 /// To send application arguments, such as file paths to open, use the
 /// <see cref="ForwardFilesAsync"/> method.
 ///
 /// To receive application arguments, such as file paths to open, use the
-/// <see cref="ApplicationForwarder"/> constructor.  The action will be called
-/// when the application arguments are received.
+/// <see cref="ApplicationForwarder{messageType}"/> constructor.  This will
+/// create a listener that will call the action when the message is received.
+///
 /// <code>
-/// using (ApplicationForwarder forwarder = new (files =>
+/// using (ApplicationForwarder&lt;string[]&gt; forwarder = new (message =>
 /// {
 ///     // Handle the files
 /// }))
-/// {
-///     // Use the forwarder
-/// }
 /// </code>
 ///
-/// The application, when running, should add a listener to receive the command
-/// arguments (e.g. lists of files to open) and handle them.
+/// To send a message, use the <see cref="ForwardFilesAsync"/> method.
+/// <code>
+/// await ApplicationForwarder&lt;string[]&gt;.ForwardFilesAsync(pipeName, message);
+/// </code>
 ///
 /// The messages sent over the pipe are formattted as:
 /// - a 4-byte length prefix (int32)
@@ -47,7 +48,7 @@ namespace Blackwood.WinForms;
 /// messages.  This cancellation token is invoked when the <see cref="Dispose"/>
 /// method is called.
 /// </remarks>
-public sealed class ApplicationForwarder : IDisposable
+public sealed class ApplicationForwarder<messageType> : IDisposable
 {
     #region Variables
     /// <summary>
@@ -71,26 +72,26 @@ public sealed class ApplicationForwarder : IDisposable
     /// <summary>
     /// The action to call when arguments (e.g. files) are received.
     /// </summary>
-    readonly Action<string[]> onArguments_;
+    readonly Action<messageType> onMessage_;
     #endregion
 
     #region Constructor / Destructor
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ApplicationForwarder"/> class.
+    /// Initializes a new instance of the <see cref="ApplicationForwarder{messageType}"/> class.
     /// </summary>
     /// <param name="pipeName">The name of the pipe to use for communication.</param>
     /// <param name="onArguments">The action to call when arguments are received.</param>
-    public ApplicationForwarder(string pipeName, Action<string[]> onArguments)
+    public ApplicationForwarder(string pipeName, Action<messageType> onMessage)
     {
         pipeName_     = pipeName;
-        onArguments_  = onArguments;
+        onMessage_    = onMessage;
         listenerTask_ = Task.Run(ListenAsync);
     }
 
 
     /// <summary>
-    /// Dispose of any internal resources in the <see cref="ApplicationForwarder"/>
+    /// Dispose of any internal resources in the <see cref="ApplicationForwarder{messageType}"/>
     /// instance.
     /// </summary>
     public void Dispose()
@@ -145,7 +146,7 @@ public sealed class ApplicationForwarder : IDisposable
     /// <c>false</c>.
     /// </remarks>
     public static async Task<bool> ForwardFilesAsync( string PipeName
-                                                    , IEnumerable<string> arguments
+                                                    , messageType message
                                                     , int timeoutMs = 1000
                                                     , CancellationToken cancellationToken = default
                                                     )
@@ -163,7 +164,7 @@ public sealed class ApplicationForwarder : IDisposable
             // before reading the payload.
 
             // Serialize the arguments to a JSON payload and convert to an array of bytes.
-            var payload = JsonSerializer.SerializeToUtf8Bytes(arguments, JSONDeserializer.JSONOptions);
+            var payload = JsonSerializer.SerializeToUtf8Bytes(message, JSONDeserializer.JSONOptions);
             // Write the length prefix and the JSON payload to the pipe.
             await client.WriteAsync(BitConverter.GetBytes(payload.Length).Concat(payload).ToArray().AsMemory(), cancellationToken).ConfigureAwait(false);
             // Flush the pipe to ensure the data is sent.
@@ -216,11 +217,11 @@ public sealed class ApplicationForwarder : IDisposable
                 var payloadBuffer = new byte[payloadLength];
                 await ReadExactlyAsync(server, payloadBuffer, payloadBuffer.Length, cts_.Token).ConfigureAwait(false);
 
-                var arguments = JsonSerializer.Deserialize<string[]>(payloadBuffer, JSONDeserializer.JSONOptions);
-                if (arguments is { Length: > 0 })
+                var message = JsonSerializer.Deserialize<messageType>(payloadBuffer, JSONDeserializer.JSONOptions);
+                if (null != message)
                 {
-                    // Call the action to handle the files
-                    onArguments_(arguments);
+                    // Call the action to handle the message
+                    onMessage_(message);
                 }
             }
             catch (OperationCanceledException)

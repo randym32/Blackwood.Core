@@ -1,7 +1,7 @@
 using System.IO;
 using System.IO.Pipes;
 using System.Text.Json;
-using Blackwood.WinForms;
+using Blackwood;
 
 namespace Blackwood.Core.Tests;
 
@@ -23,7 +23,7 @@ public class ApplicationForwarderTests
         var pipeName = CreatePipeName();
         var tcs = new TaskCompletionSource<string[]>(TaskCreationOptions.RunContinuationsAsynchronously);
 
-        using var forwarder = new ApplicationForwarder(pipeName, args =>
+        using var forwarder = new ApplicationForwarder<string[]>(pipeName, args =>
         {
             if (args is { Length: > 0 })
                 tcs.TrySetResult(args);
@@ -77,7 +77,7 @@ public class ApplicationForwarderTests
         });
 
         await ready.Task.WaitAsync(TimeSpan.FromSeconds(5));
-        var sendResult = await ApplicationForwarder.ForwardFilesAsync(pipeName, files);
+        var sendResult = await ApplicationForwarder<string[]>.ForwardFilesAsync(pipeName, files);
         Assert.That(sendResult, Is.True);
         var result = await received.Task.WaitAsync(TimeSpan.FromSeconds(5));
         Assert.That(result, Is.EqualTo(files));
@@ -92,7 +92,7 @@ public class ApplicationForwarderTests
     public void Dispose_CanBeCalledMultipleTimes()
     {
         var pipeName = CreatePipeName();
-        var forwarder = new ApplicationForwarder(pipeName, _ => { });
+        var forwarder = new ApplicationForwarder<string[]>(pipeName, _ => { });
 
         Assert.DoesNotThrow(() =>
         {
