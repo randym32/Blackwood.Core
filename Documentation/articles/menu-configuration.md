@@ -380,5 +380,5 @@ To include menu templates as embedded resources in your assembly:
 ## Next Steps
 
 - Read the [Introduction](intro.md) for an overview of Blackwood.Core
-- Check the [API Reference](../api/) for complete API documentation
+- Check the [API Reference](../api/index.md) for complete API documentation
 

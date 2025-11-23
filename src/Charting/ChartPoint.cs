@@ -7,15 +7,16 @@ namespace Blackwood;
 /// A point that can be added to a chart for plotting, like an existential
 /// pigeon strutting along the axis of your chart.
 /// </summary>
+/// <typeparam name="IndexType">The type of the independent variable.</typeparam>
 /// <param name="index">The independent variable.</param>
 /// <param name="y">The dependent variable.</param>
 /// <param name="annotation">The annotation for the point.  Optional.</param>
-public class ChartPoint<T>(T index, double y, string? annotation = null)
+public class ChartPoint<IndexType>(IndexType index, double y, string? annotation = null)
 {
     /// <summary>
     /// The independent variable.
     /// </summary>
-    public readonly T index = index;
+    public readonly IndexType index = index;
 
     /// <summary>
     /// The dependent variable.

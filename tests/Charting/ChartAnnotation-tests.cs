@@ -249,6 +249,30 @@ public class ChartAnnotationTests
     }
 
     /// <summary>
+    /// Verifies that ChartAnnotation supports differing index and duration types.
+    /// </summary>
+    [Test]
+    public void Constructor_WithDifferentIndexAndDurationTypes_HandlesValues()
+    {
+        // Arrange
+        var index = new DateTime(2025, 1, 1, 12, 0, 0, DateTimeKind.Utc);
+        var duration = TimeSpan.FromMinutes(30);
+        var color = Color.DarkOrange;
+
+        // Act
+        var annotation = new ChartAnnotation<DateTime, TimeSpan>(index, duration, color, "Window");
+
+        // Assert
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(annotation.index, Is.EqualTo(index));
+            Assert.That(annotation.duration, Is.EqualTo(duration));
+            Assert.That(annotation.color, Is.EqualTo(color));
+            Assert.That(annotation.text, Is.EqualTo("Window"));
+        }
+    }
+
+    /// <summary>
     /// Verifies that ChartAnnotation works correctly with long type for index and duration.
     /// Tests that large integer values are handled correctly.
     /// </summary>

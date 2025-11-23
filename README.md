@@ -1,12 +1,15 @@
 ## Blackwood.Core
 
-This library provides a foundation for .NET applications.  THis includes
+This library provides a foundation for .NET applications.  This includes
 application preferences, menu management, and property accessors.
 
 ### Features
 - **Application**: Application-level information, preferences system, and assembly scanning utilities
 - **Menu Tools**: Menu system for building application menus from JSON templates
 - **Properties**: Property proxy for dynamic property access
+- **Application Instance Messaging**: Forwarder utilities for safely handing off
+  command-line arguments (like file-open requests) to an already running
+  application instance over named pipes
 
 ### Getting Started
 

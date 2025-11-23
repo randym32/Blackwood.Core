@@ -8,7 +8,8 @@ charting utilities.
 
 Blackwood.Core provides the following:
 
-- **Application Information**: Access application name and assembly information
+- **Application Information**: Access application name, preferences, assembly
+  information
 - **Preferences System**: Automatic discovery and management of application
   preferences
 - **Menu Management**: Build application menus from JSON templates
@@ -97,9 +98,9 @@ var simplifiedPoints = reducer.Simplify().ToList();
 ```
 
 The charting utilities include:
-- `ChartPoint<T>`: Represents a data point with index, y-value, and optional
+- `ChartPoint<IndexType>`: Represents a data point with index, y-value, and optional
   annotation
-- `ChartAnnotation<T>`: Represents an annotation span with index, duration,
+- `ChartAnnotation<IndexType, DurationType>`: Represents an annotation span with index, duration,
   color, and text
 - `ReduceArray<T>`: Implements the Douglas-Peucker algorithm to reduce point
   count while preserving visual fidelity.
@@ -110,4 +111,4 @@ The charting utilities include:
 - See [Preferences](preferences.md) for preference management
 - Learn about [wrapping properties](properties-proxy.md) for UI inspectors
 - See [Assemblies](assemblies.md) for assembly enumeration
-- Check the [API Reference](../api/) for complete API documentation
+- Check the [API Reference](../api/index.md) for complete API documentation

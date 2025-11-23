@@ -1,6 +1,6 @@
 # The Preferences System
 
-[`PreferencesProxy`](../api/Blackwood.Core.Utils.md#Blackwood_System_Utils_PreferencesProxy)
+[`PreferencesProxy`](xref:Blackwood.Application.PreferencesProxy)
 provides a proxy for application preferences. It automatically discovers
 static properties in your code that are meant for users to change,
 eliminating the need to register them individually.
@@ -89,7 +89,7 @@ public static class ApplicationSettings
 
 At program startup -- before creating any objects, forms, etc. -- you should
 load the preferences. This is done by calling
-[`LoadPreferences()`](xref:Blackwood.Core.PreferencesProxy.LoadPreferences):
+[`LoadPreferences()`](xref:Blackwood.Application.LoadPreferences*):
 
 ```csharp
 // Load preferences from a file
@@ -104,7 +104,7 @@ configuration can only take effect at startup/object creation time.
 
 You should save the user's preferences after changes (or before exiting the
 application), by calling the
-[`SavePreferences()`](xref:Blackwood.Core.PreferencesProxy.SavePreferences)
+[`SavePreferences()`](xref:Blackwood.Application.SavePreferences*)
 method.
 
 
@@ -118,12 +118,12 @@ Application.PreferencesProxy().SavePreferences("settings.json");
 The preferences system also provides methods to help manage user
 changes to preferences at runtime:
 
-- [**ResetToDefaults()**](xref:Blackwood.Core.PreferencesProxy.ResetToDefaults) &mdash; Resets all preference values back to their
+- [**ResetToDefaults()**](xref:Blackwood.ProxyPropertiesObject.ResetToDefaults*) &mdash; Resets all preference values back to their
   original default values (as indicated by the `[DefaultValue]` attribute on
   each property).
-- [**Checkpoint()**](xref:Blackwood.Core.PreferencesProxy.Checkpoint) &mdash; Saves the current set of values as a checkpoint.
+- [**Checkpoint()**](xref:Blackwood.ProxyPropertiesObject.Checkpoint*) &mdash; Saves the current set of values as a checkpoint.
   You can later revert changes by restoring the checkpoint.
-- [**RestoreCheckpoint()**](xref:Blackwood.Core.PreferencesProxy.RestoreCheckpoint) &mdash; Restores all preference values from a
+- [**RestoreCheckpoint()**](xref:Blackwood.ProxyPropertiesObject.RestoreCheckpoint*) &mdash; Restores all preference values from a
   previously saved checkpoint.
 
 Here’s how you use these methods:
@@ -158,11 +158,11 @@ preferences.ResetToDefaults();
 These methods are especially useful for providing "Apply," "Cancel," and
 "Reset to Defaults" features in a preferences dialog:
 
-- Call [`Checkpoint()`](xref:Blackwood.Core.PreferencesProxy.Checkpoint) just before launching the dialog.
+- Call [`Checkpoint()`](xref:Blackwood.ProxyPropertiesObject.Checkpoint*) just before launching the dialog.
 - If the user clicks "OK" or "Apply," let changes stand and optionally
-  save them via [`SavePreferences()`](xref:Blackwood.Core.PreferencesProxy.SavePreferences).
-- If the user clicks "Cancel," call [`RestoreCheckpoint()`](xref:Blackwood.Core.PreferencesProxy.RestoreCheckpoint) to revert any edits.
-- If the user clicks "Reset to Defaults," call [`ResetToDefaults()`](xref:Blackwood.Core.PreferencesProxy.ResetToDefaults).
+  save them via [`SavePreferences()`](xref:Blackwood.Application.SavePreferences*).
+- If the user clicks "Cancel," call [`RestoreCheckpoint()`](xref:Blackwood.ProxyPropertiesObject.RestoreCheckpoint*) to revert any edits.
+- If the user clicks "Reset to Defaults," call [`ResetToDefaults()`](xref:Blackwood.ProxyPropertiesObject.ResetToDefaults*).
 
 
 ## A Larger Example
@@ -215,4 +215,5 @@ public void OnPreferencesChanged()
 
 ## Additional Resources
 
-See [PreferencesProxy documentation](../api/Blackwood.Core.PreferencesProxy.md) and [ProxyPropertiesObject documentation](../api/Blackwood.Core.ProxyPropertiesObject.md).
+See [`PreferencesProxy`](xref:Blackwood.Application.PreferencesProxy)
+and [`ProxyPropertiesObject`](xref:Blackwood.ProxyPropertiesObject) for deeper coverage of the proxy itself.

@@ -3,19 +3,19 @@
 This framework includes tools to support chart rendering.
 The charting system consists of three main components:
 
-- **ChartPoint<T>**: Represents individual data points in a chart
-- **ChartAnnotation<T>**: Represents annotation spans with visual styling
+- **ChartPoint<IndexType>**: Represents individual data points in a chart
+- **ChartAnnotation&lt;IndexType, DurationType&gt;**: Represents annotation spans with visual styling (the shorthand `ChartAnnotation<T>` remains for the common case where index and duration share the same type)
 - **ReduceArray<T>**:  This reducing point counts in large datasets by while preserving visual fidelity.
 
-## ChartPoint<T>
+## ChartPoint<IndexType>
 
-`ChartPoint<T>` represents a single data point in a chart with an independent
+`ChartPoint<IndexType>` represents a single data point in a chart with an independent
 variable (index) and a dependent variable (y-value).  It supports any numeric
 type for the index, including:
 - `int`, `long`, `double`, `float`
 - `DateTime` for time-series data
 - `string` for categorical data
-- Any type that implements `INumber<T>`
+- Any type that implements `INumber<IndexType>`
 
 ### Creating Chart Points
 
@@ -39,10 +39,13 @@ var categoryPoint = new ChartPoint<string>("Category A", 75.5);
 ```
 
 
-## ChartAnnotation<T>
+## ChartAnnotation&lt;IndexType, DurationType&gt;
 
-`ChartAnnotation<T>` represents a span annotation on a chart, intended to
-highlight time periods, ranges, or regions of interest.
+`ChartAnnotation<IndexType, DurationType>` represents a span annotation on a chart,
+intended to highlight time periods, ranges, or regions of interest.  Use
+`ChartAnnotation<T>` when the index and duration share the same type, or specify
+both generic arguments when they differ (for example, DateTime index with a
+TimeSpan duration).
 
 ### Creating Annotations
 
@@ -59,11 +62,20 @@ var annotation = new ChartAnnotation<int>(
     textColor: Color.White  // Text color (optional, defaults to white)
 );
 
-// Create annotation without text
+// Create annotation without text, using matching index/duration types
 var simpleAnnotation = new ChartAnnotation<DateTime>(
-    new DateTime(2025, 1, 1),
-    new DateTime(2025, 1, 2),
-    Color.Yellow
+    index: new DateTime(2025, 1, 1),
+    duration: new DateTime(2025, 1, 2),
+    color: Color.Yellow
+);
+
+// Create annotation where the duration type differs from the index type
+var maintenanceWindow = new ChartAnnotation<DateTime, TimeSpan>(
+    index: new DateTime(2025, 1, 1, 8, 0, 0, DateTimeKind.Utc),
+    duration: TimeSpan.FromHours(2),
+    color: Color.FromArgb(160, Color.Orange),
+    text: "Maintenance",
+    textColor: Color.Black
 );
 ```
 
@@ -219,5 +231,5 @@ foreach (var annotation in annotations)
 
 - [Introduction](intro.md) - Overview of Blackwood.Core features
 - [Getting Started](getting-started.md) - Installation and setup
-- [API Reference](../api/) - Complete API documentation for charting classes
+- [API Reference](../api/index.md) - Complete API documentation for charting classes
 

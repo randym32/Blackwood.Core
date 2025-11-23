@@ -66,7 +66,7 @@ For detailed documentation on specific features, see:
 - [Menu Configuration](articles/menu-configuration.md) - Menu configuration
   system documentation
 - [Preferences](articles/preferences.md) - Preferences system documentation
-- [API Reference](api/) - Complete API documentation
+- [API Reference](api/index.md) - Complete API documentation
 
 ## Contributing
 

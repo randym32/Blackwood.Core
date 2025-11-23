@@ -50,4 +50,4 @@ Or open the test project in Visual Studio and run tests from the Test Explorer.
 - Read the [Introduction](intro.md) for an overview
 - See [Preferences](preferences.md) for preference management
 - See [Assemblies](assemblies.md) for assembly enumeration
-- Check the [API Reference](../api/) for complete API documentation
+- Check the [API Reference](../api/index.md) for complete API documentation

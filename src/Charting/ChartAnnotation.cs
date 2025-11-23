@@ -7,7 +7,8 @@ namespace Blackwood;
 /// <summary>
 /// Represents an annotation that can be added to a chart for plotting.
 /// </summary>
-/// <typeparam name="T">The type of the index and duration values.</typeparam>
+/// <typeparam name="IndexType">The type of the index value.</typeparam>
+/// <typeparam name="DurationType">The type of the duration/length value.</typeparam>
 /// <remarks>
 /// Like a note on the margin of a whiteboard, this class exists
 /// to convince your chart that life is more than a soulless parade of data
@@ -15,17 +16,17 @@ namespace Blackwood;
 ///
 /// An annotation is a span of time with a color and optional text.
 /// </remarks>
-public class ChartAnnotation<T>
+public class ChartAnnotation<IndexType, DurationType>
 {
     /// <summary>
     /// Independent variable value indicating where the annotation is positioned.
     /// </summary>
-    public readonly T index;
+    public readonly IndexType index;
 
     /// <summary>
     /// Duration or length of the annotation span.
     /// </summary>
-    public readonly T duration;
+    public readonly DurationType duration;
 
     /// <summary>
     /// Color used for the span annotation.
@@ -44,23 +45,35 @@ public class ChartAnnotation<T>
     public readonly string? text;
 
     /// <summary>
-    /// Initializes a new instance of the ChartAnnotation class.
+    /// Creates a new annotation.
     /// </summary>
     /// <param name="index">Independent variable value indicating where the annotation is positioned.</param>
     /// <param name="duration">Duration or length of the annotation span.</param>
     /// <param name="color">Color used for the span annotation.</param>
     /// <param name="text">Optional text displayed with the annotation.</param>
     /// <param name="textColor">Optional color for the annotation text. If not specified, defaults to white.</param>
-    public ChartAnnotation(T index, T duration, Color color, string? text = null, Color? textColor = null)
+    public ChartAnnotation(IndexType index, DurationType duration, Color color, string? text = null, Color? textColor = null)
     {
-        this.index = index;
-        this.duration = duration;
-        this.color = color;
-        this.text = text;
-        if (textColor != null)
-        {
-            this.textColor = (Color)textColor;
-        }
+        this.index     = index;
+        this.duration  = duration;
+        this.color     = color;
+        this.text      = text;
+        this.textColor = textColor ?? Color.White;
+    }
+}
+
+/// <summary>
+/// Simpler annotation where the index and duration share the same type parameter.
+/// </summary>
+/// <typeparam name="IndexType">The type of both the index and the duration.</typeparam>
+public class ChartAnnotation<IndexType> : ChartAnnotation<IndexType, IndexType>
+{
+    /// <summary>
+    /// Creates a new annotation where the index and duration share the same type.
+    /// </summary>
+    public ChartAnnotation(IndexType index, IndexType duration, Color color, string? text = null, Color? textColor = null)
+        : base(index, duration, color, text, textColor)
+    {
     }
 }
 

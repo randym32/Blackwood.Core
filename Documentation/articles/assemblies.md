@@ -1,12 +1,13 @@
 ﻿# Working with Assemblies
 
-Use `Application.Assemblies()` to enumerate assemblies in your application.  It
-returns assemblies in priority order, which helps when searching for resources,
-types, or other assembly-level information.
+Use `Application.Assemblies()` to enumerate the assemblies in your application.
+It returns assemblies in priority order, which helps when searching for
+resources, types, or other assembly-level information.
 
 ## Overview
 
-**`Application.Assemblies()`**: Returns assemblies ordered by priority.
+**`Application.Assemblies()`**: Returns assemblies, giving priority to your
+  executing application's assembly.
 
 ## Scanning for Assemblies
 
@@ -30,6 +31,7 @@ using System.Reflection;
 // Get all assemblies in priority order
 foreach (Assembly assembly in Application.Assemblies())
 {
+    // Get some information about each assembly
     var name = assembly.GetName().Name;
     var location = assembly.Location;
     Console.WriteLine($"Assembly: {name}");
@@ -49,12 +51,16 @@ using System.Reflection;
 string targetTypeName = "Application";
 var foundTypes = new List<Type>();
 
+// Iterate through each assembly returned by Application.Assemblies()
 foreach (Assembly assembly in Application.Assemblies())
 {
     try
     {
+        // Get all types from the current assembly whose name contains the target string (case-insensitive)
         var types = assembly.GetTypes()
             .Where(t => t.Name.Contains(targetTypeName, StringComparison.OrdinalIgnoreCase));
+
+        // Add the matching types to the foundTypes list
         foundTypes.AddRange(types);
     }
     catch (ReflectionTypeLoadException)
