@@ -16,64 +16,51 @@ namespace Blackwood;
 ///
 /// An annotation is a span of time with a color and optional text.
 /// </remarks>
-public class ChartAnnotation<IndexType, DurationType>
+/// <remarks>
+/// Creates a new annotation.
+/// </remarks>
+/// <param name="index">Independent variable value indicating where the annotation is positioned.</param>
+/// <param name="duration">Duration or length of the annotation span.</param>
+/// <param name="color">Color used for the span annotation.</param>
+/// <param name="text">Optional text displayed with the annotation.</param>
+/// <param name="textColor">Optional color for the annotation text. If not specified, defaults to white.</param>
+public class ChartAnnotation<IndexType, DurationType>(IndexType index, DurationType duration, Color color, string? text = null, Color? textColor = null)
 {
     /// <summary>
     /// Independent variable value indicating where the annotation is positioned.
     /// </summary>
-    public readonly IndexType index;
+    public readonly IndexType index = index;
 
     /// <summary>
     /// Duration or length of the annotation span.
     /// </summary>
-    public readonly DurationType duration;
+    public readonly DurationType duration = duration;
 
     /// <summary>
     /// Color used for the span annotation.
     /// </summary>
-    public readonly Color color;
+    public readonly Color color = color;
 
     /// <summary>
     /// Color used for the annotation text. Defaults to white if not specified.
     /// </summary>
-    public readonly Color textColor = Color.White;
+    public readonly Color textColor = textColor ?? Color.White;
 
 
     /// <summary>
     /// Optional text displayed with the annotation.
     /// </summary>
-    public readonly string? text;
-
-    /// <summary>
-    /// Creates a new annotation.
-    /// </summary>
-    /// <param name="index">Independent variable value indicating where the annotation is positioned.</param>
-    /// <param name="duration">Duration or length of the annotation span.</param>
-    /// <param name="color">Color used for the span annotation.</param>
-    /// <param name="text">Optional text displayed with the annotation.</param>
-    /// <param name="textColor">Optional color for the annotation text. If not specified, defaults to white.</param>
-    public ChartAnnotation(IndexType index, DurationType duration, Color color, string? text = null, Color? textColor = null)
-    {
-        this.index     = index;
-        this.duration  = duration;
-        this.color     = color;
-        this.text      = text;
-        this.textColor = textColor ?? Color.White;
-    }
+    public readonly string? text = text;
 }
 
 /// <summary>
 /// Simpler annotation where the index and duration share the same type parameter.
 /// </summary>
 /// <typeparam name="IndexType">The type of both the index and the duration.</typeparam>
-public class ChartAnnotation<IndexType> : ChartAnnotation<IndexType, IndexType>
+/// <remarks>
+/// Creates a new annotation where the index and duration share the same type.
+/// </remarks>
+public class ChartAnnotation<IndexType>(IndexType index, IndexType duration, Color color, string? text = null, Color? textColor = null) : ChartAnnotation<IndexType, IndexType>(index, duration, color, text, textColor)
 {
-    /// <summary>
-    /// Creates a new annotation where the index and duration share the same type.
-    /// </summary>
-    public ChartAnnotation(IndexType index, IndexType duration, Color color, string? text = null, Color? textColor = null)
-        : base(index, duration, color, text, textColor)
-    {
-    }
 }
 
