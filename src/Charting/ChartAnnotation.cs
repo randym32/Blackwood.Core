@@ -51,6 +51,17 @@ public class ChartAnnotation<IndexType, DurationType>(IndexType index, DurationT
     /// Optional text displayed with the annotation.
     /// </summary>
     public readonly string? text = text;
+
+    /// <summary>
+    /// Returns a string representation of the ChartAnnotation.
+    /// </summary>
+    /// <returns>A string describing the ChartAnnotation.</returns>
+    public override string ToString()
+    {
+        if (!string.IsNullOrEmpty(text))
+            return text;
+        return $"{index}: {duration}";
+    }
 }
 
 /// <summary>

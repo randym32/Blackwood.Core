@@ -27,4 +27,15 @@ public class ChartPoint<IndexType>(IndexType index, double y, string? annotation
     /// The annotation for the point.  Optional.
     /// </summary>
     public readonly string? annotation = annotation;
+
+    /// <summary>
+    /// Returns a string representation of the ChartPoint.
+    /// </summary>
+    /// <returns>A string describing the ChartPoint.</returns>
+    public override string ToString()
+    {
+        if (!string.IsNullOrEmpty(annotation))
+            return annotation;
+        return $"{index}: {y}";
+    }
 }
