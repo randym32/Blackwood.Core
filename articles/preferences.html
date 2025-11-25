@@ -73,7 +73,7 @@
         <article data-uid="">
 <h1 id="the-preferences-system">The Preferences System</h1>
 
-<p><a href="../api/Blackwood.Core.Utils.md#Blackwood_System_Utils_PreferencesProxy"><code>PreferencesProxy</code></a>
+<p><a class="xref" href="../api/Blackwood.Application.html#Blackwood_Application_PreferencesProxy"><code>PreferencesProxy</code></a>
 provides a proxy for application preferences. It automatically discovers
 static properties in your code that are meant for users to change,
 eliminating the need to register them individually.</p>
@@ -148,7 +148,7 @@ the gets and sets to the corresponding static property.</p>
 <h3 id="restoring-the-preferences-at-startup">Restoring the preferences (at startup)</h3>
 <p>At program startup -- before creating any objects, forms, etc. -- you should
 load the preferences. This is done by calling
-<a href="xref:Blackwood.Core.PreferencesProxy.LoadPreferences"><code>LoadPreferences()</code></a>:</p>
+<a class="xref" href="../api/Blackwood.Application.html#Blackwood_Application_LoadPreferences_"><code>LoadPreferences()</code></a>:</p>
 <pre><code class="lang-csharp">// Load preferences from a file
 Application.PreferencesProxy().LoadPreferences(&quot;settings.json&quot;);
 </code></pre>
@@ -158,7 +158,7 @@ configuration can only take effect at startup/object creation time.</p>
 <h3 id="saving-the-values">Saving the values</h3>
 <p>You should save the user's preferences after changes (or before exiting the
 application), by calling the
-<a href="xref:Blackwood.Core.PreferencesProxy.SavePreferences"><code>SavePreferences()</code></a>
+<a class="xref" href="../api/Blackwood.Application.html#Blackwood_Application_SavePreferences_"><code>SavePreferences()</code></a>
 method.</p>
 <pre><code class="lang-csharp">// Save current preferences to a file
 Application.PreferencesProxy().SavePreferences(&quot;settings.json&quot;);
@@ -167,12 +167,12 @@ Application.PreferencesProxy().SavePreferences(&quot;settings.json&quot;);
 <p>The preferences system also provides methods to help manage user
 changes to preferences at runtime:</p>
 <ul>
-<li><a href="xref:Blackwood.Core.PreferencesProxy.ResetToDefaults"><strong>ResetToDefaults()</strong></a> — Resets all preference values back to their
+<li><a class="xref" href="../api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_ResetToDefaults_"><strong>ResetToDefaults()</strong></a> — Resets all preference values back to their
 original default values (as indicated by the <code>[DefaultValue]</code> attribute on
 each property).</li>
-<li><a href="xref:Blackwood.Core.PreferencesProxy.Checkpoint"><strong>Checkpoint()</strong></a> — Saves the current set of values as a checkpoint.
+<li><a class="xref" href="../api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_Checkpoint_"><strong>Checkpoint()</strong></a> — Saves the current set of values as a checkpoint.
 You can later revert changes by restoring the checkpoint.</li>
-<li><a href="xref:Blackwood.Core.PreferencesProxy.RestoreCheckpoint"><strong>RestoreCheckpoint()</strong></a> — Restores all preference values from a
+<li><a class="xref" href="../api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_RestoreCheckpoint_"><strong>RestoreCheckpoint()</strong></a> — Restores all preference values from a
 previously saved checkpoint.</li>
 </ul>
 <p>Here’s how you use these methods:</p>
@@ -204,11 +204,11 @@ preferences.ResetToDefaults();
 <p>These methods are especially useful for providing &quot;Apply,&quot; &quot;Cancel,&quot; and
 &quot;Reset to Defaults&quot; features in a preferences dialog:</p>
 <ul>
-<li>Call <a href="xref:Blackwood.Core.PreferencesProxy.Checkpoint"><code>Checkpoint()</code></a> just before launching the dialog.</li>
+<li>Call <a class="xref" href="../api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_Checkpoint_"><code>Checkpoint()</code></a> just before launching the dialog.</li>
 <li>If the user clicks &quot;OK&quot; or &quot;Apply,&quot; let changes stand and optionally
-save them via <a href="xref:Blackwood.Core.PreferencesProxy.SavePreferences"><code>SavePreferences()</code></a>.</li>
-<li>If the user clicks &quot;Cancel,&quot; call <a href="xref:Blackwood.Core.PreferencesProxy.RestoreCheckpoint"><code>RestoreCheckpoint()</code></a> to revert any edits.</li>
-<li>If the user clicks &quot;Reset to Defaults,&quot; call <a href="xref:Blackwood.Core.PreferencesProxy.ResetToDefaults"><code>ResetToDefaults()</code></a>.</li>
+save them via <a class="xref" href="../api/Blackwood.Application.html#Blackwood_Application_SavePreferences_"><code>SavePreferences()</code></a>.</li>
+<li>If the user clicks &quot;Cancel,&quot; call <a class="xref" href="../api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_RestoreCheckpoint_"><code>RestoreCheckpoint()</code></a> to revert any edits.</li>
+<li>If the user clicks &quot;Reset to Defaults,&quot; call <a class="xref" href="../api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_ResetToDefaults_"><code>ResetToDefaults()</code></a>.</li>
 </ul>
 <h2 id="a-larger-example">A Larger Example</h2>
 <p>Here's an example showing how to set up preferences, save them,
@@ -255,7 +255,8 @@ public void OnPreferencesChanged()
 }
 </code></pre>
 <h2 id="additional-resources">Additional Resources</h2>
-<p>See <a href="../api/Blackwood.Core.PreferencesProxy.md">PreferencesProxy documentation</a> and <a href="../api/Blackwood.Core.ProxyPropertiesObject.md">ProxyPropertiesObject documentation</a>.</p>
+<p>See <a class="xref" href="../api/Blackwood.Application.html#Blackwood_Application_PreferencesProxy"><code>PreferencesProxy</code></a>
+and <a class="xref" href="../api/Blackwood.ProxyPropertiesObject.html"><code>ProxyPropertiesObject</code></a> for deeper coverage of the proxy itself.</p>
 
 </article>
 

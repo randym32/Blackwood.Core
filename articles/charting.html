@@ -76,19 +76,19 @@
 <p>This framework includes tools to support chart rendering.
 The charting system consists of three main components:</p>
 <ul>
-<li><strong>ChartPoint<t></t></strong>: Represents individual data points in a chart</li>
-<li><strong>ChartAnnotation<t></t></strong>: Represents annotation spans with visual styling</li>
+<li><strong>ChartPoint<indextype></indextype></strong>: Represents individual data points in a chart</li>
+<li><strong>ChartAnnotation&lt;IndexType, DurationType&gt;</strong>: Represents annotation spans with visual styling (the shorthand <code>ChartAnnotation&lt;T&gt;</code> remains for the common case where index and duration share the same type)</li>
 <li><strong>ReduceArray<t></t></strong>:  This reducing point counts in large datasets by while preserving visual fidelity.</li>
 </ul>
-<h2 id="chartpoint">ChartPoint<t></t></h2>
-<p><code>ChartPoint&lt;T&gt;</code> represents a single data point in a chart with an independent
+<h2 id="chartpoint">ChartPoint<indextype></indextype></h2>
+<p><code>ChartPoint&lt;IndexType&gt;</code> represents a single data point in a chart with an independent
 variable (index) and a dependent variable (y-value).  It supports any numeric
 type for the index, including:</p>
 <ul>
 <li><code>int</code>, <code>long</code>, <code>double</code>, <code>float</code></li>
 <li><code>DateTime</code> for time-series data</li>
 <li><code>string</code> for categorical data</li>
-<li>Any type that implements <code>INumber&lt;T&gt;</code></li>
+<li>Any type that implements <code>INumber&lt;IndexType&gt;</code></li>
 </ul>
 <h3 id="creating-chart-points">Creating Chart Points</h3>
 <pre><code class="lang-csharp">using Blackwood;
@@ -108,9 +108,12 @@ var timePoint = new ChartPoint&lt;DateTime&gt;(
 
 var categoryPoint = new ChartPoint&lt;string&gt;(&quot;Category A&quot;, 75.5);
 </code></pre>
-<h2 id="chartannotation">ChartAnnotation<t></t></h2>
-<p><code>ChartAnnotation&lt;T&gt;</code> represents a span annotation on a chart, intended to
-highlight time periods, ranges, or regions of interest.</p>
+<h2 id="chartannotationindextype-durationtype">ChartAnnotation&lt;IndexType, DurationType&gt;</h2>
+<p><code>ChartAnnotation&lt;IndexType, DurationType&gt;</code> represents a span annotation on a chart,
+intended to highlight time periods, ranges, or regions of interest.  Use
+<code>ChartAnnotation&lt;T&gt;</code> when the index and duration share the same type, or specify
+both generic arguments when they differ (for example, DateTime index with a
+TimeSpan duration).</p>
 <h3 id="creating-annotations">Creating Annotations</h3>
 <pre><code class="lang-csharp">using Blackwood;
 using System.Drawing;
@@ -124,11 +127,20 @@ var annotation = new ChartAnnotation&lt;int&gt;(
     textColor: Color.White  // Text color (optional, defaults to white)
 );
 
-// Create annotation without text
+// Create annotation without text, using matching index/duration types
 var simpleAnnotation = new ChartAnnotation&lt;DateTime&gt;(
-    new DateTime(2025, 1, 1),
-    new DateTime(2025, 1, 2),
-    Color.Yellow
+    index: new DateTime(2025, 1, 1),
+    duration: new DateTime(2025, 1, 2),
+    color: Color.Yellow
+);
+
+// Create annotation where the duration type differs from the index type
+var maintenanceWindow = new ChartAnnotation&lt;DateTime, TimeSpan&gt;(
+    index: new DateTime(2025, 1, 1, 8, 0, 0, DateTimeKind.Utc),
+    duration: TimeSpan.FromHours(2),
+    color: Color.FromArgb(160, Color.Orange),
+    text: &quot;Maintenance&quot;,
+    textColor: Color.Black
 );
 </code></pre>
 <h2 id="reducearray---point-reduction">ReduceArray<t> - Point Reduction</t></h2>
@@ -259,7 +271,7 @@ foreach (var annotation in annotations)
 <ul>
 <li><a href="intro.html">Introduction</a> - Overview of Blackwood.Core features</li>
 <li><a href="getting-started.html">Getting Started</a> - Installation and setup</li>
-<li><a href="../api/">API Reference</a> - Complete API documentation for charting classes</li>
+<li><a href="../api/index.html">API Reference</a> - Complete API documentation for charting classes</li>
 </ul>
 
 </article>

@@ -1,3 +1,1316 @@
 ### YamlMime:XRefMap
 sorted: true
-references: []
+references:
+- uid: Blackwood
+  name: Blackwood
+  href: api/Blackwood.html
+  commentId: N:Blackwood
+  fullName: Blackwood
+  nameWithType: Blackwood
+- uid: Blackwood.Application
+  name: Application
+  href: api/Blackwood.Application.html
+  commentId: T:Blackwood.Application
+  fullName: Blackwood.Application
+  nameWithType: Application
+- uid: Blackwood.Application.Assemblies
+  name: Assemblies()
+  href: api/Blackwood.Application.html#Blackwood_Application_Assemblies
+  commentId: M:Blackwood.Application.Assemblies
+  fullName: Blackwood.Application.Assemblies()
+  nameWithType: Application.Assemblies()
+- uid: Blackwood.Application.Assemblies*
+  name: Assemblies
+  href: api/Blackwood.Application.html#Blackwood_Application_Assemblies_
+  commentId: Overload:Blackwood.Application.Assemblies
+  isSpec: "True"
+  fullName: Blackwood.Application.Assemblies
+  nameWithType: Application.Assemblies
+- uid: Blackwood.Application.LoadPreferences(System.String)
+  name: LoadPreferences(string)
+  href: api/Blackwood.Application.html#Blackwood_Application_LoadPreferences_System_String_
+  commentId: M:Blackwood.Application.LoadPreferences(System.String)
+  name.vb: LoadPreferences(String)
+  fullName: Blackwood.Application.LoadPreferences(string)
+  fullName.vb: Blackwood.Application.LoadPreferences(String)
+  nameWithType: Application.LoadPreferences(string)
+  nameWithType.vb: Application.LoadPreferences(String)
+- uid: Blackwood.Application.LoadPreferences*
+  name: LoadPreferences
+  href: api/Blackwood.Application.html#Blackwood_Application_LoadPreferences_
+  commentId: Overload:Blackwood.Application.LoadPreferences
+  isSpec: "True"
+  fullName: Blackwood.Application.LoadPreferences
+  nameWithType: Application.LoadPreferences
+- uid: Blackwood.Application.Name
+  name: Name
+  href: api/Blackwood.Application.html#Blackwood_Application_Name
+  commentId: P:Blackwood.Application.Name
+  fullName: Blackwood.Application.Name
+  nameWithType: Application.Name
+- uid: Blackwood.Application.Name*
+  name: Name
+  href: api/Blackwood.Application.html#Blackwood_Application_Name_
+  commentId: Overload:Blackwood.Application.Name
+  isSpec: "True"
+  fullName: Blackwood.Application.Name
+  nameWithType: Application.Name
+- uid: Blackwood.Application.PreferencesProxy
+  name: PreferencesProxy()
+  href: api/Blackwood.Application.html#Blackwood_Application_PreferencesProxy
+  commentId: M:Blackwood.Application.PreferencesProxy
+  fullName: Blackwood.Application.PreferencesProxy()
+  nameWithType: Application.PreferencesProxy()
+- uid: Blackwood.Application.PreferencesProxy*
+  name: PreferencesProxy
+  href: api/Blackwood.Application.html#Blackwood_Application_PreferencesProxy_
+  commentId: Overload:Blackwood.Application.PreferencesProxy
+  isSpec: "True"
+  fullName: Blackwood.Application.PreferencesProxy
+  nameWithType: Application.PreferencesProxy
+- uid: Blackwood.Application.SavePreferences(System.String)
+  name: SavePreferences(string)
+  href: api/Blackwood.Application.html#Blackwood_Application_SavePreferences_System_String_
+  commentId: M:Blackwood.Application.SavePreferences(System.String)
+  name.vb: SavePreferences(String)
+  fullName: Blackwood.Application.SavePreferences(string)
+  fullName.vb: Blackwood.Application.SavePreferences(String)
+  nameWithType: Application.SavePreferences(string)
+  nameWithType.vb: Application.SavePreferences(String)
+- uid: Blackwood.Application.SavePreferences*
+  name: SavePreferences
+  href: api/Blackwood.Application.html#Blackwood_Application_SavePreferences_
+  commentId: Overload:Blackwood.Application.SavePreferences
+  isSpec: "True"
+  fullName: Blackwood.Application.SavePreferences
+  nameWithType: Application.SavePreferences
+- uid: Blackwood.ApplicationForwarder`1
+  name: ApplicationForwarder<messageType>
+  href: api/Blackwood.ApplicationForwarder-1.html
+  commentId: T:Blackwood.ApplicationForwarder`1
+  name.vb: ApplicationForwarder(Of messageType)
+  fullName: Blackwood.ApplicationForwarder<messageType>
+  fullName.vb: Blackwood.ApplicationForwarder(Of messageType)
+  nameWithType: ApplicationForwarder<messageType>
+  nameWithType.vb: ApplicationForwarder(Of messageType)
+- uid: Blackwood.ApplicationForwarder`1.#ctor(System.String,System.Action{`0})
+  name: ApplicationForwarder(string, Action<messageType>)
+  href: api/Blackwood.ApplicationForwarder-1.html#Blackwood_ApplicationForwarder_1__ctor_System_String_System_Action__0__
+  commentId: M:Blackwood.ApplicationForwarder`1.#ctor(System.String,System.Action{`0})
+  name.vb: New(String, Action(Of messageType))
+  fullName: Blackwood.ApplicationForwarder<messageType>.ApplicationForwarder(string, System.Action<messageType>)
+  fullName.vb: Blackwood.ApplicationForwarder(Of messageType).New(String, System.Action(Of messageType))
+  nameWithType: ApplicationForwarder<messageType>.ApplicationForwarder(string, Action<messageType>)
+  nameWithType.vb: ApplicationForwarder(Of messageType).New(String, Action(Of messageType))
+- uid: Blackwood.ApplicationForwarder`1.#ctor*
+  name: ApplicationForwarder
+  href: api/Blackwood.ApplicationForwarder-1.html#Blackwood_ApplicationForwarder_1__ctor_
+  commentId: Overload:Blackwood.ApplicationForwarder`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Blackwood.ApplicationForwarder<messageType>.ApplicationForwarder
+  fullName.vb: Blackwood.ApplicationForwarder(Of messageType).New
+  nameWithType: ApplicationForwarder<messageType>.ApplicationForwarder
+  nameWithType.vb: ApplicationForwarder(Of messageType).New
+- uid: Blackwood.ApplicationForwarder`1.Dispose
+  name: Dispose()
+  href: api/Blackwood.ApplicationForwarder-1.html#Blackwood_ApplicationForwarder_1_Dispose
+  commentId: M:Blackwood.ApplicationForwarder`1.Dispose
+  fullName: Blackwood.ApplicationForwarder<messageType>.Dispose()
+  fullName.vb: Blackwood.ApplicationForwarder(Of messageType).Dispose()
+  nameWithType: ApplicationForwarder<messageType>.Dispose()
+  nameWithType.vb: ApplicationForwarder(Of messageType).Dispose()
+- uid: Blackwood.ApplicationForwarder`1.Dispose*
+  name: Dispose
+  href: api/Blackwood.ApplicationForwarder-1.html#Blackwood_ApplicationForwarder_1_Dispose_
+  commentId: Overload:Blackwood.ApplicationForwarder`1.Dispose
+  isSpec: "True"
+  fullName: Blackwood.ApplicationForwarder<messageType>.Dispose
+  fullName.vb: Blackwood.ApplicationForwarder(Of messageType).Dispose
+  nameWithType: ApplicationForwarder<messageType>.Dispose
+  nameWithType.vb: ApplicationForwarder(Of messageType).Dispose
+- uid: Blackwood.ApplicationForwarder`1.ForwardFilesAsync(System.String,`0,System.Int32,System.Threading.CancellationToken)
+  name: ForwardFilesAsync(string, messageType, int, CancellationToken)
+  href: api/Blackwood.ApplicationForwarder-1.html#Blackwood_ApplicationForwarder_1_ForwardFilesAsync_System_String__0_System_Int32_System_Threading_CancellationToken_
+  commentId: M:Blackwood.ApplicationForwarder`1.ForwardFilesAsync(System.String,`0,System.Int32,System.Threading.CancellationToken)
+  name.vb: ForwardFilesAsync(String, messageType, Integer, CancellationToken)
+  fullName: Blackwood.ApplicationForwarder<messageType>.ForwardFilesAsync(string, messageType, int, System.Threading.CancellationToken)
+  fullName.vb: Blackwood.ApplicationForwarder(Of messageType).ForwardFilesAsync(String, messageType, Integer, System.Threading.CancellationToken)
+  nameWithType: ApplicationForwarder<messageType>.ForwardFilesAsync(string, messageType, int, CancellationToken)
+  nameWithType.vb: ApplicationForwarder(Of messageType).ForwardFilesAsync(String, messageType, Integer, CancellationToken)
+- uid: Blackwood.ApplicationForwarder`1.ForwardFilesAsync*
+  name: ForwardFilesAsync
+  href: api/Blackwood.ApplicationForwarder-1.html#Blackwood_ApplicationForwarder_1_ForwardFilesAsync_
+  commentId: Overload:Blackwood.ApplicationForwarder`1.ForwardFilesAsync
+  isSpec: "True"
+  fullName: Blackwood.ApplicationForwarder<messageType>.ForwardFilesAsync
+  fullName.vb: Blackwood.ApplicationForwarder(Of messageType).ForwardFilesAsync
+  nameWithType: ApplicationForwarder<messageType>.ForwardFilesAsync
+  nameWithType.vb: ApplicationForwarder(Of messageType).ForwardFilesAsync
+- uid: Blackwood.ChartAnnotation`1
+  name: ChartAnnotation<IndexType>
+  href: api/Blackwood.ChartAnnotation-1.html
+  commentId: T:Blackwood.ChartAnnotation`1
+  name.vb: ChartAnnotation(Of IndexType)
+  fullName: Blackwood.ChartAnnotation<IndexType>
+  fullName.vb: Blackwood.ChartAnnotation(Of IndexType)
+  nameWithType: ChartAnnotation<IndexType>
+  nameWithType.vb: ChartAnnotation(Of IndexType)
+- uid: Blackwood.ChartAnnotation`1.#ctor(`0,`0,System.Drawing.Color,System.String,System.Nullable{System.Drawing.Color})
+  name: ChartAnnotation(IndexType, IndexType, Color, string?, Color?)
+  href: api/Blackwood.ChartAnnotation-1.html#Blackwood_ChartAnnotation_1__ctor__0__0_System_Drawing_Color_System_String_System_Nullable_System_Drawing_Color__
+  commentId: M:Blackwood.ChartAnnotation`1.#ctor(`0,`0,System.Drawing.Color,System.String,System.Nullable{System.Drawing.Color})
+  name.vb: New(IndexType, IndexType, Color, String, Color?)
+  fullName: Blackwood.ChartAnnotation<IndexType>.ChartAnnotation(IndexType, IndexType, System.Drawing.Color, string?, System.Drawing.Color?)
+  fullName.vb: Blackwood.ChartAnnotation(Of IndexType).New(IndexType, IndexType, System.Drawing.Color, String, System.Drawing.Color?)
+  nameWithType: ChartAnnotation<IndexType>.ChartAnnotation(IndexType, IndexType, Color, string?, Color?)
+  nameWithType.vb: ChartAnnotation(Of IndexType).New(IndexType, IndexType, Color, String, Color?)
+- uid: Blackwood.ChartAnnotation`1.#ctor*
+  name: ChartAnnotation
+  href: api/Blackwood.ChartAnnotation-1.html#Blackwood_ChartAnnotation_1__ctor_
+  commentId: Overload:Blackwood.ChartAnnotation`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Blackwood.ChartAnnotation<IndexType>.ChartAnnotation
+  fullName.vb: Blackwood.ChartAnnotation(Of IndexType).New
+  nameWithType: ChartAnnotation<IndexType>.ChartAnnotation
+  nameWithType.vb: ChartAnnotation(Of IndexType).New
+- uid: Blackwood.ChartAnnotation`2
+  name: ChartAnnotation<IndexType, DurationType>
+  href: api/Blackwood.ChartAnnotation-2.html
+  commentId: T:Blackwood.ChartAnnotation`2
+  name.vb: ChartAnnotation(Of IndexType, DurationType)
+  fullName: Blackwood.ChartAnnotation<IndexType, DurationType>
+  fullName.vb: Blackwood.ChartAnnotation(Of IndexType, DurationType)
+  nameWithType: ChartAnnotation<IndexType, DurationType>
+  nameWithType.vb: ChartAnnotation(Of IndexType, DurationType)
+- uid: Blackwood.ChartAnnotation`2.#ctor(`0,`1,System.Drawing.Color,System.String,System.Nullable{System.Drawing.Color})
+  name: ChartAnnotation(IndexType, DurationType, Color, string?, Color?)
+  href: api/Blackwood.ChartAnnotation-2.html#Blackwood_ChartAnnotation_2__ctor__0__1_System_Drawing_Color_System_String_System_Nullable_System_Drawing_Color__
+  commentId: M:Blackwood.ChartAnnotation`2.#ctor(`0,`1,System.Drawing.Color,System.String,System.Nullable{System.Drawing.Color})
+  name.vb: New(IndexType, DurationType, Color, String, Color?)
+  fullName: Blackwood.ChartAnnotation<IndexType, DurationType>.ChartAnnotation(IndexType, DurationType, System.Drawing.Color, string?, System.Drawing.Color?)
+  fullName.vb: Blackwood.ChartAnnotation(Of IndexType, DurationType).New(IndexType, DurationType, System.Drawing.Color, String, System.Drawing.Color?)
+  nameWithType: ChartAnnotation<IndexType, DurationType>.ChartAnnotation(IndexType, DurationType, Color, string?, Color?)
+  nameWithType.vb: ChartAnnotation(Of IndexType, DurationType).New(IndexType, DurationType, Color, String, Color?)
+- uid: Blackwood.ChartAnnotation`2.#ctor*
+  name: ChartAnnotation
+  href: api/Blackwood.ChartAnnotation-2.html#Blackwood_ChartAnnotation_2__ctor_
+  commentId: Overload:Blackwood.ChartAnnotation`2.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Blackwood.ChartAnnotation<IndexType, DurationType>.ChartAnnotation
+  fullName.vb: Blackwood.ChartAnnotation(Of IndexType, DurationType).New
+  nameWithType: ChartAnnotation<IndexType, DurationType>.ChartAnnotation
+  nameWithType.vb: ChartAnnotation(Of IndexType, DurationType).New
+- uid: Blackwood.ChartAnnotation`2.color
+  name: color
+  href: api/Blackwood.ChartAnnotation-2.html#Blackwood_ChartAnnotation_2_color
+  commentId: F:Blackwood.ChartAnnotation`2.color
+  fullName: Blackwood.ChartAnnotation<IndexType, DurationType>.color
+  fullName.vb: Blackwood.ChartAnnotation(Of IndexType, DurationType).color
+  nameWithType: ChartAnnotation<IndexType, DurationType>.color
+  nameWithType.vb: ChartAnnotation(Of IndexType, DurationType).color
+- uid: Blackwood.ChartAnnotation`2.duration
+  name: duration
+  href: api/Blackwood.ChartAnnotation-2.html#Blackwood_ChartAnnotation_2_duration
+  commentId: F:Blackwood.ChartAnnotation`2.duration
+  fullName: Blackwood.ChartAnnotation<IndexType, DurationType>.duration
+  fullName.vb: Blackwood.ChartAnnotation(Of IndexType, DurationType).duration
+  nameWithType: ChartAnnotation<IndexType, DurationType>.duration
+  nameWithType.vb: ChartAnnotation(Of IndexType, DurationType).duration
+- uid: Blackwood.ChartAnnotation`2.index
+  name: index
+  href: api/Blackwood.ChartAnnotation-2.html#Blackwood_ChartAnnotation_2_index
+  commentId: F:Blackwood.ChartAnnotation`2.index
+  fullName: Blackwood.ChartAnnotation<IndexType, DurationType>.index
+  fullName.vb: Blackwood.ChartAnnotation(Of IndexType, DurationType).index
+  nameWithType: ChartAnnotation<IndexType, DurationType>.index
+  nameWithType.vb: ChartAnnotation(Of IndexType, DurationType).index
+- uid: Blackwood.ChartAnnotation`2.text
+  name: text
+  href: api/Blackwood.ChartAnnotation-2.html#Blackwood_ChartAnnotation_2_text
+  commentId: F:Blackwood.ChartAnnotation`2.text
+  fullName: Blackwood.ChartAnnotation<IndexType, DurationType>.text
+  fullName.vb: Blackwood.ChartAnnotation(Of IndexType, DurationType).text
+  nameWithType: ChartAnnotation<IndexType, DurationType>.text
+  nameWithType.vb: ChartAnnotation(Of IndexType, DurationType).text
+- uid: Blackwood.ChartAnnotation`2.textColor
+  name: textColor
+  href: api/Blackwood.ChartAnnotation-2.html#Blackwood_ChartAnnotation_2_textColor
+  commentId: F:Blackwood.ChartAnnotation`2.textColor
+  fullName: Blackwood.ChartAnnotation<IndexType, DurationType>.textColor
+  fullName.vb: Blackwood.ChartAnnotation(Of IndexType, DurationType).textColor
+  nameWithType: ChartAnnotation<IndexType, DurationType>.textColor
+  nameWithType.vb: ChartAnnotation(Of IndexType, DurationType).textColor
+- uid: Blackwood.ChartPoint`1
+  name: ChartPoint<IndexType>
+  href: api/Blackwood.ChartPoint-1.html
+  commentId: T:Blackwood.ChartPoint`1
+  name.vb: ChartPoint(Of IndexType)
+  fullName: Blackwood.ChartPoint<IndexType>
+  fullName.vb: Blackwood.ChartPoint(Of IndexType)
+  nameWithType: ChartPoint<IndexType>
+  nameWithType.vb: ChartPoint(Of IndexType)
+- uid: Blackwood.ChartPoint`1.#ctor(`0,System.Double,System.String)
+  name: ChartPoint(IndexType, double, string?)
+  href: api/Blackwood.ChartPoint-1.html#Blackwood_ChartPoint_1__ctor__0_System_Double_System_String_
+  commentId: M:Blackwood.ChartPoint`1.#ctor(`0,System.Double,System.String)
+  name.vb: New(IndexType, Double, String)
+  fullName: Blackwood.ChartPoint<IndexType>.ChartPoint(IndexType, double, string?)
+  fullName.vb: Blackwood.ChartPoint(Of IndexType).New(IndexType, Double, String)
+  nameWithType: ChartPoint<IndexType>.ChartPoint(IndexType, double, string?)
+  nameWithType.vb: ChartPoint(Of IndexType).New(IndexType, Double, String)
+- uid: Blackwood.ChartPoint`1.#ctor*
+  name: ChartPoint
+  href: api/Blackwood.ChartPoint-1.html#Blackwood_ChartPoint_1__ctor_
+  commentId: Overload:Blackwood.ChartPoint`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Blackwood.ChartPoint<IndexType>.ChartPoint
+  fullName.vb: Blackwood.ChartPoint(Of IndexType).New
+  nameWithType: ChartPoint<IndexType>.ChartPoint
+  nameWithType.vb: ChartPoint(Of IndexType).New
+- uid: Blackwood.ChartPoint`1.annotation
+  name: annotation
+  href: api/Blackwood.ChartPoint-1.html#Blackwood_ChartPoint_1_annotation
+  commentId: F:Blackwood.ChartPoint`1.annotation
+  fullName: Blackwood.ChartPoint<IndexType>.annotation
+  fullName.vb: Blackwood.ChartPoint(Of IndexType).annotation
+  nameWithType: ChartPoint<IndexType>.annotation
+  nameWithType.vb: ChartPoint(Of IndexType).annotation
+- uid: Blackwood.ChartPoint`1.index
+  name: index
+  href: api/Blackwood.ChartPoint-1.html#Blackwood_ChartPoint_1_index
+  commentId: F:Blackwood.ChartPoint`1.index
+  fullName: Blackwood.ChartPoint<IndexType>.index
+  fullName.vb: Blackwood.ChartPoint(Of IndexType).index
+  nameWithType: ChartPoint<IndexType>.index
+  nameWithType.vb: ChartPoint(Of IndexType).index
+- uid: Blackwood.ChartPoint`1.y
+  name: y
+  href: api/Blackwood.ChartPoint-1.html#Blackwood_ChartPoint_1_y
+  commentId: F:Blackwood.ChartPoint`1.y
+  fullName: Blackwood.ChartPoint<IndexType>.y
+  fullName.vb: Blackwood.ChartPoint(Of IndexType).y
+  nameWithType: ChartPoint<IndexType>.y
+  nameWithType.vb: ChartPoint(Of IndexType).y
+- uid: Blackwood.ItemAttributes
+  name: ItemAttributes
+  href: api/Blackwood.ItemAttributes.html
+  commentId: T:Blackwood.ItemAttributes
+  fullName: Blackwood.ItemAttributes
+  nameWithType: ItemAttributes
+- uid: Blackwood.ItemAttributes.Author
+  name: Author
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_Author
+  commentId: F:Blackwood.ItemAttributes.Author
+  fullName: Blackwood.ItemAttributes.Author
+  nameWithType: ItemAttributes.Author
+- uid: Blackwood.ItemAttributes.AuthorEmail
+  name: AuthorEmail
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_AuthorEmail
+  commentId: F:Blackwood.ItemAttributes.AuthorEmail
+  fullName: Blackwood.ItemAttributes.AuthorEmail
+  nameWithType: ItemAttributes.AuthorEmail
+- uid: Blackwood.ItemAttributes.Clone
+  name: Clone()
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_Clone
+  commentId: M:Blackwood.ItemAttributes.Clone
+  fullName: Blackwood.ItemAttributes.Clone()
+  nameWithType: ItemAttributes.Clone()
+- uid: Blackwood.ItemAttributes.Clone*
+  name: Clone
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_Clone_
+  commentId: Overload:Blackwood.ItemAttributes.Clone
+  isSpec: "True"
+  fullName: Blackwood.ItemAttributes.Clone
+  nameWithType: ItemAttributes.Clone
+- uid: Blackwood.ItemAttributes.Comments
+  name: Comments
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_Comments
+  commentId: F:Blackwood.ItemAttributes.Comments
+  fullName: Blackwood.ItemAttributes.Comments
+  nameWithType: ItemAttributes.Comments
+- uid: Blackwood.ItemAttributes.CreatedUTC
+  name: CreatedUTC
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_CreatedUTC
+  commentId: F:Blackwood.ItemAttributes.CreatedUTC
+  fullName: Blackwood.ItemAttributes.CreatedUTC
+  nameWithType: ItemAttributes.CreatedUTC
+- uid: Blackwood.ItemAttributes.Description
+  name: Description
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_Description
+  commentId: F:Blackwood.ItemAttributes.Description
+  fullName: Blackwood.ItemAttributes.Description
+  nameWithType: ItemAttributes.Description
+- uid: Blackwood.ItemAttributes.Documentation
+  name: Documentation
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_Documentation
+  commentId: F:Blackwood.ItemAttributes.Documentation
+  fullName: Blackwood.ItemAttributes.Documentation
+  nameWithType: ItemAttributes.Documentation
+- uid: Blackwood.ItemAttributes.Guid
+  name: Guid
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_Guid
+  commentId: F:Blackwood.ItemAttributes.Guid
+  fullName: Blackwood.ItemAttributes.Guid
+  nameWithType: ItemAttributes.Guid
+- uid: Blackwood.ItemAttributes.LastModifiedUTC
+  name: LastModifiedUTC
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_LastModifiedUTC
+  commentId: F:Blackwood.ItemAttributes.LastModifiedUTC
+  fullName: Blackwood.ItemAttributes.LastModifiedUTC
+  nameWithType: ItemAttributes.LastModifiedUTC
+- uid: Blackwood.ItemAttributes.Link
+  name: Link
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_Link
+  commentId: F:Blackwood.ItemAttributes.Link
+  fullName: Blackwood.ItemAttributes.Link
+  nameWithType: ItemAttributes.Link
+- uid: Blackwood.ItemAttributes.Name
+  name: Name
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_Name
+  commentId: P:Blackwood.ItemAttributes.Name
+  fullName: Blackwood.ItemAttributes.Name
+  nameWithType: ItemAttributes.Name
+- uid: Blackwood.ItemAttributes.Name*
+  name: Name
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_Name_
+  commentId: Overload:Blackwood.ItemAttributes.Name
+  isSpec: "True"
+  fullName: Blackwood.ItemAttributes.Name
+  nameWithType: ItemAttributes.Name
+- uid: Blackwood.ItemAttributes.TypeName
+  name: TypeName
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_TypeName
+  commentId: F:Blackwood.ItemAttributes.TypeName
+  fullName: Blackwood.ItemAttributes.TypeName
+  nameWithType: ItemAttributes.TypeName
+- uid: Blackwood.ItemAttributes.Version
+  name: Version
+  href: api/Blackwood.ItemAttributes.html#Blackwood_ItemAttributes_Version
+  commentId: F:Blackwood.ItemAttributes.Version
+  fullName: Blackwood.ItemAttributes.Version
+  nameWithType: ItemAttributes.Version
+- uid: Blackwood.MenuItem
+  name: MenuItem
+  href: api/Blackwood.MenuItem.html
+  commentId: T:Blackwood.MenuItem
+  fullName: Blackwood.MenuItem
+  nameWithType: MenuItem
+- uid: Blackwood.MenuItem.AddTemplates(System.Collections.Generic.IEnumerable{Blackwood.MenuItem})
+  name: AddTemplates(IEnumerable<MenuItem>)
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_AddTemplates_System_Collections_Generic_IEnumerable_Blackwood_MenuItem__
+  commentId: M:Blackwood.MenuItem.AddTemplates(System.Collections.Generic.IEnumerable{Blackwood.MenuItem})
+  name.vb: AddTemplates(IEnumerable(Of MenuItem))
+  fullName: Blackwood.MenuItem.AddTemplates(System.Collections.Generic.IEnumerable<Blackwood.MenuItem>)
+  fullName.vb: Blackwood.MenuItem.AddTemplates(System.Collections.Generic.IEnumerable(Of Blackwood.MenuItem))
+  nameWithType: MenuItem.AddTemplates(IEnumerable<MenuItem>)
+  nameWithType.vb: MenuItem.AddTemplates(IEnumerable(Of MenuItem))
+- uid: Blackwood.MenuItem.AddTemplates*
+  name: AddTemplates
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_AddTemplates_
+  commentId: Overload:Blackwood.MenuItem.AddTemplates
+  isSpec: "True"
+  fullName: Blackwood.MenuItem.AddTemplates
+  nameWithType: MenuItem.AddTemplates
+- uid: Blackwood.MenuItem.Clone
+  name: Clone()
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_Clone
+  commentId: M:Blackwood.MenuItem.Clone
+  fullName: Blackwood.MenuItem.Clone()
+  nameWithType: MenuItem.Clone()
+- uid: Blackwood.MenuItem.Clone*
+  name: Clone
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_Clone_
+  commentId: Overload:Blackwood.MenuItem.Clone
+  isSpec: "True"
+  fullName: Blackwood.MenuItem.Clone
+  nameWithType: MenuItem.Clone
+- uid: Blackwood.MenuItem.Disabled
+  name: Disabled
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_Disabled
+  commentId: F:Blackwood.MenuItem.Disabled
+  fullName: Blackwood.MenuItem.Disabled
+  nameWithType: MenuItem.Disabled
+- uid: Blackwood.MenuItem.GetTemplate(System.String)
+  name: GetTemplate(string)
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_GetTemplate_System_String_
+  commentId: M:Blackwood.MenuItem.GetTemplate(System.String)
+  name.vb: GetTemplate(String)
+  fullName: Blackwood.MenuItem.GetTemplate(string)
+  fullName.vb: Blackwood.MenuItem.GetTemplate(String)
+  nameWithType: MenuItem.GetTemplate(string)
+  nameWithType.vb: MenuItem.GetTemplate(String)
+- uid: Blackwood.MenuItem.GetTemplate*
+  name: GetTemplate
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_GetTemplate_
+  commentId: Overload:Blackwood.MenuItem.GetTemplate
+  isSpec: "True"
+  fullName: Blackwood.MenuItem.GetTemplate
+  nameWithType: MenuItem.GetTemplate
+- uid: Blackwood.MenuItem.MenuPath
+  name: MenuPath
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_MenuPath
+  commentId: F:Blackwood.MenuItem.MenuPath
+  fullName: Blackwood.MenuItem.MenuPath
+  nameWithType: MenuItem.MenuPath
+- uid: Blackwood.MenuItem.Order
+  name: Order
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_Order
+  commentId: F:Blackwood.MenuItem.Order
+  fullName: Blackwood.MenuItem.Order
+  nameWithType: MenuItem.Order
+- uid: Blackwood.MenuItem.QuickKey
+  name: QuickKey
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_QuickKey
+  commentId: F:Blackwood.MenuItem.QuickKey
+  fullName: Blackwood.MenuItem.QuickKey
+  nameWithType: MenuItem.QuickKey
+- uid: Blackwood.MenuItem.SeparatorBefore
+  name: SeparatorBefore
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_SeparatorBefore
+  commentId: F:Blackwood.MenuItem.SeparatorBefore
+  fullName: Blackwood.MenuItem.SeparatorBefore
+  nameWithType: MenuItem.SeparatorBefore
+- uid: Blackwood.MenuItem.Tag
+  name: Tag
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_Tag
+  commentId: F:Blackwood.MenuItem.Tag
+  fullName: Blackwood.MenuItem.Tag
+  nameWithType: MenuItem.Tag
+- uid: Blackwood.MenuItem.ToolTip
+  name: ToolTip
+  href: api/Blackwood.MenuItem.html#Blackwood_MenuItem_ToolTip
+  commentId: F:Blackwood.MenuItem.ToolTip
+  fullName: Blackwood.MenuItem.ToolTip
+  nameWithType: MenuItem.ToolTip
+- uid: Blackwood.MenuItemAttribute
+  name: MenuItemAttribute
+  href: api/Blackwood.MenuItemAttribute.html
+  commentId: T:Blackwood.MenuItemAttribute
+  fullName: Blackwood.MenuItemAttribute
+  nameWithType: MenuItemAttribute
+- uid: Blackwood.MenuItemAttribute.#ctor(System.String,System.String,System.String,System.Boolean,System.Boolean)
+  name: MenuItemAttribute(string, string?, string?, bool, bool)
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute__ctor_System_String_System_String_System_String_System_Boolean_System_Boolean_
+  commentId: M:Blackwood.MenuItemAttribute.#ctor(System.String,System.String,System.String,System.Boolean,System.Boolean)
+  name.vb: New(String, String, String, Boolean, Boolean)
+  fullName: Blackwood.MenuItemAttribute.MenuItemAttribute(string, string?, string?, bool, bool)
+  fullName.vb: Blackwood.MenuItemAttribute.New(String, String, String, Boolean, Boolean)
+  nameWithType: MenuItemAttribute.MenuItemAttribute(string, string?, string?, bool, bool)
+  nameWithType.vb: MenuItemAttribute.New(String, String, String, Boolean, Boolean)
+- uid: Blackwood.MenuItemAttribute.#ctor*
+  name: MenuItemAttribute
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute__ctor_
+  commentId: Overload:Blackwood.MenuItemAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Blackwood.MenuItemAttribute.MenuItemAttribute
+  fullName.vb: Blackwood.MenuItemAttribute.New
+  nameWithType: MenuItemAttribute.MenuItemAttribute
+  nameWithType.vb: MenuItemAttribute.New
+- uid: Blackwood.MenuItemAttribute.Disabled
+  name: Disabled
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_Disabled
+  commentId: P:Blackwood.MenuItemAttribute.Disabled
+  fullName: Blackwood.MenuItemAttribute.Disabled
+  nameWithType: MenuItemAttribute.Disabled
+- uid: Blackwood.MenuItemAttribute.Disabled*
+  name: Disabled
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_Disabled_
+  commentId: Overload:Blackwood.MenuItemAttribute.Disabled
+  isSpec: "True"
+  fullName: Blackwood.MenuItemAttribute.Disabled
+  nameWithType: MenuItemAttribute.Disabled
+- uid: Blackwood.MenuItemAttribute.MenuItem
+  name: MenuItem()
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_MenuItem
+  commentId: M:Blackwood.MenuItemAttribute.MenuItem
+  fullName: Blackwood.MenuItemAttribute.MenuItem()
+  nameWithType: MenuItemAttribute.MenuItem()
+- uid: Blackwood.MenuItemAttribute.MenuItem*
+  name: MenuItem
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_MenuItem_
+  commentId: Overload:Blackwood.MenuItemAttribute.MenuItem
+  isSpec: "True"
+  fullName: Blackwood.MenuItemAttribute.MenuItem
+  nameWithType: MenuItemAttribute.MenuItem
+- uid: Blackwood.MenuItemAttribute.MenuPath
+  name: MenuPath
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_MenuPath
+  commentId: P:Blackwood.MenuItemAttribute.MenuPath
+  fullName: Blackwood.MenuItemAttribute.MenuPath
+  nameWithType: MenuItemAttribute.MenuPath
+- uid: Blackwood.MenuItemAttribute.MenuPath*
+  name: MenuPath
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_MenuPath_
+  commentId: Overload:Blackwood.MenuItemAttribute.MenuPath
+  isSpec: "True"
+  fullName: Blackwood.MenuItemAttribute.MenuPath
+  nameWithType: MenuItemAttribute.MenuPath
+- uid: Blackwood.MenuItemAttribute.QuickKey
+  name: QuickKey
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_QuickKey
+  commentId: P:Blackwood.MenuItemAttribute.QuickKey
+  fullName: Blackwood.MenuItemAttribute.QuickKey
+  nameWithType: MenuItemAttribute.QuickKey
+- uid: Blackwood.MenuItemAttribute.QuickKey*
+  name: QuickKey
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_QuickKey_
+  commentId: Overload:Blackwood.MenuItemAttribute.QuickKey
+  isSpec: "True"
+  fullName: Blackwood.MenuItemAttribute.QuickKey
+  nameWithType: MenuItemAttribute.QuickKey
+- uid: Blackwood.MenuItemAttribute.SeparatorBefore
+  name: SeparatorBefore
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_SeparatorBefore
+  commentId: P:Blackwood.MenuItemAttribute.SeparatorBefore
+  fullName: Blackwood.MenuItemAttribute.SeparatorBefore
+  nameWithType: MenuItemAttribute.SeparatorBefore
+- uid: Blackwood.MenuItemAttribute.SeparatorBefore*
+  name: SeparatorBefore
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_SeparatorBefore_
+  commentId: Overload:Blackwood.MenuItemAttribute.SeparatorBefore
+  isSpec: "True"
+  fullName: Blackwood.MenuItemAttribute.SeparatorBefore
+  nameWithType: MenuItemAttribute.SeparatorBefore
+- uid: Blackwood.MenuItemAttribute.Tag
+  name: Tag
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_Tag
+  commentId: P:Blackwood.MenuItemAttribute.Tag
+  fullName: Blackwood.MenuItemAttribute.Tag
+  nameWithType: MenuItemAttribute.Tag
+- uid: Blackwood.MenuItemAttribute.Tag*
+  name: Tag
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_Tag_
+  commentId: Overload:Blackwood.MenuItemAttribute.Tag
+  isSpec: "True"
+  fullName: Blackwood.MenuItemAttribute.Tag
+  nameWithType: MenuItemAttribute.Tag
+- uid: Blackwood.MenuItemAttribute.ToolTip
+  name: ToolTip
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_ToolTip
+  commentId: P:Blackwood.MenuItemAttribute.ToolTip
+  fullName: Blackwood.MenuItemAttribute.ToolTip
+  nameWithType: MenuItemAttribute.ToolTip
+- uid: Blackwood.MenuItemAttribute.ToolTip*
+  name: ToolTip
+  href: api/Blackwood.MenuItemAttribute.html#Blackwood_MenuItemAttribute_ToolTip_
+  commentId: Overload:Blackwood.MenuItemAttribute.ToolTip
+  isSpec: "True"
+  fullName: Blackwood.MenuItemAttribute.ToolTip
+  nameWithType: MenuItemAttribute.ToolTip
+- uid: Blackwood.Menus
+  name: Menus
+  href: api/Blackwood.Menus.html
+  commentId: T:Blackwood.Menus
+  fullName: Blackwood.Menus
+  nameWithType: Menus
+- uid: Blackwood.Menus.LoadMenuTemplates(System.String)
+  name: LoadMenuTemplates(string)
+  href: api/Blackwood.Menus.html#Blackwood_Menus_LoadMenuTemplates_System_String_
+  commentId: M:Blackwood.Menus.LoadMenuTemplates(System.String)
+  name.vb: LoadMenuTemplates(String)
+  fullName: Blackwood.Menus.LoadMenuTemplates(string)
+  fullName.vb: Blackwood.Menus.LoadMenuTemplates(String)
+  nameWithType: Menus.LoadMenuTemplates(string)
+  nameWithType.vb: Menus.LoadMenuTemplates(String)
+- uid: Blackwood.Menus.LoadMenuTemplates*
+  name: LoadMenuTemplates
+  href: api/Blackwood.Menus.html#Blackwood_Menus_LoadMenuTemplates_
+  commentId: Overload:Blackwood.Menus.LoadMenuTemplates
+  isSpec: "True"
+  fullName: Blackwood.Menus.LoadMenuTemplates
+  nameWithType: Menus.LoadMenuTemplates
+- uid: Blackwood.Menus.MenuItems
+  name: MenuItems
+  href: api/Blackwood.Menus.html#Blackwood_Menus_MenuItems
+  commentId: F:Blackwood.Menus.MenuItems
+  fullName: Blackwood.Menus.MenuItems
+  nameWithType: Menus.MenuItems
+- uid: Blackwood.Menus.MenuStrip
+  name: MenuStrip
+  href: api/Blackwood.Menus.html#Blackwood_Menus_MenuStrip
+  commentId: F:Blackwood.Menus.MenuStrip
+  fullName: Blackwood.Menus.MenuStrip
+  nameWithType: Menus.MenuStrip
+- uid: Blackwood.Menus.MenuStripTemplate
+  name: MenuStripTemplate
+  href: api/Blackwood.Menus.html#Blackwood_Menus_MenuStripTemplate
+  commentId: F:Blackwood.Menus.MenuStripTemplate
+  fullName: Blackwood.Menus.MenuStripTemplate
+  nameWithType: Menus.MenuStripTemplate
+- uid: Blackwood.PropertiesJsonConverter
+  name: PropertiesJsonConverter
+  href: api/Blackwood.PropertiesJsonConverter.html
+  commentId: T:Blackwood.PropertiesJsonConverter
+  fullName: Blackwood.PropertiesJsonConverter
+  nameWithType: PropertiesJsonConverter
+- uid: Blackwood.PropertiesJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/Blackwood.PropertiesJsonConverter.html#Blackwood_PropertiesJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:Blackwood.PropertiesJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: Blackwood.PropertiesJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: Blackwood.PropertiesJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: PropertiesJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: PropertiesJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: Blackwood.PropertiesJsonConverter.Read*
+  name: Read
+  href: api/Blackwood.PropertiesJsonConverter.html#Blackwood_PropertiesJsonConverter_Read_
+  commentId: Overload:Blackwood.PropertiesJsonConverter.Read
+  isSpec: "True"
+  fullName: Blackwood.PropertiesJsonConverter.Read
+  nameWithType: PropertiesJsonConverter.Read
+- uid: Blackwood.PropertiesJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Blackwood.ProxyPropertiesObject,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, ProxyPropertiesObject, JsonSerializerOptions)
+  href: api/Blackwood.PropertiesJsonConverter.html#Blackwood_PropertiesJsonConverter_Write_System_Text_Json_Utf8JsonWriter_Blackwood_ProxyPropertiesObject_System_Text_Json_JsonSerializerOptions_
+  commentId: M:Blackwood.PropertiesJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Blackwood.ProxyPropertiesObject,System.Text.Json.JsonSerializerOptions)
+  fullName: Blackwood.PropertiesJsonConverter.Write(System.Text.Json.Utf8JsonWriter, Blackwood.ProxyPropertiesObject, System.Text.Json.JsonSerializerOptions)
+  nameWithType: PropertiesJsonConverter.Write(Utf8JsonWriter, ProxyPropertiesObject, JsonSerializerOptions)
+- uid: Blackwood.PropertiesJsonConverter.Write*
+  name: Write
+  href: api/Blackwood.PropertiesJsonConverter.html#Blackwood_PropertiesJsonConverter_Write_
+  commentId: Overload:Blackwood.PropertiesJsonConverter.Write
+  isSpec: "True"
+  fullName: Blackwood.PropertiesJsonConverter.Write
+  nameWithType: PropertiesJsonConverter.Write
+- uid: Blackwood.ProxyPropertiesObject
+  name: ProxyPropertiesObject
+  href: api/Blackwood.ProxyPropertiesObject.html
+  commentId: T:Blackwood.ProxyPropertiesObject
+  fullName: Blackwood.ProxyPropertiesObject
+  nameWithType: ProxyPropertiesObject
+- uid: Blackwood.ProxyPropertiesObject.#ctor(Blackwood.ProxyPropertiesObject,System.Object)
+  name: ProxyPropertiesObject(ProxyPropertiesObject, object)
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject__ctor_Blackwood_ProxyPropertiesObject_System_Object_
+  commentId: M:Blackwood.ProxyPropertiesObject.#ctor(Blackwood.ProxyPropertiesObject,System.Object)
+  name.vb: New(ProxyPropertiesObject, Object)
+  fullName: Blackwood.ProxyPropertiesObject.ProxyPropertiesObject(Blackwood.ProxyPropertiesObject, object)
+  fullName.vb: Blackwood.ProxyPropertiesObject.New(Blackwood.ProxyPropertiesObject, Object)
+  nameWithType: ProxyPropertiesObject.ProxyPropertiesObject(ProxyPropertiesObject, object)
+  nameWithType.vb: ProxyPropertiesObject.New(ProxyPropertiesObject, Object)
+- uid: Blackwood.ProxyPropertiesObject.#ctor(System.Object)
+  name: ProxyPropertiesObject(object?)
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject__ctor_System_Object_
+  commentId: M:Blackwood.ProxyPropertiesObject.#ctor(System.Object)
+  name.vb: New(Object)
+  fullName: Blackwood.ProxyPropertiesObject.ProxyPropertiesObject(object?)
+  fullName.vb: Blackwood.ProxyPropertiesObject.New(Object)
+  nameWithType: ProxyPropertiesObject.ProxyPropertiesObject(object?)
+  nameWithType.vb: ProxyPropertiesObject.New(Object)
+- uid: Blackwood.ProxyPropertiesObject.#ctor*
+  name: ProxyPropertiesObject
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject__ctor_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Blackwood.ProxyPropertiesObject.ProxyPropertiesObject
+  fullName.vb: Blackwood.ProxyPropertiesObject.New
+  nameWithType: ProxyPropertiesObject.ProxyPropertiesObject
+  nameWithType.vb: ProxyPropertiesObject.New
+- uid: Blackwood.ProxyPropertiesObject.AddClassProperties(System.Type,System.Func{System.Reflection.MemberInfo,System.Boolean})
+  name: AddClassProperties(Type, Func<MemberInfo, bool>?)
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_AddClassProperties_System_Type_System_Func_System_Reflection_MemberInfo_System_Boolean__
+  commentId: M:Blackwood.ProxyPropertiesObject.AddClassProperties(System.Type,System.Func{System.Reflection.MemberInfo,System.Boolean})
+  name.vb: AddClassProperties(Type, Func(Of MemberInfo, Boolean))
+  fullName: Blackwood.ProxyPropertiesObject.AddClassProperties(System.Type, System.Func<System.Reflection.MemberInfo, bool>?)
+  fullName.vb: Blackwood.ProxyPropertiesObject.AddClassProperties(System.Type, System.Func(Of System.Reflection.MemberInfo, Boolean))
+  nameWithType: ProxyPropertiesObject.AddClassProperties(Type, Func<MemberInfo, bool>?)
+  nameWithType.vb: ProxyPropertiesObject.AddClassProperties(Type, Func(Of MemberInfo, Boolean))
+- uid: Blackwood.ProxyPropertiesObject.AddClassProperties*
+  name: AddClassProperties
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_AddClassProperties_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.AddClassProperties
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.AddClassProperties
+  nameWithType: ProxyPropertiesObject.AddClassProperties
+- uid: Blackwood.ProxyPropertiesObject.AddInstanceProperties(System.Type,System.Func{System.Reflection.MemberInfo,System.Boolean})
+  name: AddInstanceProperties(Type, Func<MemberInfo, bool>?)
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_AddInstanceProperties_System_Type_System_Func_System_Reflection_MemberInfo_System_Boolean__
+  commentId: M:Blackwood.ProxyPropertiesObject.AddInstanceProperties(System.Type,System.Func{System.Reflection.MemberInfo,System.Boolean})
+  name.vb: AddInstanceProperties(Type, Func(Of MemberInfo, Boolean))
+  fullName: Blackwood.ProxyPropertiesObject.AddInstanceProperties(System.Type, System.Func<System.Reflection.MemberInfo, bool>?)
+  fullName.vb: Blackwood.ProxyPropertiesObject.AddInstanceProperties(System.Type, System.Func(Of System.Reflection.MemberInfo, Boolean))
+  nameWithType: ProxyPropertiesObject.AddInstanceProperties(Type, Func<MemberInfo, bool>?)
+  nameWithType.vb: ProxyPropertiesObject.AddInstanceProperties(Type, Func(Of MemberInfo, Boolean))
+- uid: Blackwood.ProxyPropertiesObject.AddInstanceProperties*
+  name: AddInstanceProperties
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_AddInstanceProperties_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.AddInstanceProperties
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.AddInstanceProperties
+  nameWithType: ProxyPropertiesObject.AddInstanceProperties
+- uid: Blackwood.ProxyPropertiesObject.Checkpoint
+  name: Checkpoint()
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_Checkpoint
+  commentId: M:Blackwood.ProxyPropertiesObject.Checkpoint
+  fullName: Blackwood.ProxyPropertiesObject.Checkpoint()
+  nameWithType: ProxyPropertiesObject.Checkpoint()
+- uid: Blackwood.ProxyPropertiesObject.Checkpoint*
+  name: Checkpoint
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_Checkpoint_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.Checkpoint
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.Checkpoint
+  nameWithType: ProxyPropertiesObject.Checkpoint
+- uid: Blackwood.ProxyPropertiesObject.DescriptorCount
+  name: DescriptorCount()
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_DescriptorCount
+  commentId: M:Blackwood.ProxyPropertiesObject.DescriptorCount
+  fullName: Blackwood.ProxyPropertiesObject.DescriptorCount()
+  nameWithType: ProxyPropertiesObject.DescriptorCount()
+- uid: Blackwood.ProxyPropertiesObject.DescriptorCount*
+  name: DescriptorCount
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_DescriptorCount_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.DescriptorCount
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.DescriptorCount
+  nameWithType: ProxyPropertiesObject.DescriptorCount
+- uid: Blackwood.ProxyPropertiesObject.GetAttributes
+  name: GetAttributes()
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetAttributes
+  commentId: M:Blackwood.ProxyPropertiesObject.GetAttributes
+  fullName: Blackwood.ProxyPropertiesObject.GetAttributes()
+  nameWithType: ProxyPropertiesObject.GetAttributes()
+- uid: Blackwood.ProxyPropertiesObject.GetAttributes*
+  name: GetAttributes
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetAttributes_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.GetAttributes
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.GetAttributes
+  nameWithType: ProxyPropertiesObject.GetAttributes
+- uid: Blackwood.ProxyPropertiesObject.GetClassName
+  name: GetClassName()
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetClassName
+  commentId: M:Blackwood.ProxyPropertiesObject.GetClassName
+  fullName: Blackwood.ProxyPropertiesObject.GetClassName()
+  nameWithType: ProxyPropertiesObject.GetClassName()
+- uid: Blackwood.ProxyPropertiesObject.GetClassName*
+  name: GetClassName
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetClassName_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.GetClassName
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.GetClassName
+  nameWithType: ProxyPropertiesObject.GetClassName
+- uid: Blackwood.ProxyPropertiesObject.GetComponentName
+  name: GetComponentName()
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetComponentName
+  commentId: M:Blackwood.ProxyPropertiesObject.GetComponentName
+  fullName: Blackwood.ProxyPropertiesObject.GetComponentName()
+  nameWithType: ProxyPropertiesObject.GetComponentName()
+- uid: Blackwood.ProxyPropertiesObject.GetComponentName*
+  name: GetComponentName
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetComponentName_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.GetComponentName
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.GetComponentName
+  nameWithType: ProxyPropertiesObject.GetComponentName
+- uid: Blackwood.ProxyPropertiesObject.GetConverter
+  name: GetConverter()
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetConverter
+  commentId: M:Blackwood.ProxyPropertiesObject.GetConverter
+  fullName: Blackwood.ProxyPropertiesObject.GetConverter()
+  nameWithType: ProxyPropertiesObject.GetConverter()
+- uid: Blackwood.ProxyPropertiesObject.GetConverter*
+  name: GetConverter
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetConverter_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.GetConverter
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.GetConverter
+  nameWithType: ProxyPropertiesObject.GetConverter
+- uid: Blackwood.ProxyPropertiesObject.GetDefaultEvent
+  name: GetDefaultEvent()
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetDefaultEvent
+  commentId: M:Blackwood.ProxyPropertiesObject.GetDefaultEvent
+  fullName: Blackwood.ProxyPropertiesObject.GetDefaultEvent()
+  nameWithType: ProxyPropertiesObject.GetDefaultEvent()
+- uid: Blackwood.ProxyPropertiesObject.GetDefaultEvent*
+  name: GetDefaultEvent
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetDefaultEvent_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.GetDefaultEvent
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.GetDefaultEvent
+  nameWithType: ProxyPropertiesObject.GetDefaultEvent
+- uid: Blackwood.ProxyPropertiesObject.GetDefaultProperty
+  name: GetDefaultProperty()
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetDefaultProperty
+  commentId: M:Blackwood.ProxyPropertiesObject.GetDefaultProperty
+  fullName: Blackwood.ProxyPropertiesObject.GetDefaultProperty()
+  nameWithType: ProxyPropertiesObject.GetDefaultProperty()
+- uid: Blackwood.ProxyPropertiesObject.GetDefaultProperty*
+  name: GetDefaultProperty
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetDefaultProperty_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.GetDefaultProperty
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.GetDefaultProperty
+  nameWithType: ProxyPropertiesObject.GetDefaultProperty
+- uid: Blackwood.ProxyPropertiesObject.GetEditor(System.Type)
+  name: GetEditor(Type)
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetEditor_System_Type_
+  commentId: M:Blackwood.ProxyPropertiesObject.GetEditor(System.Type)
+  fullName: Blackwood.ProxyPropertiesObject.GetEditor(System.Type)
+  nameWithType: ProxyPropertiesObject.GetEditor(Type)
+- uid: Blackwood.ProxyPropertiesObject.GetEditor*
+  name: GetEditor
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetEditor_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.GetEditor
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.GetEditor
+  nameWithType: ProxyPropertiesObject.GetEditor
+- uid: Blackwood.ProxyPropertiesObject.GetEvents
+  name: GetEvents()
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetEvents
+  commentId: M:Blackwood.ProxyPropertiesObject.GetEvents
+  fullName: Blackwood.ProxyPropertiesObject.GetEvents()
+  nameWithType: ProxyPropertiesObject.GetEvents()
+- uid: Blackwood.ProxyPropertiesObject.GetEvents(System.Attribute[])
+  name: GetEvents(Attribute[]?)
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetEvents_System_Attribute___
+  commentId: M:Blackwood.ProxyPropertiesObject.GetEvents(System.Attribute[])
+  name.vb: GetEvents(Attribute())
+  fullName: Blackwood.ProxyPropertiesObject.GetEvents(System.Attribute[]?)
+  fullName.vb: Blackwood.ProxyPropertiesObject.GetEvents(System.Attribute())
+  nameWithType: ProxyPropertiesObject.GetEvents(Attribute[]?)
+  nameWithType.vb: ProxyPropertiesObject.GetEvents(Attribute())
+- uid: Blackwood.ProxyPropertiesObject.GetEvents*
+  name: GetEvents
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetEvents_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.GetEvents
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.GetEvents
+  nameWithType: ProxyPropertiesObject.GetEvents
+- uid: Blackwood.ProxyPropertiesObject.GetProperties
+  name: GetProperties()
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetProperties
+  commentId: M:Blackwood.ProxyPropertiesObject.GetProperties
+  fullName: Blackwood.ProxyPropertiesObject.GetProperties()
+  nameWithType: ProxyPropertiesObject.GetProperties()
+- uid: Blackwood.ProxyPropertiesObject.GetProperties(System.Attribute[])
+  name: GetProperties(Attribute[]?)
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetProperties_System_Attribute___
+  commentId: M:Blackwood.ProxyPropertiesObject.GetProperties(System.Attribute[])
+  name.vb: GetProperties(Attribute())
+  fullName: Blackwood.ProxyPropertiesObject.GetProperties(System.Attribute[]?)
+  fullName.vb: Blackwood.ProxyPropertiesObject.GetProperties(System.Attribute())
+  nameWithType: ProxyPropertiesObject.GetProperties(Attribute[]?)
+  nameWithType.vb: ProxyPropertiesObject.GetProperties(Attribute())
+- uid: Blackwood.ProxyPropertiesObject.GetProperties*
+  name: GetProperties
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetProperties_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.GetProperties
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.GetProperties
+  nameWithType: ProxyPropertiesObject.GetProperties
+- uid: Blackwood.ProxyPropertiesObject.GetPropertyOwner(System.ComponentModel.PropertyDescriptor)
+  name: GetPropertyOwner(PropertyDescriptor?)
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetPropertyOwner_System_ComponentModel_PropertyDescriptor_
+  commentId: M:Blackwood.ProxyPropertiesObject.GetPropertyOwner(System.ComponentModel.PropertyDescriptor)
+  name.vb: GetPropertyOwner(PropertyDescriptor)
+  fullName: Blackwood.ProxyPropertiesObject.GetPropertyOwner(System.ComponentModel.PropertyDescriptor?)
+  fullName.vb: Blackwood.ProxyPropertiesObject.GetPropertyOwner(System.ComponentModel.PropertyDescriptor)
+  nameWithType: ProxyPropertiesObject.GetPropertyOwner(PropertyDescriptor?)
+  nameWithType.vb: ProxyPropertiesObject.GetPropertyOwner(PropertyDescriptor)
+- uid: Blackwood.ProxyPropertiesObject.GetPropertyOwner*
+  name: GetPropertyOwner
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_GetPropertyOwner_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.GetPropertyOwner
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.GetPropertyOwner
+  nameWithType: ProxyPropertiesObject.GetPropertyOwner
+- uid: Blackwood.ProxyPropertiesObject.ResetToDefaults
+  name: ResetToDefaults()
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_ResetToDefaults
+  commentId: M:Blackwood.ProxyPropertiesObject.ResetToDefaults
+  fullName: Blackwood.ProxyPropertiesObject.ResetToDefaults()
+  nameWithType: ProxyPropertiesObject.ResetToDefaults()
+- uid: Blackwood.ProxyPropertiesObject.ResetToDefaults*
+  name: ResetToDefaults
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_ResetToDefaults_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.ResetToDefaults
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.ResetToDefaults
+  nameWithType: ProxyPropertiesObject.ResetToDefaults
+- uid: Blackwood.ProxyPropertiesObject.RestoreCheckpoint(System.Collections.Generic.List{System.ValueTuple{Blackwood.ProxyPropertyDescriptor,System.Object}})
+  name: RestoreCheckpoint(List<(ProxyPropertyDescriptor, object?)>)
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_RestoreCheckpoint_System_Collections_Generic_List_System_ValueTuple_Blackwood_ProxyPropertyDescriptor_System_Object___
+  commentId: M:Blackwood.ProxyPropertiesObject.RestoreCheckpoint(System.Collections.Generic.List{System.ValueTuple{Blackwood.ProxyPropertyDescriptor,System.Object}})
+  name.vb: RestoreCheckpoint(List(Of (ProxyPropertyDescriptor, Object)))
+  fullName: Blackwood.ProxyPropertiesObject.RestoreCheckpoint(System.Collections.Generic.List<(Blackwood.ProxyPropertyDescriptor, object?)>)
+  fullName.vb: Blackwood.ProxyPropertiesObject.RestoreCheckpoint(System.Collections.Generic.List(Of (Blackwood.ProxyPropertyDescriptor, Object)))
+  nameWithType: ProxyPropertiesObject.RestoreCheckpoint(List<(ProxyPropertyDescriptor, object?)>)
+  nameWithType.vb: ProxyPropertiesObject.RestoreCheckpoint(List(Of (ProxyPropertyDescriptor, Object)))
+- uid: Blackwood.ProxyPropertiesObject.RestoreCheckpoint*
+  name: RestoreCheckpoint
+  href: api/Blackwood.ProxyPropertiesObject.html#Blackwood_ProxyPropertiesObject_RestoreCheckpoint_
+  commentId: Overload:Blackwood.ProxyPropertiesObject.RestoreCheckpoint
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertiesObject.RestoreCheckpoint
+  nameWithType: ProxyPropertiesObject.RestoreCheckpoint
+- uid: Blackwood.ProxyPropertyDescriptor
+  name: ProxyPropertyDescriptor
+  href: api/Blackwood.ProxyPropertyDescriptor.html
+  commentId: T:Blackwood.ProxyPropertyDescriptor
+  fullName: Blackwood.ProxyPropertyDescriptor
+  nameWithType: ProxyPropertyDescriptor
+- uid: Blackwood.ProxyPropertyDescriptor.CanResetValue(System.Object)
+  name: CanResetValue(object)
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_CanResetValue_System_Object_
+  commentId: M:Blackwood.ProxyPropertyDescriptor.CanResetValue(System.Object)
+  name.vb: CanResetValue(Object)
+  fullName: Blackwood.ProxyPropertyDescriptor.CanResetValue(object)
+  fullName.vb: Blackwood.ProxyPropertyDescriptor.CanResetValue(Object)
+  nameWithType: ProxyPropertyDescriptor.CanResetValue(object)
+  nameWithType.vb: ProxyPropertyDescriptor.CanResetValue(Object)
+- uid: Blackwood.ProxyPropertyDescriptor.CanResetValue*
+  name: CanResetValue
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_CanResetValue_
+  commentId: Overload:Blackwood.ProxyPropertyDescriptor.CanResetValue
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertyDescriptor.CanResetValue
+  nameWithType: ProxyPropertyDescriptor.CanResetValue
+- uid: Blackwood.ProxyPropertyDescriptor.ComponentType
+  name: ComponentType
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_ComponentType
+  commentId: P:Blackwood.ProxyPropertyDescriptor.ComponentType
+  fullName: Blackwood.ProxyPropertyDescriptor.ComponentType
+  nameWithType: ProxyPropertyDescriptor.ComponentType
+- uid: Blackwood.ProxyPropertyDescriptor.ComponentType*
+  name: ComponentType
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_ComponentType_
+  commentId: Overload:Blackwood.ProxyPropertyDescriptor.ComponentType
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertyDescriptor.ComponentType
+  nameWithType: ProxyPropertyDescriptor.ComponentType
+- uid: Blackwood.ProxyPropertyDescriptor.Create(System.Reflection.FieldInfo)
+  name: Create(FieldInfo)
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_Create_System_Reflection_FieldInfo_
+  commentId: M:Blackwood.ProxyPropertyDescriptor.Create(System.Reflection.FieldInfo)
+  fullName: Blackwood.ProxyPropertyDescriptor.Create(System.Reflection.FieldInfo)
+  nameWithType: ProxyPropertyDescriptor.Create(FieldInfo)
+- uid: Blackwood.ProxyPropertyDescriptor.Create(System.Reflection.PropertyInfo)
+  name: Create(PropertyInfo)
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_Create_System_Reflection_PropertyInfo_
+  commentId: M:Blackwood.ProxyPropertyDescriptor.Create(System.Reflection.PropertyInfo)
+  fullName: Blackwood.ProxyPropertyDescriptor.Create(System.Reflection.PropertyInfo)
+  nameWithType: ProxyPropertyDescriptor.Create(PropertyInfo)
+- uid: Blackwood.ProxyPropertyDescriptor.Create*
+  name: Create
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_Create_
+  commentId: Overload:Blackwood.ProxyPropertyDescriptor.Create
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertyDescriptor.Create
+  nameWithType: ProxyPropertyDescriptor.Create
+- uid: Blackwood.ProxyPropertyDescriptor.GetValue(System.Object)
+  name: GetValue(object?)
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_GetValue_System_Object_
+  commentId: M:Blackwood.ProxyPropertyDescriptor.GetValue(System.Object)
+  name.vb: GetValue(Object)
+  fullName: Blackwood.ProxyPropertyDescriptor.GetValue(object?)
+  fullName.vb: Blackwood.ProxyPropertyDescriptor.GetValue(Object)
+  nameWithType: ProxyPropertyDescriptor.GetValue(object?)
+  nameWithType.vb: ProxyPropertyDescriptor.GetValue(Object)
+- uid: Blackwood.ProxyPropertyDescriptor.GetValue*
+  name: GetValue
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_GetValue_
+  commentId: Overload:Blackwood.ProxyPropertyDescriptor.GetValue
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertyDescriptor.GetValue
+  nameWithType: ProxyPropertyDescriptor.GetValue
+- uid: Blackwood.ProxyPropertyDescriptor.IsReadOnly
+  name: IsReadOnly
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_IsReadOnly
+  commentId: P:Blackwood.ProxyPropertyDescriptor.IsReadOnly
+  fullName: Blackwood.ProxyPropertyDescriptor.IsReadOnly
+  nameWithType: ProxyPropertyDescriptor.IsReadOnly
+- uid: Blackwood.ProxyPropertyDescriptor.IsReadOnly*
+  name: IsReadOnly
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_IsReadOnly_
+  commentId: Overload:Blackwood.ProxyPropertyDescriptor.IsReadOnly
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertyDescriptor.IsReadOnly
+  nameWithType: ProxyPropertyDescriptor.IsReadOnly
+- uid: Blackwood.ProxyPropertyDescriptor.PropertyType
+  name: PropertyType
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_PropertyType
+  commentId: P:Blackwood.ProxyPropertyDescriptor.PropertyType
+  fullName: Blackwood.ProxyPropertyDescriptor.PropertyType
+  nameWithType: ProxyPropertyDescriptor.PropertyType
+- uid: Blackwood.ProxyPropertyDescriptor.PropertyType*
+  name: PropertyType
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_PropertyType_
+  commentId: Overload:Blackwood.ProxyPropertyDescriptor.PropertyType
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertyDescriptor.PropertyType
+  nameWithType: ProxyPropertyDescriptor.PropertyType
+- uid: Blackwood.ProxyPropertyDescriptor.ResetValue(System.Object)
+  name: ResetValue(object)
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_ResetValue_System_Object_
+  commentId: M:Blackwood.ProxyPropertyDescriptor.ResetValue(System.Object)
+  name.vb: ResetValue(Object)
+  fullName: Blackwood.ProxyPropertyDescriptor.ResetValue(object)
+  fullName.vb: Blackwood.ProxyPropertyDescriptor.ResetValue(Object)
+  nameWithType: ProxyPropertyDescriptor.ResetValue(object)
+  nameWithType.vb: ProxyPropertyDescriptor.ResetValue(Object)
+- uid: Blackwood.ProxyPropertyDescriptor.ResetValue*
+  name: ResetValue
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_ResetValue_
+  commentId: Overload:Blackwood.ProxyPropertyDescriptor.ResetValue
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertyDescriptor.ResetValue
+  nameWithType: ProxyPropertyDescriptor.ResetValue
+- uid: Blackwood.ProxyPropertyDescriptor.SetValue(System.Object,System.Object)
+  name: SetValue(object?, object?)
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_SetValue_System_Object_System_Object_
+  commentId: M:Blackwood.ProxyPropertyDescriptor.SetValue(System.Object,System.Object)
+  name.vb: SetValue(Object, Object)
+  fullName: Blackwood.ProxyPropertyDescriptor.SetValue(object?, object?)
+  fullName.vb: Blackwood.ProxyPropertyDescriptor.SetValue(Object, Object)
+  nameWithType: ProxyPropertyDescriptor.SetValue(object?, object?)
+  nameWithType.vb: ProxyPropertyDescriptor.SetValue(Object, Object)
+- uid: Blackwood.ProxyPropertyDescriptor.SetValue*
+  name: SetValue
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_SetValue_
+  commentId: Overload:Blackwood.ProxyPropertyDescriptor.SetValue
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertyDescriptor.SetValue
+  nameWithType: ProxyPropertyDescriptor.SetValue
+- uid: Blackwood.ProxyPropertyDescriptor.ShouldSerializeValue(System.Object)
+  name: ShouldSerializeValue(object)
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_ShouldSerializeValue_System_Object_
+  commentId: M:Blackwood.ProxyPropertyDescriptor.ShouldSerializeValue(System.Object)
+  name.vb: ShouldSerializeValue(Object)
+  fullName: Blackwood.ProxyPropertyDescriptor.ShouldSerializeValue(object)
+  fullName.vb: Blackwood.ProxyPropertyDescriptor.ShouldSerializeValue(Object)
+  nameWithType: ProxyPropertyDescriptor.ShouldSerializeValue(object)
+  nameWithType.vb: ProxyPropertyDescriptor.ShouldSerializeValue(Object)
+- uid: Blackwood.ProxyPropertyDescriptor.ShouldSerializeValue*
+  name: ShouldSerializeValue
+  href: api/Blackwood.ProxyPropertyDescriptor.html#Blackwood_ProxyPropertyDescriptor_ShouldSerializeValue_
+  commentId: Overload:Blackwood.ProxyPropertyDescriptor.ShouldSerializeValue
+  isSpec: "True"
+  fullName: Blackwood.ProxyPropertyDescriptor.ShouldSerializeValue
+  nameWithType: ProxyPropertyDescriptor.ShouldSerializeValue
+- uid: Blackwood.ReduceArray`1
+  name: ReduceArray<T>
+  href: api/Blackwood.ReduceArray-1.html
+  commentId: T:Blackwood.ReduceArray`1
+  name.vb: ReduceArray(Of T)
+  fullName: Blackwood.ReduceArray<T>
+  fullName.vb: Blackwood.ReduceArray(Of T)
+  nameWithType: ReduceArray<T>
+  nameWithType.vb: ReduceArray(Of T)
+- uid: Blackwood.ReduceArray`1.#ctor(Blackwood.ChartPoint{`0}[],System.Int32)
+  name: ReduceArray(ChartPoint<T>[], int)
+  href: api/Blackwood.ReduceArray-1.html#Blackwood_ReduceArray_1__ctor_Blackwood_ChartPoint__0____System_Int32_
+  commentId: M:Blackwood.ReduceArray`1.#ctor(Blackwood.ChartPoint{`0}[],System.Int32)
+  name.vb: New(ChartPoint(Of T)(), Integer)
+  fullName: Blackwood.ReduceArray<T>.ReduceArray(Blackwood.ChartPoint<T>[], int)
+  fullName.vb: Blackwood.ReduceArray(Of T).New(Blackwood.ChartPoint(Of T)(), Integer)
+  nameWithType: ReduceArray<T>.ReduceArray(ChartPoint<T>[], int)
+  nameWithType.vb: ReduceArray(Of T).New(ChartPoint(Of T)(), Integer)
+- uid: Blackwood.ReduceArray`1.#ctor(System.Collections.Generic.IEnumerable{Blackwood.ChartPoint{`0}},System.Int32)
+  name: ReduceArray(IEnumerable<ChartPoint<T>>, int)
+  href: api/Blackwood.ReduceArray-1.html#Blackwood_ReduceArray_1__ctor_System_Collections_Generic_IEnumerable_Blackwood_ChartPoint__0___System_Int32_
+  commentId: M:Blackwood.ReduceArray`1.#ctor(System.Collections.Generic.IEnumerable{Blackwood.ChartPoint{`0}},System.Int32)
+  name.vb: New(IEnumerable(Of ChartPoint(Of T)), Integer)
+  fullName: Blackwood.ReduceArray<T>.ReduceArray(System.Collections.Generic.IEnumerable<Blackwood.ChartPoint<T>>, int)
+  fullName.vb: Blackwood.ReduceArray(Of T).New(System.Collections.Generic.IEnumerable(Of Blackwood.ChartPoint(Of T)), Integer)
+  nameWithType: ReduceArray<T>.ReduceArray(IEnumerable<ChartPoint<T>>, int)
+  nameWithType.vb: ReduceArray(Of T).New(IEnumerable(Of ChartPoint(Of T)), Integer)
+- uid: Blackwood.ReduceArray`1.#ctor*
+  name: ReduceArray
+  href: api/Blackwood.ReduceArray-1.html#Blackwood_ReduceArray_1__ctor_
+  commentId: Overload:Blackwood.ReduceArray`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Blackwood.ReduceArray<T>.ReduceArray
+  fullName.vb: Blackwood.ReduceArray(Of T).New
+  nameWithType: ReduceArray<T>.ReduceArray
+  nameWithType.vb: ReduceArray(Of T).New
+- uid: Blackwood.ReduceArray`1.Simplify
+  name: Simplify()
+  href: api/Blackwood.ReduceArray-1.html#Blackwood_ReduceArray_1_Simplify
+  commentId: M:Blackwood.ReduceArray`1.Simplify
+  fullName: Blackwood.ReduceArray<T>.Simplify()
+  fullName.vb: Blackwood.ReduceArray(Of T).Simplify()
+  nameWithType: ReduceArray<T>.Simplify()
+  nameWithType.vb: ReduceArray(Of T).Simplify()
+- uid: Blackwood.ReduceArray`1.Simplify*
+  name: Simplify
+  href: api/Blackwood.ReduceArray-1.html#Blackwood_ReduceArray_1_Simplify_
+  commentId: Overload:Blackwood.ReduceArray`1.Simplify
+  isSpec: "True"
+  fullName: Blackwood.ReduceArray<T>.Simplify
+  fullName.vb: Blackwood.ReduceArray(Of T).Simplify
+  nameWithType: ReduceArray<T>.Simplify
+  nameWithType.vb: ReduceArray(Of T).Simplify
+- uid: Blackwood.UndoRedo
+  name: UndoRedo
+  href: api/Blackwood.UndoRedo.html
+  commentId: T:Blackwood.UndoRedo
+  fullName: Blackwood.UndoRedo
+  nameWithType: UndoRedo
+- uid: Blackwood.UndoRedo.#ctor(System.String,System.Action,System.Action)
+  name: UndoRedo(string, Action, Action)
+  href: api/Blackwood.UndoRedo.html#Blackwood_UndoRedo__ctor_System_String_System_Action_System_Action_
+  commentId: M:Blackwood.UndoRedo.#ctor(System.String,System.Action,System.Action)
+  name.vb: New(String, Action, Action)
+  fullName: Blackwood.UndoRedo.UndoRedo(string, System.Action, System.Action)
+  fullName.vb: Blackwood.UndoRedo.New(String, System.Action, System.Action)
+  nameWithType: UndoRedo.UndoRedo(string, Action, Action)
+  nameWithType.vb: UndoRedo.New(String, Action, Action)
+- uid: Blackwood.UndoRedo.#ctor*
+  name: UndoRedo
+  href: api/Blackwood.UndoRedo.html#Blackwood_UndoRedo__ctor_
+  commentId: Overload:Blackwood.UndoRedo.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Blackwood.UndoRedo.UndoRedo
+  fullName.vb: Blackwood.UndoRedo.New
+  nameWithType: UndoRedo.UndoRedo
+  nameWithType.vb: UndoRedo.New
+- uid: Blackwood.UndoRedo.Description
+  name: Description
+  href: api/Blackwood.UndoRedo.html#Blackwood_UndoRedo_Description
+  commentId: F:Blackwood.UndoRedo.Description
+  fullName: Blackwood.UndoRedo.Description
+  nameWithType: UndoRedo.Description
+- uid: Blackwood.UndoRedo.Redo
+  name: Redo
+  href: api/Blackwood.UndoRedo.html#Blackwood_UndoRedo_Redo
+  commentId: F:Blackwood.UndoRedo.Redo
+  fullName: Blackwood.UndoRedo.Redo
+  nameWithType: UndoRedo.Redo
+- uid: Blackwood.UndoRedo.Undo
+  name: Undo
+  href: api/Blackwood.UndoRedo.html#Blackwood_UndoRedo_Undo
+  commentId: F:Blackwood.UndoRedo.Undo
+  fullName: Blackwood.UndoRedo.Undo
+  nameWithType: UndoRedo.Undo
+- uid: Blackwood.UndoRedo.next
+  name: next
+  href: api/Blackwood.UndoRedo.html#Blackwood_UndoRedo_next
+  commentId: F:Blackwood.UndoRedo.next
+  fullName: Blackwood.UndoRedo.next
+  nameWithType: UndoRedo.next
+- uid: Blackwood.UndoRedoController
+  name: UndoRedoController
+  href: api/Blackwood.UndoRedoController.html
+  commentId: T:Blackwood.UndoRedoController
+  fullName: Blackwood.UndoRedoController
+  nameWithType: UndoRedoController
+- uid: Blackwood.UndoRedoController.AppendUndo(Blackwood.UndoRedo)
+  name: AppendUndo(UndoRedo)
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_AppendUndo_Blackwood_UndoRedo_
+  commentId: M:Blackwood.UndoRedoController.AppendUndo(Blackwood.UndoRedo)
+  fullName: Blackwood.UndoRedoController.AppendUndo(Blackwood.UndoRedo)
+  nameWithType: UndoRedoController.AppendUndo(UndoRedo)
+- uid: Blackwood.UndoRedoController.AppendUndo*
+  name: AppendUndo
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_AppendUndo_
+  commentId: Overload:Blackwood.UndoRedoController.AppendUndo
+  isSpec: "True"
+  fullName: Blackwood.UndoRedoController.AppendUndo
+  nameWithType: UndoRedoController.AppendUndo
+- uid: Blackwood.UndoRedoController.Clear
+  name: Clear()
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_Clear
+  commentId: M:Blackwood.UndoRedoController.Clear
+  fullName: Blackwood.UndoRedoController.Clear()
+  nameWithType: UndoRedoController.Clear()
+- uid: Blackwood.UndoRedoController.Clear*
+  name: Clear
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_Clear_
+  commentId: Overload:Blackwood.UndoRedoController.Clear
+  isSpec: "True"
+  fullName: Blackwood.UndoRedoController.Clear
+  nameWithType: UndoRedoController.Clear
+- uid: Blackwood.UndoRedoController.Redo
+  name: Redo()
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_Redo
+  commentId: M:Blackwood.UndoRedoController.Redo
+  fullName: Blackwood.UndoRedoController.Redo()
+  nameWithType: UndoRedoController.Redo()
+- uid: Blackwood.UndoRedoController.Redo*
+  name: Redo
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_Redo_
+  commentId: Overload:Blackwood.UndoRedoController.Redo
+  isSpec: "True"
+  fullName: Blackwood.UndoRedoController.Redo
+  nameWithType: UndoRedoController.Redo
+- uid: Blackwood.UndoRedoController.RedoItem
+  name: RedoItem
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_RedoItem
+  commentId: P:Blackwood.UndoRedoController.RedoItem
+  fullName: Blackwood.UndoRedoController.RedoItem
+  nameWithType: UndoRedoController.RedoItem
+- uid: Blackwood.UndoRedoController.RedoItem*
+  name: RedoItem
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_RedoItem_
+  commentId: Overload:Blackwood.UndoRedoController.RedoItem
+  isSpec: "True"
+  fullName: Blackwood.UndoRedoController.RedoItem
+  nameWithType: UndoRedoController.RedoItem
+- uid: Blackwood.UndoRedoController.Undo
+  name: Undo()
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_Undo
+  commentId: M:Blackwood.UndoRedoController.Undo
+  fullName: Blackwood.UndoRedoController.Undo()
+  nameWithType: UndoRedoController.Undo()
+- uid: Blackwood.UndoRedoController.Undo*
+  name: Undo
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_Undo_
+  commentId: Overload:Blackwood.UndoRedoController.Undo
+  isSpec: "True"
+  fullName: Blackwood.UndoRedoController.Undo
+  nameWithType: UndoRedoController.Undo
+- uid: Blackwood.UndoRedoController.UndoItem
+  name: UndoItem
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_UndoItem
+  commentId: P:Blackwood.UndoRedoController.UndoItem
+  fullName: Blackwood.UndoRedoController.UndoItem
+  nameWithType: UndoRedoController.UndoItem
+- uid: Blackwood.UndoRedoController.UndoItem*
+  name: UndoItem
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_UndoItem_
+  commentId: Overload:Blackwood.UndoRedoController.UndoItem
+  isSpec: "True"
+  fullName: Blackwood.UndoRedoController.UndoItem
+  nameWithType: UndoRedoController.UndoItem
+- uid: Blackwood.UndoRedoController.redoStack
+  name: redoStack
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_redoStack
+  commentId: F:Blackwood.UndoRedoController.redoStack
+  fullName: Blackwood.UndoRedoController.redoStack
+  nameWithType: UndoRedoController.redoStack
+- uid: Blackwood.UndoRedoController.undoStack
+  name: undoStack
+  href: api/Blackwood.UndoRedoController.html#Blackwood_UndoRedoController_undoStack
+  commentId: F:Blackwood.UndoRedoController.undoStack
+  fullName: Blackwood.UndoRedoController.undoStack
+  nameWithType: UndoRedoController.undoStack
+- uid: Blackwood.Utils
+  name: Utils
+  href: api/Blackwood.Utils.html
+  commentId: T:Blackwood.Utils
+  fullName: Blackwood.Utils
+  nameWithType: Utils
+- uid: Blackwood.Utils.ConvertCNameToLabel(System.String)
+  name: ConvertCNameToLabel(string)
+  href: api/Blackwood.Utils.html#Blackwood_Utils_ConvertCNameToLabel_System_String_
+  commentId: M:Blackwood.Utils.ConvertCNameToLabel(System.String)
+  name.vb: ConvertCNameToLabel(String)
+  fullName: Blackwood.Utils.ConvertCNameToLabel(string)
+  fullName.vb: Blackwood.Utils.ConvertCNameToLabel(String)
+  nameWithType: Utils.ConvertCNameToLabel(string)
+  nameWithType.vb: Utils.ConvertCNameToLabel(String)
+- uid: Blackwood.Utils.ConvertCNameToLabel*
+  name: ConvertCNameToLabel
+  href: api/Blackwood.Utils.html#Blackwood_Utils_ConvertCNameToLabel_
+  commentId: Overload:Blackwood.Utils.ConvertCNameToLabel
+  isSpec: "True"
+  fullName: Blackwood.Utils.ConvertCNameToLabel
+  nameWithType: Utils.ConvertCNameToLabel

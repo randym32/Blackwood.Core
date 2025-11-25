@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Getting Started | Blackwood.Core </title>
+      <title>API Documentation | Blackwood.Core </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Getting Started | Blackwood.Core ">
+      <meta name="title" content="API Documentation | Blackwood.Core ">
       
       
       <link rel="icon" href="../template/favicon.ico">
@@ -71,46 +71,85 @@
         </div>
 
         <article data-uid="">
-<h1 id="getting-started">Getting Started</h1>
+<h1 id="api-documentation">API Documentation</h1>
 
-<p>This guide will help you get up and running with Blackwood.Core.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<ul>
-<li>.NET 9.0 or later</li>
-<li>Visual Studio 2022 or later</li>
-</ul>
-<h2 id="installation">Installation</h2>
-<h3 id="from-source">From Source</h3>
-<ol>
-<li>Clone the repository or add as a submodule</li>
-<li>Add a project reference to your solution:
-<pre><code class="lang-xml">&lt;ItemGroup&gt;
-  &lt;ProjectReference Include=&quot;..\..\Blackwood.Core\src\Blackwood.Core.csproj&quot; /&gt;
-&lt;/ItemGroup&gt;
-</code></pre>
-</li>
-<li>Build your solution; the project will restore and compile alongside your code</li>
-</ol>
-<h3 id="from-binary">From Binary</h3>
-<p>After building, reference the compiled DLL from the <code>bin</code> folder matching your
-configuration and target framework.</p>
-<h2 id="building">Building</h2>
-<p>Build the project from the command line:</p>
-<pre><code class="lang-bash">dotnet build Blackwood.Core/Blackwood.Core.sln -c Release
-</code></pre>
-<p>Or open <code>Blackwood.Core.sln</code> in Visual Studio and build from there.</p>
-<h2 id="running-tests">Running Tests</h2>
-<p>Run the test suite from the command line:</p>
-<pre><code class="lang-bash">dotnet test Blackwood.Core/tests/Blackwood.Core.tests.csproj -c Release
-</code></pre>
-<p>Or open the test project in Visual Studio and run tests from the Test Explorer.</p>
-<h2 id="next-steps">Next Steps</h2>
-<ul>
-<li>Read the <a href="intro.html">Introduction</a> for an overview</li>
-<li>See <a href="preferences.html">Preferences</a> for preference management</li>
-<li>See <a href="assemblies.html">Assemblies</a> for assembly enumeration</li>
-<li>Check the <a href="../api/index.html">API Reference</a> for complete API documentation</li>
-</ul>
+<p>This file summarizes the namespaces and classes in this assembly.</p>
+<h3 id="blackwood-namespace">Blackwood Namespace</h3>
+<p>The <a class="xref" href="Blackwood.html">Blackwood namespace</a> is used to contain extra helper procedures and classes.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="Blackwood.Application.html">Application</a></td>
+<td>A class to hold a Application name and path related  utilities.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.ApplicationForwarder-1.html">ApplicationForwarder&lt;TMessage&gt;</a></td>
+<td>A named-pipe helper that enforces single-instance behavior and forwards serialized messages (for example, file-open arguments) between processes.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.ChartAnnotation-1.html">ChartAnnotation&lt;IndexType&gt;</a></td>
+<td>Represents an annotation span on a chart where index and duration share the same type.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.ChartAnnotation-2.html">ChartAnnotation&lt;IndexType, DurationType&gt;</a></td>
+<td>Represents an annotation span on a chart with separate types for index and duration.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.ChartPoint-1.html">ChartPoint&lt;IndexType&gt;</a></td>
+<td>Represents a single data point in a chart with an independent variable (index) and dependent variable (y-value).</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.ItemAttributes.html">ItemAttributes</a></td>
+<td>Attributes for menu items.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.MenuItem.html">MenuItem</a></td>
+<td>Represents a menu item in the menu system.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.MenuItemAttribute.html">MenuItemAttribute</a></td>
+<td>Attribute for marking methods as menu items.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.Menus.html">Menus</a></td>
+<td>Menu system for building application menus from JSON templates.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.PropertiesJsonConverter.html">PropertiesJsonConverter</a></td>
+<td>JSON converter for proxy properties objects.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.ProxyPropertiesObject.html">ProxyPropertiesObject</a></td>
+<td>Property proxy for dynamic property access.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.ProxyPropertyDescriptor.html">ProxyPropertyDescriptor</a></td>
+<td>Property descriptor for proxy properties.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.ReduceArray-1.html">ReduceArray&lt;T&gt;</a></td>
+<td>Implements the Douglas-Peucker algorithm to reduce point counts in large datasets while preserving visual fidelity.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.UndoRedo.html">UndoRedo</a></td>
+<td>Represents an undo/redo operation.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.UndoRedoController.html">UndoRedoController</a></td>
+<td>Controller for managing undo/redo operations.</td>
+</tr>
+<tr>
+<td><a class="xref" href="Blackwood.Utils.html">Utils</a></td>
+<td>A helper class of miscellaneous utilities.</td>
+</tr>
+</tbody>
+</table>
 
 </article>
 

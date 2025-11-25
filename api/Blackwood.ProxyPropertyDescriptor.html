@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ProxyPropertyDescriptor | Blackwood.Core </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ProxyPropertyDescriptor | Blackwood.Core ">
+      
+      <meta name="description" content="A dynamic property descriptor for preferences properties.">
+      <link rel="icon" href="../template/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../template/logo-small.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Blackwood.ProxyPropertyDescriptor">
+
+
+
+  <h1 id="Blackwood_ProxyPropertyDescriptor" data-uid="Blackwood.ProxyPropertyDescriptor" class="text-break">
+Class ProxyPropertyDescriptor  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Blackwood.html">Blackwood</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Blackwood.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A dynamic property descriptor for preferences properties.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ProxyPropertyDescriptor : PropertyDescriptor</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor">MemberDescriptor</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor">PropertyDescriptor</a></div>
+      <div><span class="xref">ProxyPropertyDescriptor</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.addvaluechanged">PropertyDescriptor.AddValueChanged(object, EventHandler)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.createinstance">PropertyDescriptor.CreateInstance(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.equals">PropertyDescriptor.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.fillattributes">PropertyDescriptor.FillAttributes(IList)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.getchildproperties#system-componentmodel-propertydescriptor-getchildproperties">PropertyDescriptor.GetChildProperties()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.getchildproperties#system-componentmodel-propertydescriptor-getchildproperties(system-attribute())">PropertyDescriptor.GetChildProperties(Attribute[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.getchildproperties#system-componentmodel-propertydescriptor-getchildproperties(system-object)">PropertyDescriptor.GetChildProperties(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.getchildproperties#system-componentmodel-propertydescriptor-getchildproperties(system-object-system-attribute())">PropertyDescriptor.GetChildProperties(object, Attribute[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.geteditor">PropertyDescriptor.GetEditor(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.gethashcode">PropertyDescriptor.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.getinvocationtarget">PropertyDescriptor.GetInvocationTarget(Type, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.gettypefromname">PropertyDescriptor.GetTypeFromName(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.getvaluechangedhandler">PropertyDescriptor.GetValueChangedHandler(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.onvaluechanged">PropertyDescriptor.OnValueChanged(object, EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.removevaluechanged">PropertyDescriptor.RemoveValueChanged(object, EventHandler)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.converter">PropertyDescriptor.Converter</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.converterfromregisteredtype">PropertyDescriptor.ConverterFromRegisteredType</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.islocalizable">PropertyDescriptor.IsLocalizable</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.serializationvisibility">PropertyDescriptor.SerializationVisibility</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertydescriptor.supportschangeevents">PropertyDescriptor.SupportsChangeEvents</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.createattributecollection">MemberDescriptor.CreateAttributeCollection()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.findmethod#system-componentmodel-memberdescriptor-findmethod(system-type-system-string-system-type()-system-type)">MemberDescriptor.FindMethod(Type, string, Type[], Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.findmethod#system-componentmodel-memberdescriptor-findmethod(system-type-system-string-system-type()-system-type-system-boolean)">MemberDescriptor.FindMethod(Type, string, Type[], Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.getinvokee">MemberDescriptor.GetInvokee(Type, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.getsite">MemberDescriptor.GetSite(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.attributearray">MemberDescriptor.AttributeArray</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.attributes">MemberDescriptor.Attributes</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.category">MemberDescriptor.Category</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.description">MemberDescriptor.Description</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.designtimeonly">MemberDescriptor.DesignTimeOnly</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.displayname">MemberDescriptor.DisplayName</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.isbrowsable">MemberDescriptor.IsBrowsable</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.name">MemberDescriptor.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.memberdescriptor.namehashcode">MemberDescriptor.NameHashCode</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="Blackwood_ProxyPropertyDescriptor_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This class is used to represent a &quot;virtual&quot; property in the ProxyPropertiesObject.
+It holds the name, description, grouping, etc, with hooks for mediate the
+access to the value.  This can be used to proxy to static properties,
+fields, virtual properties, etc.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Blackwood_ProxyPropertyDescriptor_ComponentType_" data-uid="Blackwood.ProxyPropertyDescriptor.ComponentType*"></a>
+
+  <h3 id="Blackwood_ProxyPropertyDescriptor_ComponentType" data-uid="Blackwood.ProxyPropertyDescriptor.ComponentType">
+  ComponentType
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of the component this property is bound to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Type ComponentType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Blackwood_ProxyPropertyDescriptor_IsReadOnly_" data-uid="Blackwood.ProxyPropertyDescriptor.IsReadOnly*"></a>
+
+  <h3 id="Blackwood_ProxyPropertyDescriptor_IsReadOnly" data-uid="Blackwood.ProxyPropertyDescriptor.IsReadOnly">
+  IsReadOnly
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether this property is read-only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsReadOnly { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Blackwood_ProxyPropertyDescriptor_PropertyType_" data-uid="Blackwood.ProxyPropertyDescriptor.PropertyType*"></a>
+
+  <h3 id="Blackwood_ProxyPropertyDescriptor_PropertyType" data-uid="Blackwood.ProxyPropertyDescriptor.PropertyType">
+  PropertyType
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Type PropertyType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Blackwood_ProxyPropertyDescriptor_CanResetValue_" data-uid="Blackwood.ProxyPropertyDescriptor.CanResetValue*"></a>
+
+  <h3 id="Blackwood_ProxyPropertyDescriptor_CanResetValue_System_Object_" data-uid="Blackwood.ProxyPropertyDescriptor.CanResetValue(System.Object)">
+  CanResetValue(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the property can be reset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool CanResetValue(object component)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <span class="xref">object</span></dt>
+    <dd><p>The proxy object (ProxyPropertiesObject) that this property is part of.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the property can be reset.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Blackwood_ProxyPropertyDescriptor_Create_" data-uid="Blackwood.ProxyPropertyDescriptor.Create*"></a>
+
+  <h3 id="Blackwood_ProxyPropertyDescriptor_Create_System_Reflection_FieldInfo_" data-uid="Blackwood.ProxyPropertyDescriptor.Create(System.Reflection.FieldInfo)">
+  Create(FieldInfo)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of the ProxyPropertyDescriptor class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ProxyPropertyDescriptor Create(FieldInfo field)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>field</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.fieldinfo">FieldInfo</a></dt>
+    <dd><p>The FieldInfo for the field.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Blackwood.ProxyPropertyDescriptor.html">ProxyPropertyDescriptor</a></dt>
+    <dd><p>A new instance of the ProxyPropertyDescriptor class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Blackwood_ProxyPropertyDescriptor_Create_" data-uid="Blackwood.ProxyPropertyDescriptor.Create*"></a>
+
+  <h3 id="Blackwood_ProxyPropertyDescriptor_Create_System_Reflection_PropertyInfo_" data-uid="Blackwood.ProxyPropertyDescriptor.Create(System.Reflection.PropertyInfo)">
+  Create(PropertyInfo)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of the ProxyPropertyDescriptor class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ProxyPropertyDescriptor Create(PropertyInfo property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></dt>
+    <dd><p>The PropertyInfo for the property.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Blackwood.ProxyPropertyDescriptor.html">ProxyPropertyDescriptor</a></dt>
+    <dd><p>A new instance of the ProxyPropertyDescriptor class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Blackwood_ProxyPropertyDescriptor_GetValue_" data-uid="Blackwood.ProxyPropertyDescriptor.GetValue*"></a>
+
+  <h3 id="Blackwood_ProxyPropertyDescriptor_GetValue_System_Object_" data-uid="Blackwood.ProxyPropertyDescriptor.GetValue(System.Object)">
+  GetValue(object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current value of the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object? GetValue(object? component)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <span class="xref">object</span></dt>
+    <dd><p>The proxy object (ProxyPropertiesObject) that this property is part of.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd><p>The current value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Blackwood_ProxyPropertyDescriptor_ResetValue_" data-uid="Blackwood.ProxyPropertyDescriptor.ResetValue*"></a>
+
+  <h3 id="Blackwood_ProxyPropertyDescriptor_ResetValue_System_Object_" data-uid="Blackwood.ProxyPropertyDescriptor.ResetValue(System.Object)">
+  ResetValue(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the property value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ResetValue(object component)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <span class="xref">object</span></dt>
+    <dd><p>The proxy object (ProxyPropertiesObject) that this property is part of.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Blackwood_ProxyPropertyDescriptor_SetValue_" data-uid="Blackwood.ProxyPropertyDescriptor.SetValue*"></a>
+
+  <h3 id="Blackwood_ProxyPropertyDescriptor_SetValue_System_Object_System_Object_" data-uid="Blackwood.ProxyPropertyDescriptor.SetValue(System.Object,System.Object)">
+  SetValue(object?, object?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the value of the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetValue(object? component, object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <span class="xref">object</span></dt>
+    <dd><p>The proxy object (ProxyPropertiesObject) that this property is part of.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The new value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Blackwood_ProxyPropertyDescriptor_ShouldSerializeValue_" data-uid="Blackwood.ProxyPropertyDescriptor.ShouldSerializeValue*"></a>
+
+  <h3 id="Blackwood_ProxyPropertyDescriptor_ShouldSerializeValue_System_Object_" data-uid="Blackwood.ProxyPropertyDescriptor.ShouldSerializeValue(System.Object)">
+  ShouldSerializeValue(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the property value should be serialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool ShouldSerializeValue(object component)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <span class="xref">object</span></dt>
+    <dd><p>The proxy object (ProxyPropertiesObject) that this property is part of.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the property should be serialized.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

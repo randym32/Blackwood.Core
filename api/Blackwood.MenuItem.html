@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class MenuItem | Blackwood.Core </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MenuItem | Blackwood.Core ">
+      
+      <meta name="description" content="This class represents a menu item, used to serialize and deserialize menu items to and from a JSON file.">
+      <link rel="icon" href="../template/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../template/logo-small.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Blackwood.MenuItem">
+
+
+
+  <h1 id="Blackwood_MenuItem" data-uid="Blackwood.MenuItem" class="text-break">
+Class MenuItem  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Blackwood.html">Blackwood</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Blackwood.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>This class represents a menu item, used to serialize and deserialize menu
+items to and from a JSON file.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MenuItem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">MenuItem</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Blackwood_MenuItem_Disabled" data-uid="Blackwood.MenuItem.Disabled">
+  Disabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, the menu item will be Disabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Disabled</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Blackwood_MenuItem_MenuPath" data-uid="Blackwood.MenuItem.MenuPath">
+  MenuPath
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The menu path for the item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? MenuPath</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="Blackwood_MenuItem_MenuPath_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The menu path is the path to the menu item.
+The '&gt;' character is used to separate the menu items.</p>
+</div>
+
+
+
+
+
+  <h3 id="Blackwood_MenuItem_Order" data-uid="Blackwood.MenuItem.Order">
+  Order
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maintains the order in which menu item templates are added,
+providing a consistent ordering for generated menus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly List&lt;string&gt; Order</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Blackwood_MenuItem_QuickKey" data-uid="Blackwood.MenuItem.QuickKey">
+  QuickKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The keyboard shortcut to activate the menu item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? QuickKey</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="Blackwood_MenuItem_QuickKey_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The keyboard shortcut is a combination of the control key and the letter key.
+For example, the keyboard shortcut for the 'New' menu item is 'Ctrl+N'.</p>
+</div>
+
+
+
+
+
+  <h3 id="Blackwood_MenuItem_SeparatorBefore" data-uid="Blackwood.MenuItem.SeparatorBefore">
+  SeparatorBefore
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, a separator will placed before the item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SeparatorBefore</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Blackwood_MenuItem_Tag" data-uid="Blackwood.MenuItem.Tag">
+  Tag
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>An optional object that can be associated with the menu item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object? Tag</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Blackwood_MenuItem_ToolTip" data-uid="Blackwood.MenuItem.ToolTip">
+  ToolTip
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The tooltip for the item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ToolTip</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="Blackwood_MenuItem_ToolTip_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The tooltip is the text that appears when the mouse hovers over the menu item.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Blackwood_MenuItem_AddTemplates_" data-uid="Blackwood.MenuItem.AddTemplates*"></a>
+
+  <h3 id="Blackwood_MenuItem_AddTemplates_System_Collections_Generic_IEnumerable_Blackwood_MenuItem__" data-uid="Blackwood.MenuItem.AddTemplates(System.Collections.Generic.IEnumerable{Blackwood.MenuItem})">
+  AddTemplates(IEnumerable&lt;MenuItem&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the menu templates to the template cache.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddTemplates(IEnumerable&lt;MenuItem&gt; menuItems)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>menuItems</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Blackwood.MenuItem.html">MenuItem</a>&gt;</dt>
+    <dd><p>The menu item templates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Blackwood_MenuItem_AddTemplates_System_Collections_Generic_IEnumerable_Blackwood_MenuItem___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The dictionary is used to store the templates for menu items.</p>
+</div>
+
+
+
+
+  <a id="Blackwood_MenuItem_Clone_" data-uid="Blackwood.MenuItem.Clone*"></a>
+
+  <h3 id="Blackwood_MenuItem_Clone" data-uid="Blackwood.MenuItem.Clone">
+  Clone()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clones the menu item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MenuItem Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Blackwood.MenuItem.html">MenuItem</a></dt>
+    <dd><p>The cloned menu item.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Blackwood_MenuItem_GetTemplate_" data-uid="Blackwood.MenuItem.GetTemplate*"></a>
+
+  <h3 id="Blackwood_MenuItem_GetTemplate_System_String_" data-uid="Blackwood.MenuItem.GetTemplate(System.String)">
+  GetTemplate(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a template item from the template cache.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MenuItem? GetTemplate(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key to look up the template item.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Blackwood.MenuItem.html">MenuItem</a></dt>
+    <dd><p>The template item, or null if not found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

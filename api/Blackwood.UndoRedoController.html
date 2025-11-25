@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UndoRedoController | Blackwood.Core </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UndoRedoController | Blackwood.Core ">
+      
+      <meta name="description" content="A stack of undo/redo items.">
+      <link rel="icon" href="../template/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../template/logo-small.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Blackwood.UndoRedoController">
+
+
+
+  <h1 id="Blackwood_UndoRedoController" data-uid="Blackwood.UndoRedoController" class="text-break">
+Class UndoRedoController  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Blackwood.html">Blackwood</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Blackwood.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A stack of undo/redo items.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class UndoRedoController</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">UndoRedoController</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="Blackwood_UndoRedoController_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This stack is used to store the undo/redo items for a document or workspace.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Blackwood_UndoRedoController_redoStack" data-uid="Blackwood.UndoRedoController.redoStack">
+  redoStack
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The redo stack for this document or workspace.  This is the stack of
+items that can be re-applied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected UndoRedo? redoStack</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Blackwood.UndoRedo.html">UndoRedo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Blackwood_UndoRedoController_undoStack" data-uid="Blackwood.UndoRedoController.undoStack">
+  undoStack
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The undo stack for this document or workspace.  This is the stack of
+items that can be undone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected UndoRedo? undoStack</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Blackwood.UndoRedo.html">UndoRedo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Blackwood_UndoRedoController_RedoItem_" data-uid="Blackwood.UndoRedoController.RedoItem*"></a>
+
+  <h3 id="Blackwood_UndoRedoController_RedoItem" data-uid="Blackwood.UndoRedoController.RedoItem">
+  RedoItem
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The top item on the redo stack.  This is the item that can be re-applied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UndoRedo? RedoItem { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Blackwood.UndoRedo.html">UndoRedo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Blackwood_UndoRedoController_UndoItem_" data-uid="Blackwood.UndoRedoController.UndoItem*"></a>
+
+  <h3 id="Blackwood_UndoRedoController_UndoItem" data-uid="Blackwood.UndoRedoController.UndoItem">
+  UndoItem
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The top item on the undo stack.  This is the item that can be undone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UndoRedo? UndoItem { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Blackwood.UndoRedo.html">UndoRedo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Blackwood_UndoRedoController_AppendUndo_" data-uid="Blackwood.UndoRedoController.AppendUndo*"></a>
+
+  <h3 id="Blackwood_UndoRedoController_AppendUndo_Blackwood_UndoRedo_" data-uid="Blackwood.UndoRedoController.AppendUndo(Blackwood.UndoRedo)">
+  AppendUndo(UndoRedo)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Append an undo/redo item to the undo stack.  This is the item that can be undone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AppendUndo(UndoRedo UR)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>UR</code> <a class="xref" href="Blackwood.UndoRedo.html">UndoRedo</a></dt>
+    <dd><p>The undo/redo item to append.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Blackwood_UndoRedoController_Clear_" data-uid="Blackwood.UndoRedoController.Clear*"></a>
+
+  <h3 id="Blackwood_UndoRedoController_Clear" data-uid="Blackwood.UndoRedoController.Clear">
+  Clear()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears the undo and redo stacks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Blackwood_UndoRedoController_Redo_" data-uid="Blackwood.UndoRedoController.Redo*"></a>
+
+  <h3 id="Blackwood_UndoRedoController_Redo" data-uid="Blackwood.UndoRedoController.Redo">
+  Redo()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Undo the top item on the redo stack.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Redo()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Blackwood_UndoRedoController_Undo_" data-uid="Blackwood.UndoRedoController.Undo*"></a>
+
+  <h3 id="Blackwood_UndoRedoController_Undo" data-uid="Blackwood.UndoRedoController.Undo">
+  Undo()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Undo the top item on the undo stack.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Undo()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

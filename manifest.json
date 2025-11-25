@@ -11,6 +11,267 @@
       }
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.Application.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Application.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.Application",
+      "Summary": "<p sourcefile=\"api/Blackwood.Application.yml\" sourcestartlinenumber=\"1\">An interface for accessing application-level information and functionality.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.ApplicationForwarder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.ApplicationForwarder-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.ApplicationForwarder<messageType>",
+      "Summary": "<p sourcefile=\"api/Blackwood.ApplicationForwarder-1.yml\" sourcestartlinenumber=\"1\">This is used to forward file-open and other requests to the &quot;main instance&quot;\nof a single-instance application; it is used by a second instance of the\napplication.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.ChartAnnotation-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.ChartAnnotation-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.ChartAnnotation<IndexType>",
+      "Summary": "<p sourcefile=\"api/Blackwood.ChartAnnotation-1.yml\" sourcestartlinenumber=\"1\">Simpler annotation where the index and duration share the same type parameter.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.ChartAnnotation-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.ChartAnnotation-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.ChartAnnotation<IndexType, DurationType>",
+      "Summary": "<p sourcefile=\"api/Blackwood.ChartAnnotation-2.yml\" sourcestartlinenumber=\"1\">Represents an annotation that can be added to a chart for plotting.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.ChartPoint-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.ChartPoint-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.ChartPoint<IndexType>",
+      "Summary": "<p sourcefile=\"api/Blackwood.ChartPoint-1.yml\" sourcestartlinenumber=\"1\">A point that can be added to a chart for plotting, like an existential\npigeon strutting along the axis of your chart.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.ItemAttributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.ItemAttributes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.ItemAttributes",
+      "Summary": "<p sourcefile=\"api/Blackwood.ItemAttributes.yml\" sourcestartlinenumber=\"1\">This is a collection of attributes to describe the metadata of an item.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.MenuItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.MenuItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.MenuItem",
+      "Summary": "<p sourcefile=\"api/Blackwood.MenuItem.yml\" sourcestartlinenumber=\"1\">This class represents a menu item, used to serialize and deserialize menu\nitems to and from a JSON file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.MenuItemAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.MenuItemAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.MenuItemAttribute",
+      "Summary": "<p sourcefile=\"api/Blackwood.MenuItemAttribute.yml\" sourcestartlinenumber=\"1\">Attribute used to describe a menu item contribution.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.Menus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Menus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.Menus",
+      "Summary": "<p sourcefile=\"api/Blackwood.Menus.yml\" sourcestartlinenumber=\"1\">A serializable class for menus.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.PropertiesJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.PropertiesJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.PropertiesJsonConverter",
+      "Summary": "<p sourcefile=\"api/Blackwood.PropertiesJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for ProxyPropertiesObject that serializes and deserializes\nthe proxy properties.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.ProxyPropertiesObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.ProxyPropertiesObject.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.ProxyPropertiesObject",
+      "Summary": "<p sourcefile=\"api/Blackwood.ProxyPropertiesObject.yml\" sourcestartlinenumber=\"1\">A dynamic object that exposes select object properties or static properties\npreferences to the PropertyGrid.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.ProxyPropertyDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.ProxyPropertyDescriptor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.ProxyPropertyDescriptor",
+      "Summary": "<p sourcefile=\"api/Blackwood.ProxyPropertyDescriptor.yml\" sourcestartlinenumber=\"1\">A dynamic property descriptor for preferences properties.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.ReduceArray-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.ReduceArray-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.ReduceArray<T>",
+      "Summary": "<p sourcefile=\"api/Blackwood.ReduceArray-1.yml\" sourcestartlinenumber=\"1\">A class that reduces the number of points in a series.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.UndoRedo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.UndoRedo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.UndoRedo",
+      "Summary": "<p sourcefile=\"api/Blackwood.UndoRedo.yml\" sourcestartlinenumber=\"1\">This is used to hold the undo/redo items.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.UndoRedoController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.UndoRedoController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.UndoRedoController",
+      "Summary": "<p sourcefile=\"api/Blackwood.UndoRedoController.yml\" sourcestartlinenumber=\"1\">A stack of undo/redo items.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.Utils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Utils.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.Utils",
+      "Summary": "<p sourcefile=\"api/Blackwood.Utils.yml\" sourcestartlinenumber=\"1\">A helper class of miscellaneous things</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "articles/assemblies.md",
       "output": {
@@ -86,6 +347,26 @@
       "output": {
         ".html": {
           "relative_path": "articles/undo-redo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "building-docs.md",
+      "output": {
+        ".html": {
+          "relative_path": "building-docs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "glossary.md",
+      "output": {
+        ".html": {
+          "relative_path": "glossary.html"
         }
       },
       "version": ""

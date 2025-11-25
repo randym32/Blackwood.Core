@@ -2,18 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Getting Started | Blackwood.Core </title>
+      <title>Glossary | Blackwood.Core </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Getting Started | Blackwood.Core ">
+      <meta name="title" content="Glossary | Blackwood.Core ">
       
       
-      <link rel="icon" href="../template/favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="../toc.html">
+      <link rel="icon" href="template/favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
       
-      <meta name="docfx:rel" content="../">
+      <meta name="docfx:rel" content="">
       
       
       
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../public/docfx.min.js"></script>
+      <script type="module" src="./public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../template/logo-small.png" alt="">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="template/logo-small.png" alt="">
             
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,46 +71,39 @@
         </div>
 
         <article data-uid="">
-<h1 id="getting-started">Getting Started</h1>
+<h1 id="glossary">Glossary</h1>
 
-<p>This guide will help you get up and running with Blackwood.Core.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<ul>
-<li>.NET 9.0 or later</li>
-<li>Visual Studio 2022 or later</li>
-</ul>
-<h2 id="installation">Installation</h2>
-<h3 id="from-source">From Source</h3>
-<ol>
-<li>Clone the repository or add as a submodule</li>
-<li>Add a project reference to your solution:
-<pre><code class="lang-xml">&lt;ItemGroup&gt;
-  &lt;ProjectReference Include=&quot;..\..\Blackwood.Core\src\Blackwood.Core.csproj&quot; /&gt;
-&lt;/ItemGroup&gt;
-</code></pre>
-</li>
-<li>Build your solution; the project will restore and compile alongside your code</li>
-</ol>
-<h3 id="from-binary">From Binary</h3>
-<p>After building, reference the compiled DLL from the <code>bin</code> folder matching your
-configuration and target framework.</p>
-<h2 id="building">Building</h2>
-<p>Build the project from the command line:</p>
-<pre><code class="lang-bash">dotnet build Blackwood.Core/Blackwood.Core.sln -c Release
-</code></pre>
-<p>Or open <code>Blackwood.Core.sln</code> in Visual Studio and build from there.</p>
-<h2 id="running-tests">Running Tests</h2>
-<p>Run the test suite from the command line:</p>
-<pre><code class="lang-bash">dotnet test Blackwood.Core/tests/Blackwood.Core.tests.csproj -c Release
-</code></pre>
-<p>Or open the test project in Visual Studio and run tests from the Test Explorer.</p>
-<h2 id="next-steps">Next Steps</h2>
-<ul>
-<li>Read the <a href="intro.html">Introduction</a> for an overview</li>
-<li>See <a href="preferences.html">Preferences</a> for preference management</li>
-<li>See <a href="assemblies.html">Assemblies</a> for assembly enumeration</li>
-<li>Check the <a href="../api/index.html">API Reference</a> for complete API documentation</li>
-</ul>
+<p>This glossary defines terms and concepts used in the library documentation.</p>
+<h2 id="a">A</h2>
+<p><strong>Assembly</strong>
+: A .NET library, such as DLLs or EXEs, containing executable code and resources.</p>
+<p><strong>Attribute</strong>
+: In .NET, an attribute is a declarative tag applied to program elements such as classes, methods, properties, or parameters. Attributes provide metadata about the element, enabling custom behaviors and additional information.</p>
+<h2 id="c">C</h2>
+<p><strong>Chart</strong>
+: A graphical representation of data that displays information visually.</p>
+<h2 id="d">D</h2>
+<p><strong>Douglas-Peucker Algorithm</strong>
+: An iterative algorithm for reducing the number of points in a curve while preserving its overall shape.</p>
+<h2 id="m">M</h2>
+<p><strong>Menu</strong>
+: A user interface element that organizes and presents a list of commands, actions, or options.</p>
+<p><strong>Menu Item</strong>
+: An individual entry within a menu. Menu items represent executable actions or commands like &quot;Open,&quot; &quot;Save,&quot; or &quot;Exit.&quot;.</p>
+<h2 id="p">P</h2>
+<p><strong>Preference</strong>
+: A user- or application-specific setting that controls the behavior, appearance, or software configuration of software features. Preferences are stored persistently.</p>
+<p><strong>Property</strong>
+: A member of a class or struct that provides access to data, typically encapsulating a getter and/or setter method for controlled reading and writing. Properties enable abstraction of internal state and implement logic for retrieving, validating, or updating values, distinguishing them from plain fields. In C#, properties are declared using the <code>get</code> and <code>set</code> accessors.</p>
+<h2 id="r">R</h2>
+<p><strong>Redo</strong>
+: The operation that reapplies a change or action that was previously undone.</p>
+<h2 id="s">S</h2>
+<p><strong>Single Instance</strong>
+: Refers to the pattern of allowing only one running copy of an application.</p>
+<h2 id="u">U</h2>
+<p><strong>Undo</strong>
+: The operation that reverses or reverts a previous change or action, allowing the user or system to restore the prior state.</p>
 
 </article>
 

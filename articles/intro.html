@@ -79,7 +79,8 @@ charting utilities.</p>
 <h2 id="key-features">Key Features</h2>
 <p>Blackwood.Core provides the following:</p>
 <ul>
-<li><strong>Application Information</strong>: Access application name and assembly information</li>
+<li><strong>Application Information</strong>: Access application name, preferences, assembly
+information</li>
 <li><strong>Preferences System</strong>: Automatic discovery and management of application
 preferences</li>
 <li><strong>Menu Management</strong>: Build application menus from JSON templates</li>
@@ -88,6 +89,9 @@ objects</li>
 <li><strong>Assembly Enumeration</strong>: Enumerate and search assemblies in priority order</li>
 <li><strong>Charting</strong>: Data structures and point reduction algorithms to support chart
 rendering.</li>
+<li><strong>Application Instance Messaging</strong>: Helpers for creating single-instance
+applications and forwarding command-line arguments (such as file-open
+requests) to the already running process via named pipes.</li>
 </ul>
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="application-information">Application Information</h3>
@@ -146,9 +150,9 @@ var simplifiedPoints = reducer.Simplify().ToList();
 </code></pre>
 <p>The charting utilities include:</p>
 <ul>
-<li><code>ChartPoint&lt;T&gt;</code>: Represents a data point with index, y-value, and optional
+<li><code>ChartPoint&lt;IndexType&gt;</code>: Represents a data point with index, y-value, and optional
 annotation</li>
-<li><code>ChartAnnotation&lt;T&gt;</code>: Represents an annotation span with index, duration,
+<li><code>ChartAnnotation&lt;IndexType, DurationType&gt;</code>: Represents an annotation span with index, duration,
 color, and text</li>
 <li><code>ReduceArray&lt;T&gt;</code>: Implements the Douglas-Peucker algorithm to reduce point
 count while preserving visual fidelity.</li>
@@ -159,7 +163,7 @@ count while preserving visual fidelity.</li>
 <li>See <a href="preferences.html">Preferences</a> for preference management</li>
 <li>Learn about <a href="properties-proxy.html">wrapping properties</a> for UI inspectors</li>
 <li>See <a href="assemblies.html">Assemblies</a> for assembly enumeration</li>
-<li>Check the <a href="../api/">API Reference</a> for complete API documentation</li>
+<li>Check the <a href="../api/index.html">API Reference</a> for complete API documentation</li>
 </ul>
 
 </article>
