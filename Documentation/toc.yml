@@ -11,6 +11,8 @@
   - name: Preferences
     href: articles/preferences.md
 - name: API Reference
-  href: api/
+  href: api/index.md
 - name: Glossary
   href: glossary.md
+- name: Building the Documentation
+  href: building-docs.md

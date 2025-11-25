@@ -13,7 +13,7 @@ This directory contains the documentation project for the Blackwood.Core library
 
 To build the documentation using Visual Studio:
 
-1. Open the `Blackwood.IO.sln` solution file in Visual Studio.
+1. Open the `Blackwood.Core.sln` solution file in Visual Studio.
 2. In the Solution Explorer, locate the `Documentation` project.
 3. Right-click the `Documentation` project and select **Build**.
 4. Upon successful build, the documentation output will be generated in the `../docs` directory.

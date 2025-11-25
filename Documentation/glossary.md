@@ -14,8 +14,7 @@ This glossary defines terms and concepts used in the library documentation.
 ## C
 
 **Chart**
-: A graphical representation of data that displays information visually. Charts are used to summarize, analyze, and present complex data sets in forms such as bar charts, line charts, pie charts, and more. In the context of this library, a chart may refer to any data-driven visual element that helps convey trends or relationships within the data.
-
+: A graphical representation of data that displays information visually.
 
 
 ## D
@@ -29,7 +28,7 @@ This glossary defines terms and concepts used in the library documentation.
 : A user interface element that organizes and presents a list of commands, actions, or options.
 
 **Menu Item**
-: An individual entry within a menu. Menu items represent executable actions or commands like "Open," "Save," or "Exit." In code, menu items may correspond to objects such as `ToolStripMenuItem` and can be associated with event handlers that execute application logic when selected.
+: An individual entry within a menu. Menu items represent executable actions or commands like "Open," "Save," or "Exit.".
 
 
 ## P
