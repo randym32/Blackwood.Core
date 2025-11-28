@@ -22,9 +22,11 @@ public sealed class MenuItemAttribute : Attribute
         bool separatorBefore = false,
         bool disabled = false)
     {
+        // Validate the menu path
         if (string.IsNullOrWhiteSpace(menuPath))
             throw new ArgumentException("Menu path is required.", nameof(menuPath));
 
+        // Set the properties
         MenuPath  = menuPath;
         QuickKey  = quickKey;
         ToolTip   = toolTip;
