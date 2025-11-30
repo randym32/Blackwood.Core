@@ -3,6 +3,11 @@
 /// <summary>
 /// Attribute used to describe a menu item contribution.
 /// </summary>
+/// <remarks>
+/// Note: Attribute derived classes are not supported by the System.Text.Json
+/// serializer.  Use the MenuItem class instead for items that need to be
+/// serialized and deserialized.
+/// </remarks>
 [AttributeUsage(AttributeTargets.Method, Inherited = true)]
 public sealed class MenuItemAttribute : Attribute
 {
@@ -38,32 +43,52 @@ public sealed class MenuItemAttribute : Attribute
     /// <summary>
     /// The hierarchical menu path for the item (e.g. "File>Open").
     /// </summary>
+    /// <remarks>
+    /// The menu path is the path to the menu item.
+    /// The '>' character is used to separate the menu items.
+    /// </remarks>
     public string MenuPath { get; }
 
     /// <summary>
-    /// Optional keyboard shortcut in human-readable form (e.g. "Ctrl+N").
+    /// The keyboard shortcut to activate the menu item, in human-readable form
+    /// (e.g. "Ctrl+N").
+    /// Optional.
     /// </summary>
+    /// <remarks>
+    /// The keyboard shortcut is a combination of the control key and the letter key.
+    /// For example, the keyboard shortcut for the 'New' menu item is 'Ctrl+N'.
+    /// </remarks>
     public string? QuickKey { get; }
 
     /// <summary>
-    /// Optional tooltip text displayed for the menu item.
+    /// The tooltip text displayed for the menu item.
+    /// Optional.
     /// </summary>
+    /// <remarks>
+    /// The tooltip is the text that appears when the mouse hovers over the menu item.
+    /// </remarks>
     public string? ToolTip { get; }
 
     /// <summary>
     /// Indicates whether a separator should be added before the menu item.
     /// </summary>
+    /// <remarks>
+    /// If true, a separator will placed before the item.
+    /// </remarks>
     public bool SeparatorBefore { get; }
 
     /// <summary>
     /// Indicates whether the menu item should start disabled.
     /// </summary>
+    /// <remarks>
+    /// If true, the menu item will be Disabled.
+    /// </remarks>
     public bool Disabled { get; }
 
     /// <summary>
-    /// Optional custom tag value that can be used to identify the item.
+    /// An optional object that can be associated with the menu item.
     /// </summary>
-    public string? Tag { get; set; }
+    public object? Tag { get; set; }
     #endregion
 
     /// <summary>

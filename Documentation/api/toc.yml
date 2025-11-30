@@ -43,6 +43,9 @@ items:
   - uid: Blackwood.ReduceArray`1
     name: ReduceArray<T>
     type: Class
+  - uid: Blackwood.ReturnStatus`1
+    name: ReturnStatus<T>
+    type: Class
   - uid: Blackwood.UndoRedo
     name: UndoRedo
     type: Class

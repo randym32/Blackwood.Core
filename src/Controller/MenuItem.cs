@@ -7,6 +7,12 @@ namespace Blackwood;
 /// This class represents a menu item, used to serialize and deserialize menu
 /// items to and from a JSON file.
 /// </summary>
+/// <remarks>
+/// Note: Attribute derived classes are not supported by the System.Text.Json
+/// serializer.  Use the MenuItem class instead for items that need to be
+/// serialized and deserialized.  This approach is less confusing and more
+/// maintainable then creating custom converters for each attribute derived class.
+/// </remarks>
 public class MenuItem
 {
     #region Menu Templates

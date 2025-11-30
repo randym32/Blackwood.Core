@@ -24,14 +24,14 @@ public class MenuItemAttributeTests
             disabled: true);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(attribute.MenuPath, Is.EqualTo("File>New"));
             Assert.That(attribute.QuickKey, Is.EqualTo("Ctrl+N"));
             Assert.That(attribute.ToolTip, Is.EqualTo("Create a new file"));
             Assert.That(attribute.SeparatorBefore, Is.True);
             Assert.That(attribute.Disabled, Is.True);
-        });
+        }
     }
 
     /// <summary>
