@@ -19,7 +19,8 @@ public sealed class MenuItemAttribute : Attribute
     /// <param name="toolTip">Optional tooltip text.</param>
     /// <param name="separatorBefore">Whether to insert a separator before the item.</param>
     /// <param name="disabled">Whether the item should start disabled.</param>
-    /// <exception cref="ArgumentException">Thrown when <paramref name="menuPath"/> is null or whitespace.</exception>
+    /// <exception cref="ArgumentException">Thrown when <paramref name="menuPath"/>
+    /// is null or whitespace.</exception>
     public MenuItemAttribute(
         string menuPath,
         string? quickKey = null,

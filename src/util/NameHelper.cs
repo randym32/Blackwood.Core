@@ -10,12 +10,18 @@ namespace Blackwood;
 public static partial class Utils
 {
     /// <summary>
+    /// A regex to split a C/C++/C# name at word boundaries.
+    /// </summary>
+    [GeneratedRegex(@"(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|_")]
+    private static partial Regex CNameSplitRegex();
+
+    /// <summary>
     /// Convert a C# name to a label.
     /// </summary>
     /// <param name="cname">The C# name to convert.</param>
     /// <returns>The converted label.</returns>
     /// <remarks>
-    /// This splits the name at word boundaries and then capitalizes the first
+    /// This splits the name at word boundaries, capitalizing the first
     /// letter of each word.
     /// It also removes the first word if it is "g" or "m" or other Hungarian
     /// notation prefix.
@@ -25,7 +31,7 @@ public static partial class Utils
     {
         // Use Regex to split where a lowercase letter is followed by an uppercase letter or on underscores
         // For instance HTMLParser should be split into HTML and Parser.
-        string[] result = Regex.Split(cname, @"(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|_");
+        string[] result = CNameSplitRegex().Split(cname);
         result = result.Select(x => x.ToLowerInvariant()).ToArray();
 
         // Remove the first word if it is "g" or "m" or other Hungarian notation
