@@ -21,9 +21,9 @@ namespace Blackwood;
 /// 2. During deserialization: Creates a new ProxyPropertiesObject and sets the
 ///    property values from the JSON data
 ///
-/// Note: This is a basic implementation that serializes property values but doesn't preserve
-/// the original type information or property descriptors. For full round-trip serialization,
-/// additional metadata would need to be stored.
+/// Note: This is a basic implementation that serializes property values but
+/// doesn't preserve the original type information or property descriptors.
+/// For full round-trip serialization, additional metadata would need to be stored.
 /// </remarks>
 public class PropertiesJsonConverter : JsonConverter<ProxyPropertiesObject>
 {

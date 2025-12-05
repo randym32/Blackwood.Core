@@ -511,7 +511,8 @@ public class ProxyPropertyDescriptor : PropertyDescriptor
     /// <summary>
     /// Gets whether the property can be reset.
     /// </summary>
-    /// <param name="component">The proxy object (ProxyPropertiesObject) that this property is part of.</param>
+    /// <param name="component">The proxy object (ProxyPropertiesObject) that
+    /// this property is part of.</param>
     /// <returns>True if the property can be reset.</returns>
     public override bool CanResetValue(object component)
     {
@@ -522,7 +523,8 @@ public class ProxyPropertyDescriptor : PropertyDescriptor
     /// <summary>
     /// Gets the current value of the property.
     /// </summary>
-    /// <param name="component">The proxy object (ProxyPropertiesObject) that this property is part of.</param>
+    /// <param name="component">The proxy object (ProxyPropertiesObject) that
+    /// this property is part of.</param>
     /// <returns>The current value.</returns>
     public override object? GetValue(object? component)
     {
@@ -535,7 +537,8 @@ public class ProxyPropertyDescriptor : PropertyDescriptor
     /// <summary>
     /// Resets the property value.
     /// </summary>
-    /// <param name="component">The proxy object (ProxyPropertiesObject) that this property is part of.</param>
+    /// <param name="component">The proxy object (ProxyPropertiesObject) that
+    /// this property is part of.</param>
     public override void ResetValue(object component)
     {
         // Fallback to the stored original/default value
@@ -546,7 +549,8 @@ public class ProxyPropertyDescriptor : PropertyDescriptor
     /// <summary>
     /// Sets the value of the property.
     /// </summary>
-    /// <param name="component">The proxy object (ProxyPropertiesObject) that this property is part of.</param>
+    /// <param name="component">The proxy object (ProxyPropertiesObject) that
+    /// this property is part of.</param>
     /// <param name="value">The new value.</param>
     public override void SetValue(object? component, object? value)
     {
@@ -559,7 +563,8 @@ public class ProxyPropertyDescriptor : PropertyDescriptor
     /// <summary>
     /// Determines whether the property value should be serialized.
     /// </summary>
-    /// <param name="component">The proxy object (ProxyPropertiesObject) that this property is part of.</param>
+    /// <param name="component">The proxy object (ProxyPropertiesObject) that
+    /// this property is part of.</param>
     /// <returns>True if the property should be serialized.</returns>
     public override bool ShouldSerializeValue(object component)
     {
