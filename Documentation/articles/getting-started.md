@@ -48,6 +48,7 @@ Or open the test project in Visual Studio and run tests from the Test Explorer.
 ## Next Steps
 
 - Read the [Introduction](intro.md) for an overview
+- See [Animation](animation.md) for animating object properties
 - See [Preferences](preferences.md) for preference management
 - See [Assemblies](assemblies.md) for assembly enumeration
 - Check the [API Reference](../api/index.md) for complete API documentation

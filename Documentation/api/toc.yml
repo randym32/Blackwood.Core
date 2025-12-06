@@ -10,6 +10,12 @@ items:
   - uid: Blackwood.ApplicationForwarder`1
     name: ApplicationForwarder<messageType>
     type: Class
+  - uid: Blackwood.AssemblyUtils
+    name: AssemblyUtils
+    type: Class
+  - uid: Blackwood.BezierPath
+    name: BezierPath
+    type: Class
   - uid: Blackwood.ChartAnnotation`1
     name: ChartAnnotation<IndexType>
     type: Class
@@ -34,6 +40,9 @@ items:
   - uid: Blackwood.PropertiesJsonConverter
     name: PropertiesJsonConverter
     type: Class
+  - uid: Blackwood.PropertyRef
+    name: PropertyRef
+    type: Class
   - uid: Blackwood.ProxyPropertiesObject
     name: ProxyPropertiesObject
     type: Class
@@ -54,5 +63,12 @@ items:
     type: Class
   - uid: Blackwood.Utils
     name: Utils
+    type: Class
+- uid: Blackwood.Core
+  name: ''
+  type: Namespace
+  items:
+  - uid: Blackwood.Core.PointExtensions
+    name: PointExtensions
     type: Class
 memberLayout: SamePage

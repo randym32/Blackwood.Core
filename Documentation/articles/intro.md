@@ -1,8 +1,8 @@
 ﻿# Introduction to Blackwood.Core
 
 **Blackwood.Core** is a .NET library of utilities for system integration,
-including application preferences, menu management, property access, and
-charting utilities.
+including animation, application preferences, menu management, property access,
+and charting utilities.
 
 ## Key Features
 
@@ -10,6 +10,8 @@ Blackwood.Core provides the following:
 
 - **Application Information**: Access application name, preferences, assembly
   information
+- **Animation**: Linear interpolation and easing functions for animating
+  object properties over time
 - **Preferences System**: Automatic discovery and management of application
   preferences
 - **Menu Management**: Build application menus from JSON templates
@@ -46,6 +48,31 @@ foreach (Assembly assembly in Application.Assemblies())
 ```
 
 For more details, see the [Assemblies](assemblies.md) documentation.
+
+### Animation
+
+Animate object properties using linear interpolation and easing functions:
+
+```csharp
+using Blackwood;
+
+// Create an interpolation function for a custom state class
+var interpolateFunction = PropertyInterpolator.CreateInterpolationFunction<AnimatedState>();
+
+// Define start and end states
+var startState = new AnimatedState { Location = new Point(0, 0), Width = 100 };
+var endState = new AnimatedState { Location = new Point(200, 200), Width = 200 };
+var currentState = new AnimatedState();
+
+// Interpolate at t = 0.5 (halfway between start and end)
+interpolateFunction(startState, endState, 0.5f, currentState);
+
+// Apply easing for natural motion
+var easingFunc = Animation.GetEasing(EasingFunction.EaseInOutQuad);
+float easedProgress = easingFunc(0.5f);
+```
+
+See the [Animation](animation.md) documentation for details.
 
 ### Preferences
 
@@ -108,6 +135,7 @@ The charting utilities include:
 ## Next Steps
 
 - Read the [Getting Started](getting-started.md) guide for installation
+- See [Animation](animation.md) for animating object properties
 - See [Preferences](preferences.md) for preference management
 - Learn about [wrapping properties](properties-proxy.md) for UI inspectors
 - See [Assemblies](assemblies.md) for assembly enumeration

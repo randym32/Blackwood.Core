@@ -5,7 +5,7 @@ The charting system consists of three main components:
 
 - **ChartPoint<IndexType>**: Represents individual data points in a chart
 - **ChartAnnotation&lt;IndexType, DurationType&gt;**: Represents annotation spans with visual styling (the shorthand `ChartAnnotation<T>` remains for the common case where index and duration share the same type)
-- **ReduceArray<T>**:  This reducing point counts in large datasets by while preserving visual fidelity.
+- **ReduceArray<T>**:  This reduces point counts in large datasets while preserving visual fidelity.
 
 ## ChartPoint<IndexType>
 
@@ -154,7 +154,7 @@ var thumbnail = new ReduceArray<int>(points, maxItems: 50);
 
 
 The algorithm may not converge exactly to `maxItems`, stopping at a maximum
-number of iterations.  The rresults may be up to 2x `maxItems` in complex cases.
+number of iterations.  The results may be up to 2x `maxItems` in complex cases.
 
 ## Complete Example
 

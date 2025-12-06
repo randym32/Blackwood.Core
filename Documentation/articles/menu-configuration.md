@@ -5,7 +5,7 @@ menus using JSON files. This article explains how to configure menus for your
 application.
 
 Note: the menu definitions are not connected to a menu system.  Another assembly
-such as `Blackwood.WinForms` is needed for thate.  This provides the foundation
+such as `Blackwood.WinForms` is needed for that.  This provides the foundation
 for the definition.
 
 ## Overview

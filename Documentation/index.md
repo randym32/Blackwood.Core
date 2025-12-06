@@ -13,6 +13,8 @@ testable system components.
 
 - **Application**: Application-level information, preferences system and
   assembly scanning utilities
+- **Animation**: Linear interpolation and easing functions for animating
+  object properties over time
 - **Menu Tools**: Menu system for building application menus from JSON templates
 - **Properties**: Property proxy for dynamic property access
 - **Charting**: Chart data structures and point reduction algorithms for data
@@ -61,6 +63,8 @@ For detailed documentation on specific features, see:
 
 - [Getting Started](articles/getting-started.md) - Quick start guide
 - [Introduction](articles/intro.md) - Overview of Blackwood.Core
+- [Animation](articles/animation.md) - Linear interpolation and easing
+  functions for animations
 - [Charting](articles/charting.md) - Chart data structures and point reduction
   algorithms
 - [Menu Configuration](articles/menu-configuration.md) - Menu configuration
