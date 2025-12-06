@@ -4,7 +4,7 @@ namespace Blackwood.Core.Tests;
 
 /// <summary>
 /// Test class for Preferences functionality.
-/// This class contains comprehensive tests for the Utils static class preferences methods,
+/// This class contains tests for the Utils static class preferences methods,
 /// covering PreferencesProxy, SavePreferences, and LoadPreferencesFromFile functionality.
 /// </summary>
 public class PreferencesTests

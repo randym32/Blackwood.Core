@@ -19,7 +19,8 @@ namespace Blackwood;
 /// int value = status; // Implicit conversion to the value
 /// </code>
 /// 
-/// This approach is the preferred way to return error results.
+/// This approach is the preferred way to return error results, esp for errors
+/// that the user should be aware of, and/or can correct.
 /// There are still times to throw exeptions -- such as in a constructor,
 /// or in procedures for well-known interfaces that doesnt provide any
 /// other way to produce errors.

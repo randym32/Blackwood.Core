@@ -47,18 +47,18 @@ public class ItemAttributesTests
         var attributes = new ItemAttributes();
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(attributes.Name, Is.EqualTo("Untitled"), "Default name should be 'Untitled'");
             Assert.That(attributes.Guid, Is.Not.EqualTo(Guid.Empty), "Guid should be generated");
             Assert.That(attributes.CreatedUTC, Is.Not.EqualTo(DateTime.MinValue), "CreatedUTC should be set");
             Assert.That(attributes.LastModifiedUTC, Is.Not.EqualTo(DateTime.MinValue), "LastModifiedUTC should be set");
             Assert.That(attributes.Version, Is.Not.Null, "Version should be initialized");
-            Assert.That(attributes.Version.Major, Is.EqualTo(0), "Default version major should be 0");
-            Assert.That(attributes.Version.Minor, Is.EqualTo(0), "Default version minor should be 0");
-            Assert.That(attributes.Version.Build, Is.EqualTo(0), "Default version build should be 0");
-            Assert.That(attributes.Version.Revision, Is.EqualTo(0), "Default version revision should be 0");
-        });
+            Assert.That(attributes.Version.Major, Is.Zero, "Default version major should be 0");
+            Assert.That(attributes.Version.Minor, Is.Zero, "Default version minor should be 0");
+            Assert.That(attributes.Version.Build, Is.Zero, "Default version build should be 0");
+            Assert.That(attributes.Version.Revision, Is.Zero, "Default version revision should be 0");
+        }
     }
 
     /// <summary>
@@ -72,14 +72,14 @@ public class ItemAttributesTests
         var attributes = new ItemAttributes();
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(attributes.Author, Is.Null, "Author should start as null");
             Assert.That(attributes.Description, Is.Null, "Description should start as null");
             Assert.That(attributes.Link, Is.Null, "Link should start as null");
             Assert.That(attributes.Documentation, Is.Null, "Documentation should start as null");
             Assert.That(attributes.Comments, Is.Null, "Comments should start as null");
-        });
+        }
     }
 
     /// <summary>
@@ -114,13 +114,13 @@ public class ItemAttributesTests
         var afterCreation = DateTime.UtcNow;
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(attributes.CreatedUTC, Is.GreaterThanOrEqualTo(beforeCreation), "CreatedUTC should be after creation start");
             Assert.That(attributes.CreatedUTC, Is.LessThanOrEqualTo(afterCreation), "CreatedUTC should be before creation end");
             Assert.That(attributes.LastModifiedUTC, Is.GreaterThanOrEqualTo(beforeCreation), "LastModifiedUTC should be after creation start");
             Assert.That(attributes.LastModifiedUTC, Is.LessThanOrEqualTo(afterCreation), "LastModifiedUTC should be before creation end");
-        });
+        }
     }
 
     #endregion
@@ -172,10 +172,11 @@ public class ItemAttributesTests
     public void Name_NullValue_SetsToUntitled()
     {
         // Arrange
-        var attributes = new ItemAttributes();
-
-        // Act
-        attributes.Name = null!;
+        var attributes = new ItemAttributes
+        {
+            // Act - Set Name to null
+            Name = null!
+        };
 
         // Assert
         Assert.That(attributes.Name, Is.EqualTo("Untitled"), "Name should be set to 'Untitled' when null is provided");
@@ -188,11 +189,11 @@ public class ItemAttributesTests
     [Test]
     public void Name_EmptyString_SetsToUntitled()
     {
-        // Arrange
-        var attributes = new ItemAttributes();
-
-        // Act
-        attributes.Name = "";
+        // Arrange & Act
+        var attributes = new ItemAttributes
+        {
+            Name = ""
+        };
 
         // Assert
         Assert.That(attributes.Name, Is.EqualTo("Untitled"), "Name should be set to 'Untitled' when empty string is provided");
@@ -205,11 +206,11 @@ public class ItemAttributesTests
     [Test]
     public void Name_WhitespaceOnlyString_SetsToUntitled()
     {
-        // Arrange
-        var attributes = new ItemAttributes();
-
-        // Act
-        attributes.Name = "   ";
+        // Arrange & Act
+        var attributes = new ItemAttributes
+        {
+            Name = "   "
+        };
 
         // Assert
         Assert.That(attributes.Name, Is.EqualTo("Untitled"), "Name should be set to 'Untitled' when whitespace-only string is provided");
@@ -217,7 +218,7 @@ public class ItemAttributesTests
 
     /// <summary>
     /// Tests that the Name property handles various whitespace scenarios.
-    /// This verifies comprehensive whitespace handling.
+    /// This verifies whitespace handling.
     /// </summary>
     [Test]
     public void Name_VariousWhitespaceScenarios_HandlesCorrectly()
@@ -325,8 +326,10 @@ public class ItemAttributesTests
     public void Author_CanBeSetToNull()
     {
         // Arrange
-        var attributes = new ItemAttributes();
-        attributes.Author = "Initial Author";
+        var attributes = new ItemAttributes
+        {
+            Author = "Initial Author"
+        };
 
         // Act
         attributes.Author = null;
@@ -361,8 +364,10 @@ public class ItemAttributesTests
     public void Version_CanBeSetToNull()
     {
         // Arrange
-        var attributes = new ItemAttributes();
-        attributes.Version = new Version(1, 0, 0, 0);
+        var attributes = new ItemAttributes
+        {
+            Version = new Version(1, 0, 0, 0)
+        };
 
         // Act
         attributes.Version = null!;
@@ -445,18 +450,20 @@ public class ItemAttributesTests
 
     /// <summary>
     /// Tests that all nullable properties can be set to null.
-    /// This verifies comprehensive null handling.
+    /// This verifies null handling.
     /// </summary>
     [Test]
     public void NullableProperties_CanAllBeSetToNull()
     {
         // Arrange
-        var attributes = new ItemAttributes();
-        attributes.Author = "Test Author";
-        attributes.Description = "Test Description";
-        attributes.Link = new Uri("https://example.com");
-        attributes.Documentation = new Uri("https://docs.example.com");
-        attributes.Comments = "Test Comments";
+        var attributes = new ItemAttributes
+        {
+            Author = "Test Author",
+            Description = "Test Description",
+            Link = new Uri("https://example.com"),
+            Documentation = new Uri("https://docs.example.com"),
+            Comments = "Test Comments"
+        };
 
         // Act
         attributes.Author = null;
@@ -466,14 +473,14 @@ public class ItemAttributesTests
         attributes.Comments = null;
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(attributes.Author, Is.Null, "Author should be null");
             Assert.That(attributes.Description, Is.Null, "Description should be null");
             Assert.That(attributes.Link, Is.Null, "Link should be null");
             Assert.That(attributes.Documentation, Is.Null, "Documentation should be null");
             Assert.That(attributes.Comments, Is.Null, "Comments should be null");
-        });
+        }
     }
 
     #endregion
@@ -488,20 +495,22 @@ public class ItemAttributesTests
     public void Clone_CreatesCopyWithSameValues()
     {
         // Arrange
-        var original = new ItemAttributes();
-        original.Name = "Test Item";
-        original.Author = "Test Author";
-        original.Description = "Test Description";
-        original.Comments = "Test Comments";
-        original.Version = new Version(1, 2, 3, 4);
-        original.Link = new Uri("https://example.com");
-        original.Documentation = new Uri("https://docs.example.com");
+        var original = new ItemAttributes
+        {
+            Name = "Test Item",
+            Author = "Test Author",
+            Description = "Test Description",
+            Comments = "Test Comments",
+            Version = new Version(1, 2, 3, 4),
+            Link = new Uri("https://example.com"),
+            Documentation = new Uri("https://docs.example.com")
+        };
 
         // Act
         var cloned = original.Clone();
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(cloned.Name, Is.EqualTo(original.Name), "Cloned name should match original");
             Assert.That(cloned.Author, Is.EqualTo(original.Author), "Cloned author should match original");
@@ -510,7 +519,7 @@ public class ItemAttributesTests
             Assert.That(cloned.Version, Is.EqualTo(original.Version), "Cloned version should match original");
             Assert.That(cloned.CreatedUTC, Is.EqualTo(original.CreatedUTC), "Cloned CreatedUTC should match original");
             Assert.That(cloned.LastModifiedUTC, Is.EqualTo(original.LastModifiedUTC), "Cloned LastModifiedUTC should match original");
-        });
+        }
     }
 
     /// <summary>
@@ -538,18 +547,20 @@ public class ItemAttributesTests
     public void Clone_WithNullValues_HandlesCorrectly()
     {
         // Arrange
-        var original = new ItemAttributes();
-        original.Author = null;
-        original.Description = null;
-        original.Link = null;
-        original.Documentation = null;
-        original.Comments = null;
+        var original = new ItemAttributes
+        {
+            Author = null,
+            Description = null,
+            Link = null,
+            Documentation = null,
+            Comments = null
+        };
 
         // Act
         var cloned = original.Clone();
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(cloned.Author, Is.Null, "Cloned author should be null");
             Assert.That(cloned.Description, Is.Null, "Cloned description should be null");
@@ -557,7 +568,7 @@ public class ItemAttributesTests
             Assert.That(cloned.Documentation, Is.Null, "Cloned documentation should be null");
             Assert.That(cloned.Comments, Is.Null, "Cloned comments should be null");
             Assert.That(cloned.Version, Is.EqualTo(original.Version), "Cloned version should match original");
-        });
+        }
     }
 
     /// <summary>
@@ -568,21 +579,23 @@ public class ItemAttributesTests
     public void Clone_CreatesNewUriInstances()
     {
         // Arrange
-        var original = new ItemAttributes();
-        original.Link = new Uri("https://example.com");
-        original.Documentation = new Uri("https://docs.example.com");
+        var original = new ItemAttributes
+        {
+            Link = new Uri("https://example.com"),
+            Documentation = new Uri("https://docs.example.com")
+        };
 
         // Act
         var cloned = original.Clone();
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(cloned.Link, Is.Not.SameAs(original.Link), "Cloned link should be a different Uri instance");
             Assert.That(cloned.Documentation, Is.Not.SameAs(original.Documentation), "Cloned documentation should be a different Uri instance");
             Assert.That(cloned.Link, Is.EqualTo(original.Link), "Cloned link should have the same value as original");
             Assert.That(cloned.Documentation, Is.EqualTo(original.Documentation), "Cloned documentation should have the same value as original");
-        });
+        }
     }
 
     /// <summary>
@@ -593,18 +606,20 @@ public class ItemAttributesTests
     public void Clone_CreatesNewVersionInstance()
     {
         // Arrange
-        var original = new ItemAttributes();
-        original.Version = new Version(1, 2, 3, 4);
+        var original = new ItemAttributes
+        {
+            Version = new Version(1, 2, 3, 4)
+        };
 
         // Act
         var cloned = original.Clone();
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(cloned.Version, Is.Not.SameAs(original.Version), "Cloned version should be a different Version instance");
             Assert.That(cloned.Version, Is.EqualTo(original.Version), "Cloned version should have the same value as original");
-        });
+        }
     }
 
     /// <summary>
@@ -615,10 +630,12 @@ public class ItemAttributesTests
     public void Clone_CreatesIndependentCopies()
     {
         // Arrange
-        var original = new ItemAttributes();
-        original.Name = "Original Name";
-        original.Author = "Original Author";
-        original.Description = "Original Description";
+        var original = new ItemAttributes
+        {
+            Name = "Original Name",
+            Author = "Original Author",
+            Description = "Original Description"
+        };
 
         // Act
         var cloned = original.Clone();
@@ -627,7 +644,7 @@ public class ItemAttributesTests
         cloned.Description = "Cloned Description";
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(original.Name, Is.EqualTo("Original Name"), "Original name should not be affected by clone changes");
             Assert.That(original.Author, Is.EqualTo("Original Author"), "Original author should not be affected by clone changes");
@@ -635,7 +652,7 @@ public class ItemAttributesTests
             Assert.That(cloned.Name, Is.EqualTo("Cloned Name"), "Cloned name should be changed");
             Assert.That(cloned.Author, Is.EqualTo("Cloned Author"), "Cloned author should be changed");
             Assert.That(cloned.Description, Is.EqualTo("Cloned Description"), "Cloned description should be changed");
-        });
+        }
     }
 
     #endregion
@@ -660,13 +677,13 @@ public class ItemAttributesTests
         attributes.Comments = longString;
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(attributes.Name, Is.EqualTo(longString), "Very long name should be handled correctly");
             Assert.That(attributes.Author, Is.EqualTo(longString), "Very long author should be handled correctly");
             Assert.That(attributes.Description, Is.EqualTo(longString), "Very long description should be handled correctly");
             Assert.That(attributes.Comments, Is.EqualTo(longString), "Very long comments should be handled correctly");
-        });
+        }
     }
 
     /// <summary>
@@ -697,13 +714,13 @@ public class ItemAttributesTests
             attributes.Comments = specialString;
 
             // Assert
-            Assert.Multiple(() =>
+            using (Assert.EnterMultipleScope())
             {
                 Assert.That(attributes.Name, Is.EqualTo(specialString), $"Special characters in name should be handled correctly: {specialString}");
                 Assert.That(attributes.Author, Is.EqualTo(specialString), $"Special characters in author should be handled correctly: {specialString}");
                 Assert.That(attributes.Description, Is.EqualTo(specialString), $"Special characters in description should be handled correctly: {specialString}");
                 Assert.That(attributes.Comments, Is.EqualTo(specialString), $"Special characters in comments should be handled correctly: {specialString}");
-            });
+            }
         }
     }
 
@@ -761,11 +778,11 @@ public class ItemAttributesTests
             attributes.Documentation = uri;
 
             // Assert
-            Assert.Multiple(() =>
+            using (Assert.EnterMultipleScope())
             {
                 Assert.That(attributes.Link, Is.EqualTo(uri), $"URI {uri} should be handled correctly for Link");
                 Assert.That(attributes.Documentation, Is.EqualTo(uri), $"URI {uri} should be handled correctly for Documentation");
-            });
+            }
         }
     }
 
@@ -789,13 +806,13 @@ public class ItemAttributesTests
         }
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(attributes.Name, Is.EqualTo("Name 999"), "Final name should be correct after rapid changes");
             Assert.That(attributes.Author, Is.EqualTo("Author 999"), "Final author should be correct after rapid changes");
             Assert.That(attributes.Description, Is.EqualTo("Description 999"), "Final description should be correct after rapid changes");
             Assert.That(attributes.Comments, Is.EqualTo("Comments 999"), "Final comments should be correct after rapid changes");
-        });
+        }
     }
 
     /// <summary>
@@ -819,14 +836,14 @@ public class ItemAttributesTests
         Task.WaitAll(tasks);
 
         // Assert - At least one of the concurrent operations should have succeeded
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(attributes.Name, Is.Not.Null, "Name should be set by concurrent operation");
             Assert.That(attributes.Author, Is.Not.Null, "Author should be set by concurrent operation");
             Assert.That(attributes.Description, Is.Not.Null, "Description should be set by concurrent operation");
             Assert.That(attributes.Comments, Is.Not.Null, "Comments should be set by concurrent operation");
             Assert.That(attributes.Version, Is.Not.Null, "Version should be set by concurrent operation");
-        });
+        }
     }
 
     #endregion
@@ -841,16 +858,16 @@ public class ItemAttributesTests
     public void ItemAttributes_CompleteWorkflow_WorksCorrectly()
     {
         // Arrange
-        var original = new ItemAttributes();
-
-        // Act - Set all properties
-        original.Name = "Complete Test Item";
-        original.Author = "Test Author";
-        original.Description = "This is a complete test of the ItemAttributes workflow";
-        original.Comments = "These are test comments for the workflow";
-        original.Version = new Version(1, 0, 0, 0);
-        original.Link = new Uri("https://example.com/test");
-        original.Documentation = new Uri("https://docs.example.com/test");
+        var original = new ItemAttributes
+        {
+            Name = "Complete Test Item",
+            Author = "Test Author",
+            Description = "This is a complete test of the ItemAttributes workflow",
+            Comments = "These are test comments for the workflow",
+            Version = new Version(1, 0, 0, 0),
+            Link = new Uri("https://example.com/test"),
+            Documentation = new Uri("https://docs.example.com/test")
+        };
 
         // Act - Clone the item
         var cloned = original.Clone();
@@ -859,7 +876,7 @@ public class ItemAttributesTests
         cloned.Name = "Modified Clone";
         cloned.Author = "Modified Author";
 
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             // Assert - Original should be unchanged
             Assert.That(original.Name, Is.EqualTo("Complete Test Item"), "Original name should be unchanged");
@@ -875,7 +892,7 @@ public class ItemAttributesTests
             Assert.That(cloned.Version, Is.EqualTo(original.Version), "Cloned version should match original");
             Assert.That(cloned.Link, Is.EqualTo(original.Link), "Cloned link should match original");
             Assert.That(cloned.Documentation, Is.EqualTo(original.Documentation), "Cloned documentation should match original");
-        });
+        }
     }
 
     /// <summary>
@@ -885,29 +902,29 @@ public class ItemAttributesTests
     [Test]
     public void ItemAttributes_RealisticUsageScenario_WorksCorrectly()
     {
-        // Arrange
-        var projectAttributes = new ItemAttributes();
-
-        // Act - Set realistic project attributes
-        projectAttributes.Name = "My Awesome Project";
-        projectAttributes.Author = "John Developer";
-        projectAttributes.Description = "A comprehensive project management system with advanced features";
-        projectAttributes.Comments = "This project was created to solve complex business problems";
-        projectAttributes.Version = new Version(2, 1, 0, 0);
-        projectAttributes.Link = new Uri("https://github.com/user/awesome-project");
-        projectAttributes.Documentation = new Uri("https://docs.awesome-project.com");
+        // Arrange & Act - Set realistic project attributes
+        var projectAttributes = new ItemAttributes
+        {
+            Name = "My Awesome Project",
+            Author = "John Developer",
+            Description = "A project management system with advanced features",
+            Comments = "This project was created to solve complex business problems",
+            Version = new Version(2, 1, 0, 0),
+            Link = new Uri("https://github.com/user/awesome-project"),
+            Documentation = new Uri("https://docs.awesome-project.com")
+        };
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(projectAttributes.Name, Is.EqualTo("My Awesome Project"), "Realistic project name should be set correctly");
             Assert.That(projectAttributes.Author, Is.EqualTo("John Developer"), "Realistic project author should be set correctly");
-            Assert.That(projectAttributes.Description, Is.EqualTo("A comprehensive project management system with advanced features"), "Realistic project description should be set correctly");
+            Assert.That(projectAttributes.Description, Is.EqualTo("A project management system with advanced features"), "Realistic project description should be set correctly");
             Assert.That(projectAttributes.Comments, Is.EqualTo("This project was created to solve complex business problems"), "Realistic project comments should be set correctly");
             Assert.That(projectAttributes.Version, Is.EqualTo(new Version(2, 1, 0, 0)), "Realistic project version should be set correctly");
             Assert.That(projectAttributes.Link, Is.EqualTo(new Uri("https://github.com/user/awesome-project")), "Realistic project link should be set correctly");
             Assert.That(projectAttributes.Documentation, Is.EqualTo(new Uri("https://docs.awesome-project.com")), "Realistic project documentation should be set correctly");
-        });
+        }
     }
 
     #endregion

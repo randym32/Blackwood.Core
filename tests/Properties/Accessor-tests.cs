@@ -4,7 +4,7 @@ namespace Blackwood.Core.Tests;
 
 /// <summary>
 /// Test class for Utils functionality.
-/// This class contains comprehensive tests for the Utils static class, covering its methods
+/// This class contains tests for the Utils static class, covering its methods
 /// for converting C# names to labels and fitting text to specified widths.
 /// </summary>
 public class AccessorTests
@@ -28,6 +28,7 @@ public class AccessorTests
         private readonly int _numberValue = 123;
         private readonly string _privateDataValue = "PrivateDataValue";
         private readonly bool _booleanValue = true;
+        private readonly string _retrieveValue = "RetrieveValue";
 
         protected string ProtectedProperty { get; set; } = "ProtectedPropertyValue";
         protected int ProtectedField = 84;
@@ -81,7 +82,7 @@ public class AccessorTests
         public static string GetValueWithParam(string param) => param;
 
         // Method that doesn't start with "Get" (should be found by GetMemberAccessor)
-        public string RetrieveValue() => "RetrieveValue";
+        public string RetrieveValue() => _retrieveValue;
     }
 
     /// <summary>
@@ -127,21 +128,21 @@ public class AccessorTests
         // Act
         var getter = AssemblyUtils.GetMemberAccessor(testObject, propertyName, out var setter);
 
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             // Assert
             Assert.That(getter, Is.Not.Null, "Getter should not be null");
             Assert.That(setter, Is.Not.Null, "Setter should not be null");
         Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct value");
-        });
+        }
 
         // Test setter
         const string newValue = "NewValue";
         setter!(newValue);
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter!(), Is.EqualTo(newValue), "Setter should update the value");
-        });
+        }
     }
 
     /// <summary>
@@ -152,17 +153,17 @@ public class AccessorTests
     {
         var obj = new TestClassForAccessor();
         var getter = AssemblyUtils.GetMemberAccessor(typeof(TestClassForAccessor), obj, "PublicProperty", out var setter);
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null);
             Assert.That(setter, Is.Not.Null);
             Assert.That(getter!(), Is.EqualTo("PublicPropertyValue"));
-        });
+        }
         setter!("X");
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter!(), Is.EqualTo("X"));
-        });
+        }
     }
 
     /// <summary>
@@ -172,32 +173,32 @@ public class AccessorTests
     public void GetMemberAccessor_TypeOverload_Static_Works()
     {
         var getterProp = AssemblyUtils.GetMemberAccessor(typeof(StaticHolder), null!, nameof(StaticHolder.StaticProperty), out var setterProp);
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getterProp, Is.Not.Null);
             Assert.That(setterProp, Is.Not.Null);
         Assert.That(getterProp!(), Is.EqualTo("StaticValue"));
-        });
+        }
         setterProp!("NewStatic");
         Assert.That(getterProp!(), Is.EqualTo("NewStatic"));
 
         var getterField = AssemblyUtils.GetMemberAccessor(typeof(StaticHolder), null!, nameof(StaticHolder.StaticField), out var setterField);
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getterField, Is.Not.Null);
             Assert.That(setterField, Is.Not.Null);
         Assert.That(getterField!(), Is.EqualTo(7));
-        });
+        }
         setterField!(9);
         Assert.That(getterField!(), Is.EqualTo(9));
 
         var getterMethod = AssemblyUtils.GetMemberAccessor(typeof(StaticHolder), null!, "StaticThing", out var setterMethod);
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getterMethod, Is.Not.Null);
             Assert.That(setterMethod, Is.Null);
             Assert.That(getterMethod!(), Is.EqualTo("StaticThing"));
-        });
+        }
     }
 
     /// <summary>
@@ -215,12 +216,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, fieldName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null");
             Assert.That(setter, Is.Not.Null, "Setter should not be null");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct value");
-        });
+        }
 
         // Test setter
         const int newValue = 100;
@@ -243,12 +244,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, propertyName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null");
             Assert.That(setter, Is.Not.Null, "Setter should not be null");
         Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct value");
-        });
+        }
 
         // Test setter
         const string newValue = "NewPrivateValue";
@@ -270,13 +271,13 @@ public class AccessorTests
         // Act
         var getter = AssemblyUtils.GetMemberAccessor(testObject, propertyName, out var setter);
 
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             // Assert
             Assert.That(getter, Is.Not.Null, "Getter should not be null");
             Assert.That(setter, Is.Not.Null, "Setter should not be null");
         Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct value");
-        });
+        }
 
         // Test setter
         const string newValue = "NewProtectedValue";
@@ -299,12 +300,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, propertyName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null");
             Assert.That(setter, Is.Not.Null, "Setter should not be null");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct value");
-        });
+        }
 
         // Test setter
         const string newValue = "NewInternalValue";
@@ -326,11 +327,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, nonExistentMember, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for non-existent member");
             Assert.That(setter, Is.Null, "Setter should be null for non-existent member");
-        });
+        }
     }
 
     /// <summary>
@@ -347,11 +348,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(nullTarget!, memberName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for null target");
             Assert.That(setter, Is.Null, "Setter should be null for null target");
-        });
+        }
     }
 
     /// <summary>
@@ -369,12 +370,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, methodName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null for exact method name");
             Assert.That(setter, Is.Null, "Setter should be null for method-based accessor");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct method value");
-        });
+        }
     }
 
     /// <summary>
@@ -392,12 +393,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, methodName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null for Get-prefixed method");
             Assert.That(setter, Is.Null, "Setter should be null for method-based accessor");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct method value");
-        });
+        }
     }
 
     /// <summary>
@@ -415,12 +416,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, methodName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null for case-insensitive method name");
             Assert.That(setter, Is.Null, "Setter should be null for method-based accessor");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct method value");
-        });
+        }
     }
 
     /// <summary>
@@ -438,12 +439,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, methodName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null for Get-prefixed case-insensitive method");
             Assert.That(setter, Is.Null, "Setter should be null for method-based accessor");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct method value");
-        });
+        }
     }
 
     /// <summary>
@@ -460,11 +461,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, methodName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for method with parameters");
             Assert.That(setter, Is.Null, "Setter should be null for method with parameters");
-        });
+        }
     }
 
     /// <summary>
@@ -482,12 +483,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, methodName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null for exact method name match");
             Assert.That(setter, Is.Null, "Setter should be null for method-based accessor");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct method value");
-        });
+        }
     }
 
     /// <summary>
@@ -504,11 +505,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, methodName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for non-existent method");
             Assert.That(setter, Is.Null, "Setter should be null for non-existent method");
-        });
+        }
     }
 
     /// <summary>
@@ -526,12 +527,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, memberName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null");
             Assert.That(setter, Is.Not.Null, "Setter should not be null for property");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return property value, not method value");
-        });
+        }
     }
 
     /// <summary>
@@ -549,12 +550,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, memberName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null");
             Assert.That(setter, Is.Not.Null, "Setter should not be null for field");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return field value, not method value");
-        });
+        }
     }
 
     /// <summary>
@@ -571,11 +572,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, emptyMemberName, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for empty member name");
             Assert.That(setter, Is.Null, "Setter should be null for empty member name");
-        });
+        }
     }
 
     /// <summary>
@@ -592,11 +593,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetMemberAccessor(testObject, nullMemberName!, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for null member name");
             Assert.That(setter, Is.Null, "Setter should be null for null member name");
-        });
+        }
     }
 
     #endregion
@@ -618,12 +619,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, path, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null");
             Assert.That(setter, Is.Not.Null, "Setter should not be null");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct value");
-        });
+        }
 
         // Test setter
         const string newValue = "NewDirectValue";
@@ -646,12 +647,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, path, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null");
             Assert.That(setter, Is.Not.Null, "Setter should not be null");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct value");
-        });
+        }
 
         // Test setter
         const string newValue = "NewNestedValue";
@@ -677,12 +678,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, path, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null");
             Assert.That(setter, Is.Not.Null, "Setter should not be null");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct value");
-        });
+        }
 
         // Test setter
         const int newValue = 999;
@@ -704,11 +705,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, emptyPath, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for empty path");
             Assert.That(setter, Is.Null, "Setter should be null for empty path");
-        });
+        }
     }
 
     /// <summary>
@@ -725,11 +726,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, nullPath!, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for null path");
             Assert.That(setter, Is.Null, "Setter should be null for null path");
-        });
+        }
     }
 
     /// <summary>
@@ -746,11 +747,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(nullTarget!, path, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for null target");
             Assert.That(setter, Is.Null, "Setter should be null for null target");
-        });
+        }
     }
 
     /// <summary>
@@ -767,11 +768,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, nonExistentPath, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for non-existent path");
             Assert.That(setter, Is.Null, "Setter should be null for non-existent path");
-        });
+        }
     }
 
     /// <summary>
@@ -788,11 +789,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, partialNonExistentPath, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for partial non-existent path");
             Assert.That(setter, Is.Null, "Setter should be null for partial non-existent path");
-        });
+        }
     }
 
     /// <summary>
@@ -812,11 +813,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, path, out var setter);
 
         // Assert
-        Assert.Multiple (() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null when intermediate object is null");
             Assert.That(setter, Is.Null, "Setter should be null when intermediate object is null");
-        });
+        }
     }
 
     #region ParseClassMemberString tests
@@ -829,11 +830,11 @@ public class AccessorTests
         var fullName = typeof(TestClassForAccessor).FullName; // e.g., ST.UI.Tests.AccessorTests+TestClassForAccessor
         var input = fullName + ".PublicProperty";
         var t = AssemblyUtils.ParseClassMemberString(input, out var memberRef);
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(t, Is.EqualTo(typeof(TestClassForAccessor)));
             Assert.That(memberRef, Is.EqualTo("PublicProperty"));
-        });
+        }
     }
 
     /// <summary>
@@ -845,11 +846,11 @@ public class AccessorTests
         var shortName = typeof(TestClassForAccessor).Name; // TestClassForAccessor
         var input = shortName + ".PublicField";
         var t = AssemblyUtils.ParseClassMemberString(input, out var memberRef);
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(t, Is.EqualTo(typeof(TestClassForAccessor)));
             Assert.That(memberRef, Is.EqualTo("PublicField"));
-        });
+        }
     }
     #endregion
 
@@ -866,21 +867,21 @@ public class AccessorTests
 
         // Act & Assert for integer
         var intGetter = AssemblyUtils.GetAccesorForPath(testObject, intPath, out var intSetter);
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(intGetter, Is.Not.Null, "Integer getter should not be null");
             Assert.That(intSetter, Is.Not.Null, "Integer setter should not be null");
             Assert.That(intGetter!(), Is.TypeOf<int>(), "Integer getter should return int type");
-        });
+        }
 
         // Act & Assert for string
         var stringGetter = AssemblyUtils.GetAccesorForPath(testObject, stringPath, out var stringSetter);
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(stringGetter, Is.Not.Null, "String getter should not be null");
             Assert.That(stringSetter, Is.Not.Null, "String setter should not be null");
             Assert.That(stringGetter!(), Is.TypeOf<string>(), "String getter should return string type");
-        });
+        }
     }
 
     /// <summary>
@@ -898,12 +899,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, path, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null for method-based accessor");
             Assert.That(setter, Is.Null, "Setter should be null for method-based accessor");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct method value");
-        });
+        }
     }
 
     /// <summary>
@@ -921,12 +922,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, path, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null for Get-prefixed method accessor");
             Assert.That(setter, Is.Null, "Setter should be null for method-based accessor");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct method value");
-        });
+        }
     }
 
     /// <summary>
@@ -944,12 +945,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, path, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null for direct method accessor");
             Assert.That(setter, Is.Null, "Setter should be null for method-based accessor");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct method value");
-        });
+        }
     }
 
     /// <summary>
@@ -967,12 +968,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, path, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null for direct field accessor");
             Assert.That(setter, Is.Not.Null, "Setter should not be null for field accessor");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct field value");
-        });
+        }
 
         // Test setter
         const int newValue = 200;
@@ -994,11 +995,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, path, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null when intermediate object is null");
             Assert.That(setter, Is.Null, "Setter should be null when intermediate object is null");
-        });
+        }
     }
 
     /// <summary>
@@ -1015,21 +1016,21 @@ public class AccessorTests
 
         // Act & Assert for whitespace - should work because whitespace is trimmed
         var getter1 = AssemblyUtils.GetAccesorForPath(testObject, pathWithWhitespace, out var setter1);
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter1, Is.Not.Null, "Getter should work for path with whitespace (trimmed)");
             Assert.That(setter1, Is.Not.Null, "Setter should work for path with whitespace (trimmed)");
             Assert.That(getter1!(), Is.EqualTo("DirectValue"), "Getter should return correct value");
-        });
+        }
 
         // Act & Assert for tab - should work because whitespace is trimmed
         var getter2 = AssemblyUtils.GetAccesorForPath(testObject, pathWithTab, out var setter2);
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter2, Is.Not.Null, "Getter should work for path with tab (trimmed)");
             Assert.That(setter2, Is.Not.Null, "Setter should work for path with tab (trimmed)");
             Assert.That(getter2!(), Is.EqualTo("DirectValue"), "Getter should return correct value");
-        });
+        }
     }
 
     /// <summary>
@@ -1048,12 +1049,12 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, validPath, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Not.Null, "Getter should not be null for valid nested path");
             Assert.That(setter, Is.Not.Null, "Setter should not be null for valid nested path");
             Assert.That(getter!(), Is.EqualTo(expectedValue), "Getter should return correct field value");
-        });
+        }
     }
 
     /// <summary>
@@ -1071,11 +1072,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, invalidPath, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for invalid nested path");
             Assert.That(setter, Is.Null, "Setter should be null for invalid nested path");
-        });
+        }
     }
 
     /// <summary>
@@ -1112,11 +1113,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, caseSensitivePath, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for case-sensitive path");
             Assert.That(setter, Is.Null, "Setter should be null for case-sensitive path");
-        });
+        }
     }
 
     /// <summary>
@@ -1133,11 +1134,11 @@ public class AccessorTests
         var getter = AssemblyUtils.GetAccesorForPath(testObject, duplicatePath, out var setter);
 
         // Assert
-        Assert.Multiple(() =>
+        using (Assert.EnterMultipleScope())
         {
             Assert.That(getter, Is.Null, "Getter should be null for path with duplicate elements");
             Assert.That(setter, Is.Null, "Setter should be null for path with duplicate elements");
-        });
+        }
     }
 
     #endregion

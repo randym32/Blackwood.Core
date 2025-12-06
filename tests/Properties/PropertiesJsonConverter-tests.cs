@@ -115,7 +115,7 @@ public class ProxyPropertiesObjectJsonConverterTests
         Assert.That(proxy, Is.Not.Null);
         // Note: The stub implementation doesn't add properties during deserialization,
         // so the proxy will be empty until AddPropertiesFor is called
-        Assert.That(proxy.DescriptorCount(), Is.EqualTo(0));
+        Assert.That(proxy.DescriptorCount(), Is.Zero);
 
         // The stub implementation doesn't populate properties during deserialization,
         // so we can't verify property values. This test mainly verifies that
@@ -194,7 +194,7 @@ public class ProxyPropertiesObjectJsonConverterTests
 
         // Assert
         Assert.That(proxy, Is.Not.Null);
-        Assert.That(proxy.DescriptorCount(), Is.EqualTo(0));
+        Assert.That(proxy.DescriptorCount(), Is.Zero);
     }
 
     /// <summary>
