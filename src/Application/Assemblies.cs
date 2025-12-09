@@ -10,7 +10,7 @@ public static partial class Application
     /// <summary>
     /// Returns a list of assemblies to search for embedded resources.
     /// </summary>
-    /// <returns>A list of assemblies to search for embedded resources.</returns>\
+    /// <returns>A list of assemblies to search for embedded resources.</returns>
     /// <remarks>
     /// The assemblies are searched in the following order:
     /// 1. The application's entry assembly if available (WinForms/WPF), else executing

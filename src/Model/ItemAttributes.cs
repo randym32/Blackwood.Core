@@ -131,7 +131,8 @@ public partial class ItemAttributes
     /// <summary>
     /// Creates a shallow copy of the current <see cref="ItemAttributes"/>.
     /// </summary>
-    /// <returns>A cloned <see cref="ItemAttributes"/> instance with the same property values.</returns>
+    /// <returns>A cloned <see cref="ItemAttributes"/> instance with the same
+    /// property values.</returns>
     public ItemAttributes Clone()
     {
         return new ItemAttributes

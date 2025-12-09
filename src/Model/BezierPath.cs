@@ -12,10 +12,15 @@ public class BezierPath
 {
     /// <summary>
     /// The points that make up each of the Bezier segments.
+    /// </summary>
+    /// <remarks>
     /// This array defines the path geometry;
     /// every group of 4 points describes a cubic Bezier segment
     /// (start point, control point 1, control point 2, end point).
-    /// </summary>
+    /// 
+    /// If the path is closed, the last point can be skipped; the
+    /// first point will be reused.
+    /// </remarks>
     public PointF[] PathPoints = [];
 
     /// <summary>
