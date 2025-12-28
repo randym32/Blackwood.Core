@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2025 Randall Maas. All rights reserved.
+// Copyright (c) 2025 Randall Maas. All rights reserved.
 // See LICENSE file in the project root for full license information.
 
 using System.Reflection;
@@ -32,7 +32,8 @@ public static partial class Application
 
         // Next all of the loaded assemblies, in dependency order, most recent first.
         var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-        foreach (var loadedAsm in loadedAssemblies.Reverse())
+        Array.Reverse(loadedAssemblies);
+        foreach (var loadedAsm in loadedAssemblies)
         {
             if (searchedAssemblies.Add(loadedAsm))
                 yield return loadedAsm;
