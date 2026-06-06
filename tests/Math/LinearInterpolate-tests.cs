@@ -134,6 +134,67 @@ public class LinearInterpolateTests
     }
 
     /// <summary>
+    /// When start exceeds end, INumber.Clamp(start, end) would throw; lerp must still work.
+    /// Common in bilinear blends (Perlin noise corner gradients).
+    /// </summary>
+    [Test]
+    public void Lerp_WithReversedEndpoints_ShouldInterpolateCorrectly()
+    {
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(LinearInterpolate.Lerp(0.5f, -0.5f, 0.0f), Is.EqualTo(0.5f).Within(Tolerance));
+            Assert.That(LinearInterpolate.Lerp(0.5f, -0.5f, 0.5f), Is.Zero.Within(Tolerance));
+            Assert.That(LinearInterpolate.Lerp(0.5f, -0.5f, 1.0f), Is.EqualTo(-0.5f).Within(Tolerance));
+            Assert.That(LinearInterpolate.Lerp(20f, 10f, 0.0f), Is.EqualTo(20f).Within(Tolerance));
+            Assert.That(LinearInterpolate.Lerp(20f, 10f, 1.0f), Is.EqualTo(10f).Within(Tolerance));
+        }
+    }
+
+    /// <summary>
+    /// Reversed-endpoint lerp must match the standard formula start + (end - start) * t.
+    /// </summary>
+    [Test]
+    public void Lerp_WithReversedEndpoints_ShouldMatchLinearFormula()
+    {
+        var start = 0.75f;
+        var end = -0.25f;
+        for (int i = 0; i <= 100; i++)
+        {
+            var t = i / 100f;
+            var expected = start + (end - start) * t;
+            var actual = LinearInterpolate.Lerp(start, end, t);
+            Assert.That(actual, Is.EqualTo(expected).Within(Tolerance), $"t={t}");
+        }
+    }
+
+    /// <summary>
+    /// Reversed-endpoint lerp must not throw (regression for Perlin / gradient noise).
+    /// </summary>
+    [Test]
+    public void Lerp_WithReversedEndpoints_ShouldNotThrow()
+    {
+        Assert.DoesNotThrow(() => LinearInterpolate.Lerp(1f, -1f, 0.37f));
+        Assert.DoesNotThrow(() => LinearInterpolate.Lerp(-1f, 1f, 0.37f));
+    }
+
+    /// <summary>
+    /// Array lerp must propagate reversed-endpoint handling element-wise.
+    /// </summary>
+    [Test]
+    public void Lerp_WithReversedEndpointArray_ShouldInterpolateEachElement()
+    {
+        float[] start = [1f, 0.5f];
+        float[] end = [-1f, -0.5f];
+        float[] result = LinearInterpolate.Lerp(start, end, 0.5f);
+
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(result[0], Is.Zero.Within(Tolerance));
+            Assert.That(result[1], Is.Zero.Within(Tolerance));
+        }
+    }
+
+    /// <summary>
     /// Tests interpolation when start and end values are identical.
     /// Verifies that interpolation returns the start value regardless of t parameter.
     /// </summary>

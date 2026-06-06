@@ -40,7 +40,7 @@ public static partial class LinearInterpolate
     /// <param name="start">The starting value</param>
     /// <param name="end">The ending value</param>
     /// <param name="t">Interpolation factor between 0.0 and 1.0</param>
-    /// <returns>The interpolated value, clamped between start and end</returns>
+    /// <returns>The interpolated value</returns>
     /// <remarks>
     /// This method works with any type that implements System.Numerics.INumber&lt;type&gt;,
     /// including float, double, int, decimal, and custom numeric types.
@@ -53,7 +53,13 @@ public static partial class LinearInterpolate
     /// </example>
     public static T Lerp<T>(T start, T end, float t)
         where T : System.Numerics.INumber<T>
-        => T.Clamp(T.CreateChecked(double.CreateChecked(start) + double.CreateChecked(end - start) * t), start, end);
+    {
+        var result = T.CreateChecked(double.CreateChecked(start) + double.CreateChecked(end - start) * t);
+        // If we wanted, we could clamp to the interval between start and end
+        // INumber.Clamp requires min <= max; start may exceed end (e.g. Perlin corner gradients).
+        //return T.Clamp(result, T.Min(start, end), T.Max(start, end));
+        return result;
+    }
 
     /// <summary>
     /// Interpolates between two Color values using linear interpolation.

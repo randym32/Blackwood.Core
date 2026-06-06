@@ -418,3 +418,5 @@ FodyWeavers.xsd
 *.msp
 
 *.bak
+
+src/.DS_Store

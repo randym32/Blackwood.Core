@@ -1,0 +1,145 @@
+﻿| RGB    |              color    |
+|--------|-----------------------|
+|0xF0F8FF|            alice blue |
+|0xFAEBD7|         antique white |
+|0x00FFFF|                  aqua |
+|0x7FFFD4|           aqua marine |
+|0xF0FFFF|                 azure |
+|0xF5F5DC|                 beige |
+|0xFFE4C4|                bisque |
+|0x000000|                 black |
+|0xFFEBCD|       blanched almond |
+|0x0000FF|                  blue |
+|0x8A2BE2|           blue violet |
+|0xA52A2A|                 brown |
+|0xDEB887|             burlywood |
+|0x5F9EA0|            cadet blue |
+|0x7FFF00|            chartreuse |
+|0xD2691E|             chocolate |
+|0xFF7F50|                 coral |
+|0x6495ED|      corn flower blue |
+|0xFFF8DC|             corn silk |
+|0xDC143C|               crimson |
+|0x00FFFF|                  cyan |
+|0x00008B|             dark blue |
+|0x008B8B|             dark cyan |
+|0xB8860B|       dark golden rod |
+|0xA9A9A9|             dark gray |
+|0x006400|            dark green |
+|0xBDB76B|            dark khaki |
+|0x8B008B|          dark magenta |
+|0x556B2F|      dark olive green |
+|0xFF8C00|           dark orange |
+|0x9932CC|           dark orchid |
+|0x8B0000|              dark red |
+|0xE9967A|           dark salmon |
+|0x8FBC8F|        dark sea green |
+|0x483D8B|       dark slate blue |
+|0x2F4F4F|       dark slate gray |
+|0x00CED1|        dark turquoise |
+|0x9400D3|           dark violet |
+|0xFF1493|             deep pink |
+|0x00BFFF|         deep sky blue |
+|0x696969|              dim gray |
+|0x1E90FF|           dodger blue |
+|0xB22222|            fire brick |
+|0xFFFAF0|          floral white |
+|0x228B22|          forest green |
+|0xFF00FF|               fuchsia |
+|0xDCDCDC|             gainsboro |
+|0xF8F8FF|           ghost white |
+|0xFFD700|                  gold |
+|0xDAA520|            golden rod |
+|0x808080|                  gray |
+|0x008000|                 green |
+|0xADFF2F|          green yellow |
+|0xF0FFF0|             honey dew |
+|0xFF69B4|              hot pink |
+|0xCD5C5C|            indian red |
+|0x4B0082|                indigo |
+|0xFFFFF0|                 ivory |
+|0xF0E68C|                 khaki |
+|0xE6E6FA|              lavender |
+|0xFFF0F5|        lavender blush |
+|0x7CFC00|            lawn green |
+|0xFFFACD|         lemon chiffon |
+|0xADD8E6|            light blue |
+|0xF08080|           light coral |
+|0xE0FFFF|            light cyan |
+|0xFAFAD2|light golden rod yellow|
+|0x90EE90|           light green |
+|0xD3D3D3|            light gray |
+|0xFFB6C1|            light pink |
+|0xFFA07A|          light salmon |
+|0x20B2AA|       light sea green |
+|0x87CEFA|        light sky blue |
+|0x778899|      light slate gray |
+|0xB0C4DE|      light steel blue |
+|0xFFFFE0|          light yellow |
+|0x00FF00|                  lime |
+|0x32CD32|             lime green|
+|0xFAF0E6|                  linen|
+|0xFF00FF|                magenta|
+|0x800000|                 maroon|
+|0x66CDAA|     medium aqua marine|
+|0x0000CD|            medium blue|
+|0xBA55D3|          medium orchid|
+|0x9370DB|          medium purple|
+|0x3CB371|        medium seagreen|
+|0x7B68EE|       medium slateblue|
+|0x00FA9A|     medium springgreen|
+|0x48D1CC|       medium turquoise|
+|0xC71585|       medium violetred|
+|0x191970|          midnight blue|
+|0xF5FFFA|             mint cream|
+|0xFFE4E1|             misty rose|
+|0xFFE4B5|               moccasin|
+|0xFFDEAD|           navajo white|
+|0x000080|                   navy|
+|0xFDF5E6|               old lace|
+|0x808000|                  olive|
+|0x6B8E23|             olive drab|
+|0xFFA500|                 orange|
+|0xFF4500|             orange red|
+|0xDA70D6|                 orchid|
+|0xEEE8AA|        pale golden rod|
+|0x98FB98|             pale green|
+|0xAFEEEE|         pale turquoise|
+|0xDB7093|        pale violet red|
+|0xFFEFD5|            papaya whip|
+|0xFFDAB9|             peach puff|
+|0xCD853F|                   peru|
+|0xFFC0CB|                   pink|
+|0xDDA0DD|                   plum|
+|0xB0E0E6|            powder blue|
+|0x800080|                 purple|
+|0xFF0000|                    red|
+|0xBC8F8F|             rosy brown|
+|0x4169E1|             royal blue|
+|0x8B4513|          saddle brown |
+|0xFA8072|                salmon |
+|0xF4A460|           sandy brown |
+|0x2E8B57|             sea green |
+|0xFFF5EE|             sea shell |
+|0xA0522D|                sienna |
+|0xC0C0C0|                silver |
+|0x87CEEB|              sky blue |
+|0x6A5ACD|            slate blue |
+|0x708090|            slate gray |
+|0xFFFAFA|                  snow |
+|0x00FF7F|          spring green |
+|0x4682B4|            steel blue |
+|0xD2B48C|                   tan |
+|0x008080|                  teal |
+|0xD8BFD8|               thistle |
+|0xFF6347|                tomato |
+|0x40E0D0|             turquoise |
+|0xEE82EE|                violet |
+|0xF5DEB3|                 wheat |
+|0xFFFFFF|                 white |
+|0xF5F5F5|           white smoke |
+|0xFFFF00|                yellow |
+|0x9ACD32|          yellow green |
+
+// todo {medium|light|dark| COLOR is allowed
+

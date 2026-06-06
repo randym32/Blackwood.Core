@@ -38,9 +38,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="menuTemplates.json" />
+    <None Remove="Resources\colors" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="menuTemplates.json" />
+    <EmbeddedResource Include="Resources\colors" />
   </ItemGroup>
   <ItemGroup>
    <InternalsVisibleTo Include="Blackwood.Core.tests" />
